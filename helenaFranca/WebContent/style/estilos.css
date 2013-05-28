@@ -1,0 +1,90 @@
+body {
+        font: 11px arial;
+        color: #333333;
+        /*margin: 0;
+        padding: 0;*/
+        background: url("") top repeat-x ;       
+        /*COR DOS MENUS background-color: #FFB6C1;*/
+        background-color: #FFFFFF;
+}
+
+#topo
+{
+	position: absolute;
+ 	width:98%;
+    height:5%;
+    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: right;    
+}
+
+#botaoToLogin {
+        position: absolute;     
+        bottom: 0;
+        top: 1px;
+        left: 90%;
+        font-weight: bold;
+    font-family: arial;
+    color: #000000;   
+}
+
+#testeira
+{
+	position:absolute;
+	top:8%; 
+ 	width:98%;
+    height:80px;
+    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: left;
+}
+
+#menuLateral
+{
+	position:absolute;
+	top:23%; 
+ 	width:25%;
+    height:300px;
+    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: center;
+}
+
+#slideShow
+{
+	position:absolute;
+	top:23%;
+	left: 27%; 
+ 	width:72%;
+    height:200px;
+    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: center;
+}
+
+#adSense
+{
+	position:absolute;
+	top:73%; 
+ 	width:25%;
+    height:300px;
+    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: center;
+}
+
+#quadros
+{
+	position:absolute;
+	top:57%;
+	left: 27%; 
+ 	width:72%;
+    height:400px;
+    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: center;
+}
+
+#rodape
+{
+	position:absolute;
+	top:123%; 
+ 	width:98%;
+    height:80px;
+    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: center;
+}
