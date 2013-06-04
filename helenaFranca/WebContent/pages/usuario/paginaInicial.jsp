@@ -56,7 +56,70 @@
 		</div>
 		
 		<div  id="menuLateral">
-		Menu Lateral
+		
+		
+			<h:form>
+		
+		        <h:panelGrid styleClass="vertical-menu-cell" columnClasses="optionList" columns="1" cellspacing="0" cellpadding="0">
+		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Abstratos" submitMode="none" direction="bottom-right" jointPoint="tr">
+		                <rich:menuItem value="Suboption1-1" />
+		                <rich:menuItem value="Suboption1-2">
+		                    <f:facet name="icon">
+		                    <h:graphicImage value="/richfaces/toolBar/images/print.gif" />
+		                    </f:facet>
+		                
+		                </rich:menuItem>
+		                <rich:menuItem value="Suboption1-3" />
+		            </rich:dropDownMenu>
+		            
+		             <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Animais" submitMode="none" direction="bottom-right" jointPoint="tr">
+		                <rich:menuItem value="Suboption1-1" />
+		                <rich:menuItem value="Suboption1-2">
+		                    <f:facet name="icon">
+		                    <h:graphicImage value="/richfaces/toolBar/images/print.gif" />
+		                    </f:facet>
+		                
+		                </rich:menuItem>
+		                <rich:menuItem value="Suboption1-3" />
+		            </rich:dropDownMenu>
+		            
+		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Florais" 
+		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
+		                <rich:menuItem value="Suboption2-1" />
+		                <rich:menuItem value="Suboption2-2" />
+		                <rich:menuGroup value="Group2" direction="#{bean.groupDirection}">
+		                    <rich:menuItem value="SuboptionG2-2-1" />
+		                    <rich:menuItem value="SuboptionG2-2-2" />
+		                </rich:menuGroup>
+		                
+		                <rich:menuItem value="Suboption2-3" />
+		            </rich:dropDownMenu>
+		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Paisagens"
+		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
+		                <rich:menuItem value="Suboption3-1" />
+		                <rich:menuItem value="Suboption3-2" />
+		                <rich:menuItem value="Suboption3-3" />
+		            </rich:dropDownMenu>
+		            
+		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Pessoas"
+		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
+		                <rich:menuItem value="Suboption3-1" />
+		                <rich:menuItem value="Suboption3-2" />
+		                <rich:menuItem value="Suboption3-3" />
+		            </rich:dropDownMenu>
+		         
+		         	<rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Natureza Morta"
+		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
+		                <rich:menuItem value="Suboption3-1" />
+		                <rich:menuItem value="Suboption3-2" />
+		                <rich:menuItem value="Suboption3-3" />
+		            </rich:dropDownMenu>
+		            
+		        </h:panelGrid>
+		    </h:form>   
+		
+		
+
 		</div>
 		
 		<div  id="adSense">
