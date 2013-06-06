@@ -32,7 +32,7 @@ public class GerarTabelas {
 		SchemaExport se = new SchemaExport(cfg);
 		se.create(true, true);
 		
-		/*		
+			
 		Categoria categoria = new Categoria();
 		categoria.setCodigo(1);
 		categoria.setDescricao("Abstrato");
@@ -64,6 +64,6 @@ public class GerarTabelas {
 		categoria.setDescricao("Natureza Morta");
 		categoriaMB.setCategoria(categoria);
 		categoriaMB.save();			
-		*/
+		
 	}
 }
