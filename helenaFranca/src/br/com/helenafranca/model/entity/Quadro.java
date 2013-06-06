@@ -7,7 +7,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.ForeignKey;
 
 @Entity
-@Table(name = "Quadro")
+@Table(name = "quadro")
 public class Quadro implements Serializable {
 	
 	private static final long serialVersionUID = 3076099532882712710L;
