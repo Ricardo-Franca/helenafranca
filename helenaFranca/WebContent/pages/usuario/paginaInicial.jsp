@@ -7,7 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Helenafranca.com.br - Helena França</title>
+<title>Helenafranca.com.br - Helena FranÃ§a</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script type="text/javascript"
@@ -36,7 +36,7 @@
 			<table border="0">			
 				<tr>
 					<td><img alt="" src="/helenafranca/imagens/rosa.png" width="70" /></td>
-					<td><font style="font-weight:bold;font-size:250%;color:#FF1493;">Helena França</font></td>
+					<td><font style="font-weight:bold;font-size:250%;color:#FF1493;">Helena FranÃ§a</font></td>
 					<td style=" width : 200px;"></td>
 					<td>
 						<h:panelGrid columns="3" id="pesquisa">
@@ -131,42 +131,34 @@
 		</div> 
 		
 		<div  id="quadros">
-				
+		
+		
 			<h:form>
-				<a4j:keepAlive beanName="quadroMB" />
-				<fieldset><legend>Quadros</legend> 
-					<rich:dataTable value="#{quadroMB.quadros}" var="ultimo" rows="10" id="ultimos" width="100%" cellspacing="0" cellpadding="0" border="1" style="text-align:center;">	
-						<h:column>
-							<f:facet name="" name="header">
-								<h:outputText value="#{ultimo.nome}"/>
-							</f:facet>					
-								<h:outputText value="#{ultimo.preco}"/>										
-						</h:column>
-						
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="#{ultimo.nome}"/>
-							</f:facet>					
-							<h:graphicImage value="#{ultimo.quadro_imagem}" height="100" width="100"/>
-							<h:outputText value="#{ultimo.preco}"/>
-							<h:outputText value="#{ultimo.nome}"/>					
-						</h:column>
-													 			
-				 		<f:facet name="footer">
-							<rich:datascroller />
-						</f:facet>
-					</rich:dataTable>				
-					<rich:messages/>
-					
-		    	    <a4j:region id="regiaoAjax">
+						<a4j:keepAlive beanName="quadroMB" />
+						<fieldset><legend>Quadros</legend>
+							<rich:dataGrid value="#{quadroMB.quadros}" columns="4" elements="20" var="ultimo"  id="ultimos" width="100%" cellspacing="0" cellpadding="0" border="1" style="text-align:center;">
+								<h:column>									
+									<h:graphicImage value="#{ultimo.quadro_imagem}" height="150" width="150"/>
+									<br/>
+									<h:outputText value="#{ultimo.preco}"/>
+									<h:outputText value="#{ultimo.nome}"/>
+								</h:column>
+		
+						 		<f:facet name="footer">
+									<rich:datascroller />
+								</f:facet>
+							</rich:dataGrid>
+						<rich:messages/>
+
+			    	    <a4j:region id="regiaoAjax">
 					 	<a4j:status id="sts">
-			            	<f:facet name="start">
-			            		<h:graphicImage value="/images/ajax-loader.gif" />
-			               	</f:facet>
-			            </a4j:status>
-			        </a4j:region>	
-				</fieldset>
-			</h:form>
+				            	<f:facet name="start">
+				            		<h:graphicImage value="/images/ajax-loader.gif" />
+				               	</f:facet>
+				            </a4j:status>
+				        </a4j:region>
+					</fieldset>
+				</h:form>
 		</div> 
 		
 		<div  id="rodape">
