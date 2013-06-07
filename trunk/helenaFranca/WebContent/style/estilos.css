@@ -63,7 +63,7 @@ body {
 	position:absolute;
 	top:73%; 
  	width:25%;
-    height:300px;
+    height:118%;
     border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
     text-align: center;
 }
@@ -74,7 +74,7 @@ body {
 	top:57%;
 	left: 27%; 
  	width:72%;
-    height:400px;
+    height:135%;
     border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
     text-align: center;
 }
@@ -82,7 +82,7 @@ body {
 #rodape
 {
 	position:absolute;
-	top:123%; 
+	top:195%; 
  	width:98%;
     height:80px;
     border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
