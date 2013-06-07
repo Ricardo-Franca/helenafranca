@@ -131,7 +131,42 @@
 		</div> 
 		
 		<div  id="quadros">
-		quadros
+				
+			<h:form>
+				<a4j:keepAlive beanName="quadroMB" />
+				<fieldset><legend>Quadros</legend> 
+					<rich:dataTable value="#{quadroMB.quadros}" var="ultimo" rows="10" id="ultimos" width="100%" cellspacing="0" cellpadding="0" border="1" style="text-align:center;">	
+						<h:column>
+							<f:facet name="" name="header">
+								<h:outputText value="#{ultimo.nome}"/>
+							</f:facet>					
+								<h:outputText value="#{ultimo.preco}"/>										
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{ultimo.nome}"/>
+							</f:facet>					
+							<h:graphicImage value="#{ultimo.quadro_imagem}" height="100" width="100"/>
+							<h:outputText value="#{ultimo.preco}"/>
+							<h:outputText value="#{ultimo.nome}"/>					
+						</h:column>
+													 			
+				 		<f:facet name="footer">
+							<rich:datascroller />
+						</f:facet>
+					</rich:dataTable>				
+					<rich:messages/>
+					
+		    	    <a4j:region id="regiaoAjax">
+					 	<a4j:status id="sts">
+			            	<f:facet name="start">
+			            		<h:graphicImage value="/images/ajax-loader.gif" />
+			               	</f:facet>
+			            </a4j:status>
+			        </a4j:region>	
+				</fieldset>
+			</h:form>
 		</div> 
 		
 		<div  id="rodape">
