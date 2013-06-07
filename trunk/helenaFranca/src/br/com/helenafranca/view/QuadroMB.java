@@ -116,6 +116,7 @@ public class QuadroMB implements Serializable {
 		return cadastroQuadro;
 	}
 	
+	
 	public List<Quadro> getQuadros(){
 		QuadroFacade quadroService = new QuadroFacadeImpl();		
 		
