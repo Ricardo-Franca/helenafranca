@@ -1,13 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <%@ taglib prefix="rich" uri="http://richfaces.ajax4jsf.org/rich"%>
 <%@ taglib prefix="a4j" uri="http://richfaces.org/a4j"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Helenafranca.com.br - Helena FranÃ§a</title>
+<link  rel="shortcut icon" href="/helenafranca/imagens/rosa.png"/>
+<title>Helena França - helenafranca.com.br</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script type="text/javascript"
@@ -36,7 +37,7 @@
 			<table border="0">			
 				<tr>
 					<td><img alt="" src="/helenafranca/imagens/rosa.png" width="70" /></td>
-					<td><font style="font-weight:bold;font-size:250%;color:#FF1493;">Helena FranÃ§a</font></td>
+					<td><font style="font-weight:bold;font-size:250%;color:#FF1493;">Helena França</font></td>
 					<td style=" width : 200px;"></td>
 					<td>
 						<h:panelGrid columns="3" id="pesquisa">
@@ -60,14 +61,13 @@
 		
 			<h:form>
 		
-		        <h:panelGrid styleClass="vertical-menu-cell" columnClasses="optionList" columns="1" cellspacing="0" cellpadding="0">
+		        <h:panelGrid styleClass="vertical-menu-cell" columnClasses="optionList" columns="1" cellspacing="0" cellpadding="0" width="250">
 		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Abstratos" submitMode="none" direction="bottom-right" jointPoint="tr">
-		                <rich:menuItem value="Suboption1-1" />
+		                <rich:menuItem  value="Suboption1-1" />
 		                <rich:menuItem value="Suboption1-2">
 		                    <f:facet name="icon">
-		                    <h:graphicImage value="/richfaces/toolBar/images/print.gif" />
-		                    </f:facet>
-		                
+		                    <h:graphicImage width="10" height="10" value="/imagens/rosa.png" />
+		                    </f:facet>		                
 		                </rich:menuItem>
 		                <rich:menuItem value="Suboption1-3" />
 		            </rich:dropDownMenu>
@@ -136,12 +136,15 @@
 			<h:form>
 						<a4j:keepAlive beanName="quadroMB" />
 						<fieldset><legend>Quadros</legend>
-							<rich:dataGrid value="#{quadroMB.quadros}" columns="4" elements="20" var="ultimo"  id="ultimos" width="100%" cellspacing="0" cellpadding="0" border="1" style="text-align:center;">
+							<rich:dataGrid  value="#{quadroMB.quadros}" columns="4" elements="20" var="ultimo"  id="ultimos" width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align:center;">
 								<h:column>									
 									<h:graphicImage value="#{ultimo.quadro_imagem}" height="150" width="150"/>
 									<br/>
-									<h:outputText value="#{ultimo.preco}"/>
-									<h:outputText value="#{ultimo.nome}"/>
+									<h:outputText style="font-weight: bold;" value="#{ultimo.nome}"/>
+									<br/>
+									<p style="color:red">
+									<h:outputText value="R$"/><h:outputText value="#{ultimo.preco}"/>
+								    </p>
 								</h:column>
 		
 						 		<f:facet name="footer">
