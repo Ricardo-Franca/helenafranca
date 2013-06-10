@@ -29,6 +29,7 @@ public class QuadroFacadeImpl implements QuadroFacade {
 				
 		tx.commit();
 		session.close();
+		sf.close();
 	}
 
 	public void atualiza(Quadro q) {
@@ -41,6 +42,7 @@ public class QuadroFacadeImpl implements QuadroFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 	}
 
 	public Quadro procura(Long id) {
@@ -53,6 +55,7 @@ public class QuadroFacadeImpl implements QuadroFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 		
 		return q;
 	}
@@ -67,6 +70,7 @@ public class QuadroFacadeImpl implements QuadroFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 	}
 
 	public List<Quadro> lista() {
@@ -79,6 +83,7 @@ public class QuadroFacadeImpl implements QuadroFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 		
 		return lista;
 	}
@@ -92,6 +97,7 @@ public class QuadroFacadeImpl implements QuadroFacade {
 		Quadro lista = this.quadroDAO.pesquisaQuadros(nome);
 		tx.commit();
 		session.close();
+		sf.close();
 		
 		return lista;
 	}
@@ -106,6 +112,7 @@ public class QuadroFacadeImpl implements QuadroFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 		
 		return q;
 	}
