@@ -7,17 +7,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link  rel="shortcut icon" href="/helenafranca/imagens/rosa.png"/>
-<title>Helena França - helenafranca.com.br</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<script type="text/javascript"
-	src="/jsf/resources/jquery.maskedinput-1.2.1.js"></script>
-
-<link rel="StyleSheet" type="text/css" href="/helenafranca/style/estilos.css" />
-
-
-
+	<link  rel="shortcut icon" href="/helenafranca/imagens/rosa.png"/>
+	<title>Helena França - helenafranca.com.br</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+	
+		
+		
+	<script type="text/javascript" src="/jsf/resources/jquery.maskedinput-1.2.1.js"></script>
+		
+	<script type="text/javascript" src='/helenafranca/script/jquery.js' ></script>
+	<script type="text/javascript" src='/helenafranca/script/cycle.js' ></script>	
+		
+	<link rel="StyleSheet" type="text/css" href="/helenafranca/style/estilos.css" />
+	<link rel="StyleSheet" type="text/css" href="/helenafranca/style/slideshow.css" />
+	
+	<script type="text/javascript">
+	$('#slides').cycle();
+	</script>
+	
 </head>
 <body>
 	<f:view >
@@ -116,7 +123,7 @@
 		            </rich:dropDownMenu>
 		            
 		        </h:panelGrid>
-		    </h:form>   
+		    </h:form> 
 		
 		
 
@@ -126,8 +133,17 @@
 		adSense
 		</div> 
 		
+		
 		<div  id="slideShow">
-		SlideShow
+		<div class="pics" id="slides">
+		    <img src="/helenafranca/imagens/rosa.png" alt="Teste de JQuery"  />
+		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
+		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
+		    <img src="/helenafranca/imagens/rosa.png" alt="Teste de JQuery"  />
+		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
+		</div>
+
+		
 		</div> 
 		
 		<div  id="quadros">
@@ -169,6 +185,6 @@
 		</div> 
 		
 	</f:view>
-
-</body>
+	
+</body>	
 </html>
