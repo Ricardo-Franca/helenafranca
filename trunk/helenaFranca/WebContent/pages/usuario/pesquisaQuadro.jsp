@@ -32,7 +32,7 @@
 	------------------------------------
 	-->
 		
-	<link rel="StyleSheet" type="text/css" href="/helenafranca/style/paginaInicial.css" />
+	<link rel="StyleSheet" type="text/css" href="/helenafranca/style/pesquisaQuadro.css" />
 	
 	
 	
@@ -79,9 +79,9 @@
 		
 			<h:form>
 		
-		        <h:panelGrid styleClass="vertical-menu-cell" columnClasses="optionList" columns="1" cellspacing="0" cellpadding="0" width="250" bgcolor="">
+		        <h:panelGrid styleClass="vertical-menu-cell" columnClasses="optionList" columns="1" cellspacing="0" cellpadding="0" width="250">
 		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Abstratos" submitMode="none" direction="bottom-right" jointPoint="tr">
-		                <rich:menuItem  value="Suboption1-1"/>
+		                <rich:menuItem  value="Suboption1-1" />
 		                <rich:menuItem value="Suboption1-2">
 		                    <f:facet name="icon">
 		                    <h:graphicImage width="10" height="10" value="/imagens/rosa.png" />
@@ -143,47 +143,41 @@
 		<div  id="adSense">
 		adSense
 		</div> 
+				
 		
-		
-		<div  id="slideShow">
-		<!--  
-		<div class="pics" id="slides">
-		    <img src="/helenafranca/imagens/rosa.png" alt="Teste de JQuery"  />
-		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
-		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
-		    <img src="/helenafranca/imagens/rosa.png" alt="Teste de JQuery"  />
-		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
-		</div>
-		-->
-		
-		</div> 
-		
-		<div  id="quadros">
+		<div  id="quadro">
 		
 		
 			<h:form>
 						<a4j:keepAlive beanName="quadroMB" />
-						<fieldset><legend>Quadros</legend>
-							<rich:dataGrid  value="#{quadroMB.quadros}" columns="4" elements="20" var="ultimo"  id="ultimos" width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align:center;">
-								<h:column>									
-									
-									<h:commandLink action="#{quadroMB.setQuadroAtual}">	
-										<h:graphicImage value="#{ultimo.quadro_imagem}" height="150" width="150" />
-										<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
-								    </h:commandLink> 
-								    
-									<br/>
-									<h:outputText style="font-weight: bold;" value="#{ultimo.nome}"/>
-									<br/>
-									<p style="color:red">
-									<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
-								    </p>
-								    
-								</h:column>
-		
-						 		<f:facet name="footer">
-									<rich:datascroller />
-								</f:facet>
+						<fieldset><legend>Quadro</legend>
+							<rich:dataGrid  value="#{quadroMB.quadroAtual}" columns="1" elements="1" var="atual"  id="atuais" width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align:center;">
+								<h:column>	
+									<table>
+										<tr>
+											<td>
+												<h:graphicImage value="#{atual.quadro_imagem}" height="300" width="300" />
+											</td>
+											<td width="50"></td>
+											<td width="500" align="left">
+												<h:outputText style="font-weight:bold;font-size:20px;" value="#{atual.nome}"/>
+											    <hr>
+												<p style="color:red;font-size: 20px">
+													<h:outputText value="R$ "/><h:outputText value="#{atual.preco}"/>
+								   				</p>
+								   				<hr>
+								   					<h:outputText value="Altura: "/><h:outputText value="#{atual.altura}"/>
+								   					<br/><br/>
+								   					<h:outputText value="Largura: "/><h:outputText value="#{atual.largura}"/>
+								   					<br/><br/>
+								   					<h:outputText value="PESO: "/><h:outputText value="#{atual.peso}"/>
+								   				<hr>
+								   					<h:outputText value="Categoria: "/><h:outputText value="#{atual.categoria.descricao}"/>
+								   															
+											</td>
+										</tr>
+									</table>
+								</h:column>					 	
 							</rich:dataGrid>
 						<rich:messages/>
 
@@ -192,7 +186,7 @@
 				            	<f:facet name="start">
 				            		<h:graphicImage value="/images/ajax-loader.gif" />
 				               	</f:facet>
-				            </a4j:status>
+				        </a4j:status>
 				        </a4j:region>
 					</fieldset>
 				</h:form>
