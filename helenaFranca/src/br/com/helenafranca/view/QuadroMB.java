@@ -74,7 +74,7 @@ public class QuadroMB implements Serializable {
 		return "atualizaSucesso";
 	}
 	
-	public String updateCadastro() throws IOException {
+	/*public String updateCadastro() throws IOException {
 		QuadroFacade quadroService = new QuadroFacadeImpl();
 		this.getCadastroQuadro().setQuadro_imagem(getImagePath());
 		quadroService.atualiza(this.getCadastroQuadro());
@@ -83,7 +83,7 @@ public class QuadroMB implements Serializable {
 		this.quadro = new Quadro();
 
 		return "atualizaSucesso";
-	}
+	}*/
 	
 	public String load(){
 		QuadroFacade quadroService = new QuadroFacadeImpl();
@@ -92,7 +92,7 @@ public class QuadroMB implements Serializable {
 		return "pesquisaSucesso";
 	}
 	
-	public void escolhePizza() throws IOException
+	public String setQuadroAtual() throws IOException
 	{	
 		Quadro quadro = new Quadro();
 		QuadroFacade quadroService = new QuadroFacadeImpl();
@@ -104,10 +104,11 @@ public class QuadroMB implements Serializable {
 		
         session.setAttribute("quadroAtual", quadro);	
 		
-        //rp.sendRedirect(rq.getContextPath() + "/pages/empresa/atualizaPizza.jsf");		
+        rp.sendRedirect(rq.getContextPath() + "/pages/usuario/pesquisaQuadro.jsf");	
+        return "setado";
 	}
 	
-	public Quadro getCadastroQuadro() {
+	public Quadro getQuadroAtual() {
 
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Quadro cadastroQuadro = new Quadro();
