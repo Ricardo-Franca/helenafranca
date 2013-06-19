@@ -135,6 +135,7 @@
 		
 		
 		<div  id="slideShow">
+		<!--  
 		<div class="pics" id="slides">
 		    <img src="/helenafranca/imagens/rosa.png" alt="Teste de JQuery"  />
 		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
@@ -142,7 +143,7 @@
 		    <img src="/helenafranca/imagens/rosa.png" alt="Teste de JQuery"  />
 		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
 		</div>
-
+		-->
 		
 		</div> 
 		
