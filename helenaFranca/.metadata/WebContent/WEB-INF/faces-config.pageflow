@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13706367808960" configfile="/helenafranca/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="pages/usuario/paginaInicial" x="48" y="132" id="pf13716650886930" outlinks="pf13716653174901" path="/pages/usuario/paginaInicial.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/usuario/pesquisaQuadro" x="252" y="132" id="pf13716653174902" inlinks="pf13716653174901" path="/pages/usuario/pesquisaQuadro.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/usuario/paginaInicial" x="48" y="132" id="pf13716650886930" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf13716653174901 pf13721093435940" path="/pages/usuario/paginaInicial.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/usuario/pesquisaQuadro" x="252" y="132" id="pf13716653174902" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13716653174901" path="/pages/usuario/pesquisaQuadro.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/index" x="178" y="12" id="pf13721093435951" inlinks="pf13721093435940" path="/pages/index.jsp"/>
   <links id="pf13716653174901" target="pf13716653174902" source="pf13716650886930" outcome="toPesquisaQuadro"/>
+  <links id="pf13721093435940" target="pf13721093435951" source="pf13716650886930" outcome="toIndex"/>
 </pageflow:Pageflow>

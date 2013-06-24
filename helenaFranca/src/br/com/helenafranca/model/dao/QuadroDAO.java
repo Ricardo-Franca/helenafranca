@@ -37,4 +37,13 @@ public class QuadroDAO extends DAO<Quadro> {
 		return (Quadro) c.uniqueResult();
 	}
 	
+	public List<Quadro> procuraByNomeCategoria(String nome, Long categoria) 
+	{
+		
+		Query query = session
+		.createQuery(" select q from Quadro q" +
+				" where cod_categoria = "+categoria+" and nome like '%"+nome+"%'");
+		return query.list();
+	}
+	
 }

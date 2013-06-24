@@ -2,6 +2,7 @@ package br.com.helenafranca.view;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.context.FacesContext;
@@ -17,6 +18,7 @@ import br.com.helenafranca.model.entity.Categoria;
 import br.com.helenafranca.model.entity.Quadro;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
+import javax.faces.model.SelectItem;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
@@ -27,6 +29,7 @@ public class CategoriaMB implements Serializable {
 	private Categoria categoria = new Categoria();
 
 	private Long id;
+	private List<SelectItem> categorias;
 
 	public CategoriaMB(){
 		System.out.println(" >>>>>>>>>>>>>>>>>>>> Contrutor do CATEGORIA_MB <<<<<<<<<<<<<<<<<<");
@@ -51,5 +54,20 @@ public class CategoriaMB implements Serializable {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
-	}	
+	}
+	
+	public List<SelectItem> getCategorias()
+	{
+		if(this.categorias == null)
+		{
+			this.categorias = new ArrayList<SelectItem>();
+			this.categorias.add(new SelectItem("1","Abstrato"));
+			this.categorias.add(new SelectItem("2","Animais"));
+			this.categorias.add(new SelectItem("3","Florais"));
+			this.categorias.add(new SelectItem("4","Paisagens"));			
+			this.categorias.add(new SelectItem("5","Pessoas"));
+			this.categorias.add(new SelectItem("6","Natureza Morta"));	
+		}
+		return categorias;	
+	}
 }

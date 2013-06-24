@@ -53,7 +53,7 @@
 		<div  id="testeira">
 			<h:form>
 			<h:panelGrid columns="1" id="testeira">  				
-				<h:commandLink action="toIndex">							
+				<h:commandLink action="../index.jsf">							
 					<h:graphicImage value="../../imagens/rosa.png" width="70" />				   							   					   		
 				</h:commandLink>							
 				<h:outputText value="Helena França"  style="font-weight:bold;font-size:250%;color:#FF1493;position:absolute;top:30%;left:7%;"/>
@@ -67,7 +67,6 @@
 				<h:message for="categoria" errorClass="campoError" style="color:Red;"/>
 				
 				<a4j:commandButton value="Pesquisar" action="#{quadroMB.escolheProcuraByNomeCategoria}" status="sts" reRender="testeira" styleClass="botoes" style="position:absolute;top:34%; left:90%;"/>
-				
 			</h:panelGrid>   											
 			</h:form>
 		</div>	
@@ -186,19 +185,19 @@
 			<h:form>
 						<a4j:keepAlive beanName="quadroMB" />
 						<fieldset><legend>Quadros</legend>
-							<rich:dataGrid  value="#{quadroMB.quadros}" columns="4" elements="20" var="ultimo"  id="ultimos" width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align:center;">
+							<rich:dataGrid  value="#{quadroMB.procuraByNomeCategoria}" columns="4" elements="20" var="nomeCategoria"  id="nomeCategorias" width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align:center;">
 								<h:column>									
 									
 									<h:commandLink action="#{quadroMB.procuraById}">	
-										<h:graphicImage value="#{ultimo.quadro_imagem}" height="150" width="150" />
-										<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+										<h:graphicImage value="#{nomeCategoria.quadro_imagem}" height="150" width="150" />
+										<f:setPropertyActionListener value="#{nomeCategoria.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
 								    </h:commandLink> 
 								    
 									<br/>
-									<h:outputText style="font-weight: bold;" value="#{ultimo.nome}"/>
+									<h:outputText style="font-weight: bold;" value="#{nomeCategoria.nome}"/>
 									<br/>
 									<p style="color:red">
-									<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+									<h:outputText value="R$ "/><h:outputText value="#{nomeCategoria.preco}"/>
 								    </p>
 								    
 								</h:column>

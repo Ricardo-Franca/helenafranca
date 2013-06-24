@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
@@ -27,6 +28,8 @@ public class QuadroMB implements Serializable {
 
 	private Long id;
 	private Long codigoQuadro;
+	private String nome;
+	private Long codigoCategoria;
 	private static String imagePath;
 
 	public QuadroMB(){
@@ -92,7 +95,7 @@ public class QuadroMB implements Serializable {
 		return "pesquisaSucesso";
 	}
 	
-	public String setQuadroAtual() throws IOException
+	public String procuraById() throws IOException
 	{	
 		Quadro quadro = new Quadro();
 		QuadroFacade quadroService = new QuadroFacadeImpl();
@@ -106,6 +109,33 @@ public class QuadroMB implements Serializable {
 		
         rp.sendRedirect(rq.getContextPath() + "/pages/usuario/pesquisaQuadro.jsf");	
         return "setado";
+	}
+	
+	public String escolheProcuraByNomeCategoria() throws IOException
+	{	
+		
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+			
+        session.setAttribute("nome", nome);
+        session.setAttribute("codigoCategoria", codigoCategoria);
+        
+        rp.sendRedirect(rq.getContextPath() + "/pages/usuario/pesquisaByNomeCategoria.jsf");	
+        return null;
+	}
+	
+	public List<Quadro> getProcuraByNomeCategoria() throws IOException
+	{	
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		this.nome = (String) session.getAttribute("nome");
+		this.codigoCategoria = (Long) session.getAttribute("codigoCategoria");
+		
+		List<Quadro> lista = new ArrayList();
+		QuadroFacade quadroService = new QuadroFacadeImpl();
+		lista = quadroService.procuraByNomeCategoria(this.nome, this.codigoCategoria);
+			
+        return lista;
 	}
 	
 	public Quadro getQuadroAtual() {
@@ -187,5 +217,23 @@ public class QuadroMB implements Serializable {
 
 	public static void setImagePath(String imagePath) {
 		QuadroMB.imagePath = imagePath;
-	}	
+	}
+
+	public Long getCodigoCategoria() {
+		return codigoCategoria;
+	}
+
+	public void setCodigoCategoria(Long codigoCategoria) {
+		this.codigoCategoria = codigoCategoria;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}		
+	
+	
 }
