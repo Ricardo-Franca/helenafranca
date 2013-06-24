@@ -116,4 +116,17 @@ public class QuadroFacadeImpl implements QuadroFacade {
 		
 		return q;
 	}
+		
+	public List<Quadro> procuraByNomeCategoria(String nome, Long categoria) {
+		sf = new AnnotationConfiguration().configure().buildSessionFactory(); 
+		session = sf.openSession();
+		tx = session.beginTransaction();
+		quadroDAO = new QuadroDAO(session, Quadro.class);
+		
+		List<Quadro> lista = this.quadroDAO.procuraByNomeCategoria(nome, categoria);
+		tx.commit();
+		session.close();
+		
+		return lista;
+	}
 }

@@ -15,6 +15,8 @@ public interface QuadroFacade extends BaseFacade<Quadro>{
 	
 	public Quadro pesquisaQuadrosByNome(String nome);
 	
+	public List<Quadro> procuraByNomeCategoria(String nome, Long categoria);
+	
 	public Quadro procuraById(Long codigo);
 	
 }
