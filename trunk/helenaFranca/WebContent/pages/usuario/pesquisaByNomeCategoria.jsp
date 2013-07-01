@@ -51,25 +51,28 @@
 		</div>
 				 
 		<div  id="testeira">
+			<h:form>				
+				<h:commandLink action="#{quadroMB.toIndex}">							
+					<h:graphicImage value="../../imagens/logo.png" width="350" />  					   		
+				</h:commandLink>	
+			</h:form>			
 			<h:form>
-			<h:panelGrid columns="1" id="testeira">  				
-				<h:commandLink action="../index.jsf">							
-					<h:graphicImage value="../../imagens/rosa.png" width="70" />				   							   					   		
-				</h:commandLink>							
-				<h:outputText value="Helena França"  style="font-weight:bold;font-size:250%;color:#FF1493;position:absolute;top:30%;left:7%;"/>
-				<h:inputText value="#{quadroMB.nome}" id="nome" required="true" requiredMessage="Informe o termo para pesquisa!" style="position:absolute;top:35%;width:485px;left:40%;" />
-				<h:message for="nome" errorClass="campoError" style="color:Red;"/>
+			<h:panelGrid id="testeira" border="0"> 			
+								
+				<h:inputText value="#{quadroMB.nome}" id="nome" required="true" requiredMessage="Informe o termo para pesquisa!" style="position:absolute;top:35%;width:485px;left:40%;"/>
+				<h:message for="nome" errorClass="campoError" style="color:Red;position:absolute;top:64%; left:40%;"/>
+				
 				
 				<h:selectOneMenu id="categoria" value="#{quadroMB.codigoCategoria}" required="true" requiredMessage="Informe a categoria!" style="position:absolute;top:35%; left:80%;">
 						<f:selectItem itemValue="" itemLabel="Categoria"/>
 						<f:selectItems value="#{categoriaMB.categorias}" />
-				</h:selectOneMenu>												
-				<h:message for="categoria" errorClass="campoError" style="color:Red;"/>
+				</h:selectOneMenu> 												
+				<h:message for="categoria" errorClass="campoError" style="color:Red;position:absolute;top:64%; left:81%;"/>
 				
 				<a4j:commandButton value="Pesquisar" action="#{quadroMB.escolheProcuraByNomeCategoria}" status="sts" reRender="testeira" styleClass="botoes" style="position:absolute;top:34%; left:90%;"/>
-			</h:panelGrid>   											
+			</h:panelGrid>
 			</h:form>
-		</div>	
+		</div>		
 		
 			<!--  
 			<table border="0">			

@@ -111,6 +111,19 @@ public class QuadroMB implements Serializable {
         return "setado";
 	}
 	
+	public String toIndex() throws IOException
+	{	
+		System.out.println("******************");
+		System.out.println("******************redirecionando para index.");
+		System.out.println("******************");
+		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();	
+		
+        rp.sendRedirect(rq.getContextPath() + "/pages/index.jsf");	 
+        
+        return "redirecionando";
+	}
+	
 	public String escolheProcuraByNomeCategoria() throws IOException
 	{	
 		

@@ -23,13 +23,5 @@
 			<to-view-id>/pages/usuario/pesquisaQuadro.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	<navigation-rule>
-		<display-name>pages/usuario/paginaInicial</display-name>
-		<from-view-id>/pages/usuario/paginaInicial.jsp</from-view-id>
-		<navigation-case>
-			<from-outcome>toIndex</from-outcome>
-			<to-view-id>/pages/index.jsp</to-view-id>
-		</navigation-case>
-	</navigation-rule>
 
 </faces-config>
