@@ -51,50 +51,28 @@
 		</div>
 				 
 		<div  id="testeira">
+			<h:form>				
+				<h:commandLink action="#{quadroMB.toIndex}">							
+					<h:graphicImage value="../../imagens/logo.png" width="350" />  					   		
+				</h:commandLink>	
+			</h:form>			
 			<h:form>
-			<h:panelGrid columns="1" id="testeira">  				
-				<h:commandLink action="toIndex">							
-					<h:graphicImage value="../../imagens/rosa.png" width="70" />				   							   					   		
-				</h:commandLink>							
-				<h:outputText value="Helena França"  style="font-weight:bold;font-size:250%;color:#FF1493;position:absolute;top:30%;left:7%;"/>
-				<h:inputText value="#{quadroMB.nome}" id="nome" required="true" requiredMessage="Informe o termo para pesquisa!" style="position:absolute;top:35%;width:485px;left:40%;" />
-				<h:message for="nome" errorClass="campoError" style="color:Red;"/>
+			<h:panelGrid id="testeira" border="0"> 			
+								
+				<h:inputText value="#{quadroMB.nome}" id="nome" required="true" requiredMessage="Informe o termo para pesquisa!" style="position:absolute;top:35%;width:485px;left:40%;"/>
+				<h:message for="nome" errorClass="campoError" style="color:Red;position:absolute;top:64%; left:40%;"/>
+				
 				
 				<h:selectOneMenu id="categoria" value="#{quadroMB.codigoCategoria}" required="true" requiredMessage="Informe a categoria!" style="position:absolute;top:35%; left:80%;">
 						<f:selectItem itemValue="" itemLabel="Categoria"/>
 						<f:selectItems value="#{categoriaMB.categorias}" />
-				</h:selectOneMenu>												
-				<h:message for="categoria" errorClass="campoError" style="color:Red;"/>
+				</h:selectOneMenu> 												
+				<h:message for="categoria" errorClass="campoError" style="color:Red;position:absolute;top:64%; left:81%;"/>
 				
 				<a4j:commandButton value="Pesquisar" action="#{quadroMB.escolheProcuraByNomeCategoria}" status="sts" reRender="testeira" styleClass="botoes" style="position:absolute;top:34%; left:90%;"/>
-				
-			</h:panelGrid>   											
+			</h:panelGrid>
 			</h:form>
-		</div>	
-		
-			<!--  
-			<table border="0">			
-				<tr>
-					<td><img alt="" src="/helenafranca/imagens/rosa.png" width="70" /></td>
-					<td><font style="font-weight:bold;font-size:250%;color:#FF1493;">Helena França</font></td>
-					<td style=" width : 200px;"></td>
-					<td>
-						<h:panelGrid columns="3" id="pesquisa">
-							<input type="text" style="width:485px;" value=""></input>
-							<select >
-							  <option value="00">Categoria</option>
-							  <option value="01">Abstrato</option>
-							  <option value="02">Natureza morta</option>
-							  <option value="03">Paisagem</option>
-							</select>
-							<input type="button" value="pesquisar"> 											
-						</h:panelGrid>					
-					</td>
-				</tr>
-			</table>
-		</div>
-		
-		-->
+		</div>		
 		
 		<div  id="menuLateral">
 		
@@ -176,8 +154,7 @@
 		    <img src="/helenafranca/imagens/rosa.png" alt="Teste de JQuery"  />
 		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
 		</div>
-		-->
-		
+		-->				
 		</div> 
 		
 		<div  id="quadros">
@@ -207,7 +184,6 @@
 									<rich:datascroller />
 								</f:facet>
 							</rich:dataGrid>
-						<rich:messages/>
 
 			    	    <a4j:region id="regiaoAjax">
 					 	<a4j:status id="sts">
