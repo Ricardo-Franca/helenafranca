@@ -43,7 +43,7 @@
 		<div id="botaoToLogin">
 			<h:form style="align:right;">
 				<h:panelGrid columns="1" id="inputs">
-					<a4j:commandButton value="LOGIN" immediate="true" action="toLogin"
+					<a4j:commandLink value="LOGIN" immediate="true" action="toLogin"
 						styleClass="botoes" />
 				</h:panelGrid>
 			</h:form>
@@ -69,7 +69,9 @@
 				</h:selectOneMenu> 												
 				<h:message for="categoria" errorClass="campoError" style="color:Red;position:absolute;top:64%; left:81%;"/>
 				
-				<a4j:commandButton value="Pesquisar" action="#{quadroMB.escolheProcuraByNomeCategoria}" status="sts" reRender="testeira" styleClass="botoes" style="position:absolute;top:34%; left:90%;"/>
+				<a4j:commandLink action="#{quadroMB.escolheProcuraByNomeCategoria}" status="sts" reRender="testeira" styleClass="botoes" style="position:absolute;top:34%; left:90%;">
+					<h:graphicImage value="../../imagens/pesquisar.png" width="80" />
+				</a4j:commandLink>
 			</h:panelGrid>
 			</h:form>
 		</div>		

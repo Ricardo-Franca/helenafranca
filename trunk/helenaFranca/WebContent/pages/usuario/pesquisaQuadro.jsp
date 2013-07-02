@@ -43,14 +43,13 @@
 		<div id="botaoToLogin">
 			<h:form style="align:right;">
 				<h:panelGrid columns="1" id="inputs">
-					<a4j:commandButton value="LOGIN" immediate="true" action="toLogin"
+					<a4j:commandLink value="LOGIN" immediate="true" action="toLogin"
 						styleClass="botoes" />
 				</h:panelGrid>
 			</h:form>
 		</div>		
 		</div>
-		
-		
+				 
 		<div  id="testeira">
 			<h:form>				
 				<h:commandLink action="#{quadroMB.toIndex}">							
@@ -58,9 +57,8 @@
 				</h:commandLink>	
 			</h:form>			
 			<h:form>
-			<h:panelGrid id="testeira" border="0"> 		
-				
-				
+			<h:panelGrid id="testeira" border="0"> 			
+								
 				<h:inputText value="#{quadroMB.nome}" id="nome" required="true" requiredMessage="Informe o termo para pesquisa!" style="position:absolute;top:35%;width:485px;left:40%;"/>
 				<h:message for="nome" errorClass="campoError" style="color:Red;position:absolute;top:64%; left:40%;"/>
 				
@@ -71,7 +69,9 @@
 				</h:selectOneMenu> 												
 				<h:message for="categoria" errorClass="campoError" style="color:Red;position:absolute;top:64%; left:81%;"/>
 				
-				<a4j:commandButton value="Pesquisar" action="#{quadroMB.escolheProcuraByNomeCategoria}" status="sts" reRender="testeira" styleClass="botoes" style="position:absolute;top:34%; left:90%;"/>
+				<a4j:commandLink action="#{quadroMB.escolheProcuraByNomeCategoria}" status="sts" reRender="testeira" styleClass="botoes" style="position:absolute;top:34%; left:90%;">
+					<h:graphicImage value="../../imagens/pesquisar.png" width="80" />
+				</a4j:commandLink>
 			</h:panelGrid>
 			</h:form>
 		</div>	

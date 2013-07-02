@@ -43,7 +43,7 @@
 		<div id="botaoToLogin">
 			<h:form style="align:right;">
 				<h:panelGrid columns="1" id="inputs">
-					<a4j:commandButton value="LOGIN" immediate="true" action="toLogin"
+					<a4j:commandLink value="LOGIN" immediate="true" action="toLogin"
 						styleClass="botoes" />
 				</h:panelGrid>
 			</h:form>
@@ -69,34 +69,12 @@
 				</h:selectOneMenu> 												
 				<h:message for="categoria" errorClass="campoError" style="color:Red;position:absolute;top:64%; left:81%;"/>
 				
-				<a4j:commandButton value="Pesquisar" action="#{quadroMB.escolheProcuraByNomeCategoria}" status="sts" reRender="testeira" styleClass="botoes" style="position:absolute;top:34%; left:90%;"/>
+				<a4j:commandLink action="#{quadroMB.escolheProcuraByNomeCategoria}" status="sts" reRender="testeira" styleClass="botoes" style="position:absolute;top:34%; left:90%;">
+					<h:graphicImage value="../../imagens/pesquisar.png" width="80" />
+				</a4j:commandLink>
 			</h:panelGrid>
 			</h:form>
-		</div>		
-		
-			<!--  
-			<table border="0">			
-				<tr>
-					<td><img alt="" src="/helenafranca/imagens/rosa.png" width="70" /></td>
-					<td><font style="font-weight:bold;font-size:250%;color:#FF1493;">Helena França</font></td>
-					<td style=" width : 200px;"></td>
-					<td>
-						<h:panelGrid columns="3" id="pesquisa">
-							<input type="text" style="width:485px;" value=""></input>
-							<select >
-							  <option value="00">Categoria</option>
-							  <option value="01">Abstrato</option>
-							  <option value="02">Natureza morta</option>
-							  <option value="03">Paisagem</option>
-							</select>
-							<input type="button" value="pesquisar"> 											
-						</h:panelGrid>					
-					</td>
-				</tr>
-			</table>
 		</div>
-		
-		-->
 		
 		<div  id="menuLateral">
 		
