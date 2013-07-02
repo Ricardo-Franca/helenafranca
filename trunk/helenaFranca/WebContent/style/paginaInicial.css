@@ -55,7 +55,7 @@ body {
 	left: 27%; 
  	width:72%;
     height:200px;
-    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
     text-align: center;
 }
 

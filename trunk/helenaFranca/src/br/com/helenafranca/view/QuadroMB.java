@@ -112,10 +112,7 @@ public class QuadroMB implements Serializable {
 	}
 	
 	public String toIndex() throws IOException
-	{	
-		System.out.println("******************");
-		System.out.println("******************redirecionando para index.");
-		System.out.println("******************");
+	{		
 		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
         HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();	
 		
@@ -159,8 +156,7 @@ public class QuadroMB implements Serializable {
 
 		return cadastroQuadro;
 	}
-	
-	
+		
 	public List<Quadro> getQuadros(){
 		QuadroFacade quadroService = new QuadroFacadeImpl();		
 		

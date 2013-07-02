@@ -14,24 +14,13 @@
 		
 		
 	<script type="text/javascript" src="/jsf/resources/jquery.maskedinput-1.2.1.js"></script>
-		
-	
-	
-	<script type="text/javascript" src='/helenafranca/script/jquery.js' ></script>
-	<script type="text/javascript" src='/helenafranca/script/cycle.js' ></script>	
-	
-	
-	
-	<link rel="StyleSheet" type="text/css" href="/helenafranca/style/slideshow.css" />	
-	
-	<script type="text/javascript">
-	$('#slides').cycle();
-	</script>
-	
-	
+				
 		
 	<link rel="StyleSheet" type="text/css" href="/helenafranca/style/paginaInicial.css" />
 	
+	<style type="text/css">
+            .backgroundHigh { position: absolute; }
+        </style>
 	
 	
 </head>
@@ -151,15 +140,54 @@
 		
 		
 		<div  id="slideShow">
-		 
-		<div class="pics" id="slides">
-		    <img src="/helenafranca/imagens/rosa.png" alt="Teste de JQuery"  />
-		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
-		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
-		    <img src="/helenafranca/imagens/rosa.png" alt="Teste de JQuery"  />
-		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
-		</div>
-					
+				
+		<script type="text/javascript">
+            first=true;
+            function loopIt()
+            {
+                if( first )
+                {
+                    Appear1();
+                    Fade2();
+    
+                    first = false;
+                }
+                else
+                {
+                    Fade1();
+                    Appear2();
+
+                    first = true;
+                }
+            }
+        </script>
+
+        
+
+        <a4j:region>
+            <h:form>
+                <a4j:poll id="poll1" interval="5000" enabled="true" oncomplete="loopIt();"></a4j:poll>
+            </h:form>
+        </a4j:region>
+
+        <h:form>
+            <h:outputLink value="http://www.google.com">
+                <h:graphicImage id="bgHigh_1" url="../../imagens/logo.png" styleClass="backgroundHigh" style="z-index:3;filter:alpha(opacity=0);-moz-opacity:0;opacity:0;" ></h:graphicImage>
+            </h:outputLink>
+
+            <h:outputLink value="http://www.yahoo.com">
+                <h:graphicImage id="bgHigh_2" url="../../imagens/rosa.png" styleClass="backgroundHigh" width="100"></h:graphicImage>
+            </h:outputLink>
+
+        </h:form>
+
+        <rich:effect name="Appear1" for="bgHigh_1" type="Appear" ></rich:effect>
+        
+        <rich:effect name="Fade2" for="bgHigh_2" type="Fade" ></rich:effect>
+
+        <rich:effect name="Fade1" for="bgHigh_1" type="Fade" ></rich:effect>
+        <rich:effect name="Appear2" for="bgHigh_2" type="Appear" ></rich:effect>
+			
 		</div> 
 		
 		<div  id="quadros">
