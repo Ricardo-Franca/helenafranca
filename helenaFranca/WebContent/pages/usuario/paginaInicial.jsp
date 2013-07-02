@@ -15,8 +15,7 @@
 		
 	<script type="text/javascript" src="/jsf/resources/jquery.maskedinput-1.2.1.js"></script>
 		
-	<!--  SLIDESHOW JQUERY
-	------------------------------------
+	
 	
 	<script type="text/javascript" src='/helenafranca/script/jquery.js' ></script>
 	<script type="text/javascript" src='/helenafranca/script/cycle.js' ></script>	
@@ -29,8 +28,7 @@
 	$('#slides').cycle();
 	</script>
 	
-	------------------------------------
-	-->
+	
 		
 	<link rel="StyleSheet" type="text/css" href="/helenafranca/style/paginaInicial.css" />
 	
@@ -47,16 +45,20 @@
 						styleClass="botoes" />
 				</h:panelGrid>
 			</h:form>
-		</div>		
+		</div>
+		<br>
+		<hr>		
 		</div>
 				 
-		<div  id="testeira">
+		<div  id="testeira">		
 			<h:form>				
 				<h:commandLink action="#{quadroMB.toIndex}">							
 					<h:graphicImage value="../../imagens/logo.png" width="350" />  					   		
-				</h:commandLink>	
+				</h:commandLink>			
+			<hr style="color:red;">	
 			</h:form>			
 			<h:form>
+			
 			<h:panelGrid id="testeira" border="0"> 			
 								
 				<h:inputText value="#{quadroMB.nome}" id="nome" required="true" requiredMessage="Informe o termo para pesquisa!" style="position:absolute;top:35%;width:485px;left:40%;"/>
@@ -72,15 +74,16 @@
 				<a4j:commandLink action="#{quadroMB.escolheProcuraByNomeCategoria}" status="sts" reRender="testeira" styleClass="botoes" style="position:absolute;top:34%; left:90%;">
 					<h:graphicImage value="../../imagens/pesquisar.png" width="80" />
 				</a4j:commandLink>
+				<hr>
 			</h:panelGrid>
+			
 			</h:form>
-		</div>		
+		</div>	
 		
-		<div  id="menuLateral">
-		
+		<div  id="menuLateral">		
 		
 			<h:form>
-		
+			<br>
 		        <h:panelGrid styleClass="vertical-menu-cell" columnClasses="optionList" columns="1" cellspacing="0" cellpadding="0" width="250" bgcolor="">
 		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Abstratos" submitMode="none" direction="bottom-right" jointPoint="tr">
 		                <rich:menuItem  value="Suboption1-1"/>
@@ -148,7 +151,7 @@
 		
 		
 		<div  id="slideShow">
-		<!--  
+		 
 		<div class="pics" id="slides">
 		    <img src="/helenafranca/imagens/rosa.png" alt="Teste de JQuery"  />
 		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
@@ -156,7 +159,7 @@
 		    <img src="/helenafranca/imagens/rosa.png" alt="Teste de JQuery"  />
 		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
 		</div>
-		-->				
+					
 		</div> 
 		
 		<div  id="quadros">

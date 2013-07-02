@@ -12,8 +12,8 @@ body {
 {
 	position: absolute;
  	width:98%;
-    height:5%;
-    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    height:4%;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
     text-align: right;    
 }
 
@@ -33,7 +33,7 @@ body {
 	top:8%; 
  	width:98%;
     height:80px;
-    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
     text-align: left;
 }
 
@@ -44,7 +44,7 @@ body {
 	top:23%; 
  	width:25%;
     height:300px;
-    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
     text-align: center;
 }
 
@@ -55,7 +55,7 @@ body {
 	left: 27%; 
  	width:72%;
     height:200px;
-    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
     text-align: center;
 }
 
@@ -65,7 +65,7 @@ body {
 	top:73%; 
  	width:25%;
     height:118%;
-    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
     text-align: center;
 }
 
@@ -76,7 +76,7 @@ body {
 	left: 27%; 
  	width:72%;
     height:165%;
-    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura*/
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura*/
     text-align: center;
 }
 
@@ -86,6 +86,6 @@ body {
 	top:225%; 
  	width:98%;
     height:80px;
-    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
     text-align: center;
 }
