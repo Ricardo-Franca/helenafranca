@@ -48,15 +48,34 @@ body {
     text-align: center;
 }
 
-#slideShow
+
+#Slide_1
 {
 	position:absolute;
 	top:23%;
 	left: 27%; 
  	width:72%;
     height:200px;
-    border: 1px solid; /* As 4 bordas sólidas com 25px de espessura */
-    text-align: center;
+}
+
+#Slide_2
+{
+	position:absolute;
+	top:23%;
+	left: 27%; 
+ 	width:72%;
+    height:200px;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+}
+
+#Slide_3
+{
+	position:absolute;
+	top:23%;
+	left: 27%; 
+ 	width:72%;
+    height:200px;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
 }
 
 #adSense
