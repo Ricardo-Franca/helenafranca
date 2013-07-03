@@ -22,9 +22,54 @@
             .backgroundHigh { position: absolute; }
         </style>
 	
+	<script type="text/javascript">
+            primeiro=true;
+            
+            
+            function trataSlides()
+            {
+            	Fade2();
+                Fade3();
+            }
+            
+            function loopIt()
+            {           	
+                if(primeiro)
+                {
+
+                    Fade3();                	
+                    Appear1();
+                    
+    
+                    primeiro = false;
+                    segundo = true;
+                }
+                else                   
+                {
+                	if( segundo)
+                	{               	
+                    	Fade1();
+                   		Appear2();
+                   		
+                    	segundo = false;
+                    	terceiro = true;
+                	}else
+                	 {
+                		if(terceiro)
+                		{
+                        	Fade2();
+                       		Appear3();
+                       		
+                        	terceiro = false;
+                        	primeiro = true;
+                		}
+                	 }
+                }
+            }
+        </script>
 	
 </head>
-<body>
+<body onload="trataSlides()">
 	<f:view >
 		<div  id="topo">
 		<div id="botaoToLogin">
@@ -36,7 +81,7 @@
 			</h:form>
 		</div>
 		<br>
-		<hr>		
+		<hr style="color:red;">		
 		</div>
 				 
 		<div  id="testeira">		
@@ -137,58 +182,108 @@
 		<div  id="adSense">
 		adSense
 		</div> 
-		
-		
-		<div  id="slideShow">
-				
-		<script type="text/javascript">
-            first=true;
-            function loopIt()
-            {
-                if( first )
-                {
-                    Appear1();
-                    Fade2();
-    
-                    first = false;
-                }
-                else
-                {
-                    Fade1();
-                    Appear2();
-
-                    first = true;
-                }
-            }
-        </script>
-
-        
-
+	      	
         <a4j:region>
             <h:form>
                 <a4j:poll id="poll1" interval="5000" enabled="true" oncomplete="loopIt();"></a4j:poll>
             </h:form>
         </a4j:region>
-
-        <h:form>
-            <h:outputLink value="http://www.google.com">
-                <h:graphicImage id="bgHigh_1" url="../../imagens/logo.png" styleClass="backgroundHigh" style="z-index:3;filter:alpha(opacity=0);-moz-opacity:0;opacity:0;" ></h:graphicImage>
-            </h:outputLink>
-
-            <h:outputLink value="http://www.yahoo.com">
-                <h:graphicImage id="bgHigh_2" url="../../imagens/rosa.png" styleClass="backgroundHigh" width="100"></h:graphicImage>
-            </h:outputLink>
-
+		
+		<div id="Slide_1">
+		
+		<h:form>
+			<rich:dataTable  value="#{quadroMB.slide1}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+				<rich:column style="text-align:left;border:none;" width="60%">			
+					<h:commandLink action="#{quadroMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro_imagem}" height="220" width="600" />
+						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+					</h:commandLink>
+				</rich:column>
+				
+				<rich:column style="border:none;"  width="2%">	
+				</rich:column>
+				
+				<rich:column style="border:none;">								    
+					<br/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<hr/>
+					<p style="color:red;font-size: 20px">
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					</p>
+					<hr>
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+				</rich:column>
+			</rich:dataTable>
         </h:form>
-
-        <rich:effect name="Appear1" for="bgHigh_1" type="Appear" ></rich:effect>
         
-        <rich:effect name="Fade2" for="bgHigh_2" type="Fade" ></rich:effect>
-
-        <rich:effect name="Fade1" for="bgHigh_1" type="Fade" ></rich:effect>
-        <rich:effect name="Appear2" for="bgHigh_2" type="Appear" ></rich:effect>
-			
-		</div> 
+		</div>
+		
+		<div id="Slide_2">
+		
+		<h:form>
+			<rich:dataTable  value="#{quadroMB.slide2}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+				<rich:column style="text-align:left;border:none;" width="60%">			
+					<h:commandLink action="#{quadroMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro_imagem}" height="220" width="600" />
+						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+					</h:commandLink>
+				</rich:column>
+				
+				<rich:column style="border:none;"  width="2%">	
+				</rich:column>
+				
+				<rich:column style="border:none;">								    
+					<br/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<hr/>
+					<p style="color:red;font-size: 20px">
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					</p>
+					<hr>
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+				</rich:column>
+			</rich:dataTable>
+        </h:form>
+        
+		</div>
+		
+		<div id="Slide_3">
+		
+		<h:form>
+			<rich:dataTable  value="#{quadroMB.slide3}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+				<rich:column style="text-align:left;border:none;" width="60%">			
+					<h:commandLink action="#{quadroMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro_imagem}" height="220" width="600" />
+						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+					</h:commandLink>
+				</rich:column>
+				
+				<rich:column style="border:none;"  width="2%">	
+				</rich:column>
+				
+				<rich:column style="border:none;">								    
+					<br/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<hr/>
+					<p style="color:red;font-size: 20px">
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					</p>
+					<hr>
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+				</rich:column>
+			</rich:dataTable>
+        </h:form>
+        
+		</div>
+		
+		
+        <rich:effect name="Appear1" for="Slide_1" type="Appear" ></rich:effect> 
+        <rich:effect name="Appear2" for="Slide_2" type="Appear" ></rich:effect>
+        <rich:effect name="Appear3" for="Slide_3" type="Appear" ></rich:effect>                
+        <rich:effect name="Fade1" for="Slide_1" type="Fade" ></rich:effect>
+        <rich:effect name="Fade2" for="Slide_2" type="Fade" ></rich:effect>
+        <rich:effect name="Fade3" for="Slide_3" type="Fade" ></rich:effect>
+        
 		
 		<div  id="quadros">
 		
