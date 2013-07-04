@@ -176,6 +176,41 @@ public class QuadroMB implements Serializable {
         return lista;
 	}
 	
+	public String escolheProcuraByCategoria() throws IOException
+	{	
+		
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+			       
+        session.setAttribute("codigoCategoria", codigoCategoria);
+        
+        rp.sendRedirect(rq.getContextPath() + "/pages/usuario/pesquisaByCategoria.jsf");	
+        return null;
+	}
+	
+	public List<Quadro> getProcuraByCategoria() throws IOException
+	{	
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		this.nome = (String) session.getAttribute("nome");
+		this.codigoCategoria = (Long) session.getAttribute("codigoCategoria");
+		
+		List<Quadro> lista = new ArrayList();
+		QuadroFacade quadroService = new QuadroFacadeImpl();
+		lista = quadroService.procuraByCategoria(this.codigoCategoria);
+			
+        return lista;
+	}
+	
+	public List<Quadro> getUltimosQuadros() throws IOException
+	{					
+		List<Quadro> lista = new ArrayList();
+		QuadroFacade quadroService = new QuadroFacadeImpl();
+		lista = quadroService.procuraUltimosQuadros();
+			
+        return lista;
+	}
+	
 	public Quadro getQuadroAtual() {
 
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
@@ -270,7 +305,5 @@ public class QuadroMB implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}		
-	
-	
+	}	
 }
