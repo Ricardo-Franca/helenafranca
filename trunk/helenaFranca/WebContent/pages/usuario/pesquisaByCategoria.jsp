@@ -9,19 +9,65 @@
 <head>
 	<link  rel="shortcut icon" href="/helenafranca/imagens/rosa.png"/>
 	<title>Helena França - helenafranca.com.br</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
-	
-		
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">		
 		
 	<script type="text/javascript" src="/jsf/resources/jquery.maskedinput-1.2.1.js"></script>
 		
-			
-	<link rel="StyleSheet" type="text/css" href="/helenafranca/style/pesquisaQuadro.css" />
+	<link rel="StyleSheet" type="text/css" href="/helenafranca/style/paginaPadrao.css" />
 	
+	<style type="text/css">
+            .backgroundHigh { position: absolute; }
+        </style>
+	
+	<script type="text/javascript">
+            primeiro=true;
+            
+            
+            function trataSlides()
+            {
+            	Fade2();
+                Fade3();
+            }
+            
+            function loopIt()
+            {           	
+                if(primeiro)
+                {
+
+                    Fade3();                	
+                    Appear1();
+                    
+    
+                    primeiro = false;
+                    segundo = true;
+                }
+                else                   
+                {
+                	if( segundo)
+                	{               	
+                    	Fade1();
+                   		Appear2();
+                   		
+                    	segundo = false;
+                    	terceiro = true;
+                	}else
+                	 {
+                		if(terceiro)
+                		{
+                        	Fade2();
+                       		Appear3();
+                       		
+                        	terceiro = false;
+                        	primeiro = true;
+                		}
+                	 }
+                }
+            }
+        </script>
 	
 	
 </head>
-<body>
+<body onload="trataSlides()">
 	<f:view >
 		<div  id="topo">
 		<div id="botaoToLogin">
@@ -31,16 +77,16 @@
 						styleClass="botoes" />
 				</h:panelGrid>
 			</h:form>
-		</div>
+		</div>	
 		<br>
-		<hr style="color:red;">		
+		<hr style="color:red;">	
 		</div>
 				 
 		<div  id="testeira">
 			<h:form>				
 				<h:commandLink action="#{quadroMB.toIndex}">							
 					<h:graphicImage value="../../imagens/logo.png" width="350" />  					   		
-				</h:commandLink>
+				</h:commandLink>				
 				<hr style="color:red;">	
 			</h:form>			
 			<h:form>
@@ -62,7 +108,7 @@
 				<hr>
 			</h:panelGrid>
 			</h:form>
-		</div>	
+		</div>
 		
 		<div  id="menuLateral">		
 		
@@ -136,49 +182,145 @@
 		<div  id="adSense">
 		adSense
 		</div> 
-				
 		
-		<div  id="quadro">
+		
+		<a4j:region>
+            <h:form>
+                <a4j:poll id="poll1" interval="5000" enabled="true" oncomplete="loopIt();"></a4j:poll>
+            </h:form>
+        </a4j:region>
+		
+		<div id="Slide_1">
+		
+		<h:form>
+			<rich:dataTable  value="#{quadroMB.slide1}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+				<rich:column style="text-align:left;border:none;" width="60%">			
+					<h:commandLink action="#{quadroMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro_imagem}" height="220" width="600" />
+						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+					</h:commandLink>
+				</rich:column>
+				
+				<rich:column style="border:none;"  width="2%">	
+				</rich:column>
+				
+				<rich:column style="border:none;">								    
+					<br/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<hr/>
+					<p style="color:red;font-size: 20px">
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					</p>
+					<hr>
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+				</rich:column>
+			</rich:dataTable>
+        </h:form>
+        
+		</div>
+		
+		<div id="Slide_2">
+		
+		<h:form>
+			<rich:dataTable  value="#{quadroMB.slide2}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+				<rich:column style="text-align:left;border:none;" width="60%">			
+					<h:commandLink action="#{quadroMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro_imagem}" height="220" width="600" />
+						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+					</h:commandLink>
+				</rich:column>
+				
+				<rich:column style="border:none;"  width="2%">	
+				</rich:column>
+				
+				<rich:column style="border:none;">								    
+					<br/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<hr/>
+					<p style="color:red;font-size: 20px">
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					</p>
+					<hr>
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+				</rich:column>
+			</rich:dataTable>
+        </h:form>
+        
+		</div>
+		
+		<div id="Slide_3">
+		
+		<h:form>
+			<rich:dataTable  value="#{quadroMB.slide3}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+				<rich:column style="text-align:left;border:none;" width="60%">			
+					<h:commandLink action="#{quadroMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro_imagem}" height="220" width="600" />
+						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+					</h:commandLink>
+				</rich:column>
+				
+				<rich:column style="border:none;"  width="2%">	
+				</rich:column>
+				
+				<rich:column style="border:none;">								    
+					<br/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<hr/>
+					<p style="color:red;font-size: 20px">
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					</p>
+					<hr>
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+				</rich:column>
+			</rich:dataTable>
+        </h:form>
+        
+		</div>
+		
+		
+        <rich:effect name="Appear1" for="Slide_1" type="Appear" ></rich:effect> 
+        <rich:effect name="Appear2" for="Slide_2" type="Appear" ></rich:effect>
+        <rich:effect name="Appear3" for="Slide_3" type="Appear" ></rich:effect>                
+        <rich:effect name="Fade1" for="Slide_1" type="Fade" ></rich:effect>
+        <rich:effect name="Fade2" for="Slide_2" type="Fade" ></rich:effect>
+        <rich:effect name="Fade3" for="Slide_3" type="Fade" ></rich:effect>
+        
+		
+		<div  id="quadros">
 		
 		
 			<h:form>
 						<a4j:keepAlive beanName="quadroMB" />
-						<fieldset><legend>Quadro</legend>
-							<rich:dataGrid  value="#{quadroMB.quadroAtual}" columns="1" elements="1" var="atual"  id="atuais" width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align:center;">
-								<h:column>	
-									<table>
-										<tr>
-											<td>
-												<h:graphicImage value="#{atual.quadro_imagem}" height="300" width="400" />
-											</td>
-											<td width="50"></td>
-											<td width="500" align="left">
-												<h:outputText style="font-weight:bold;font-size:20px;" value="#{atual.nome}"/>
-											    <hr>
-												<p style="color:red;font-size: 20px">
-													<h:outputText value="R$ "/><h:outputText value="#{atual.preco}"/>
-								   				</p>
-								   				<hr>
-								   					<h:outputText value="Altura: "/><h:outputText value="#{atual.altura}"/>
-								   					<br/><br/>
-								   					<h:outputText value="Largura: "/><h:outputText value="#{atual.largura}"/>
-								   					<br/><br/>
-								   					<h:outputText value="PESO: "/><h:outputText value="#{atual.peso}"/>
-								   				<hr>
-								   					<h:outputText value="Categoria: "/><h:outputText value="#{atual.categoria.descricao}"/>
-								   															
-											</td>
-										</tr>
-									</table>
-								</h:column>					 	
+						<fieldset><legend>Quadros</legend>
+							<rich:dataGrid  value="#{quadroMB.procuraByCategoria}" columns="4" elements="20" var="categoria"  id="categorias" width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align:center;">
+								<h:column>									
+									
+									<h:commandLink action="#{quadroMB.procuraById}">	
+										<h:graphicImage value="#{categoria.quadro_imagem}" height="150" width="150" />
+										<f:setPropertyActionListener value="#{categoria.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+								    </h:commandLink> 
+								    
+									<br/>
+									<h:outputText style="font-weight: bold;" value="#{categoria.nome}"/>
+									<br/>
+									<p style="color:red">
+									<h:outputText value="R$ "/><h:outputText value="#{categoria.preco}"/>
+								    </p>
+								    
+								</h:column>
+		
+						 		<f:facet name="footer">
+									<rich:datascroller />
+								</f:facet>
 							</rich:dataGrid>
+						<rich:messages/>
 
 			    	    <a4j:region id="regiaoAjax">
 					 	<a4j:status id="sts">
 				            	<f:facet name="start">
 				            		<h:graphicImage value="/images/ajax-loader.gif" />
 				               	</f:facet>
-				        </a4j:status>
+				            </a4j:status>
 				        </a4j:region>
 					</fieldset>
 				</h:form>

@@ -46,4 +46,22 @@ public class QuadroDAO extends DAO<Quadro> {
 		return query.list();
 	}
 	
+	public List<Quadro> procuraByCategoria(Long categoria) 
+	{
+		
+		Query query = session
+		.createQuery(" select q from Quadro q" +
+				" where cod_categoria = "+categoria+"");
+		return query.list();
+	}
+	
+	public List<Quadro> procuraUltimosQuadros() 
+	{
+		
+		Query query = session
+		.createQuery(" select q from Quadro q" +
+				" order by cod_quadro desc ");
+		return query.list();
+	}
+	
 }

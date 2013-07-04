@@ -18,7 +18,7 @@ public class testes {
 	{
 		List<Quadro> lista = new ArrayList();
 		QuadroFacade quadroService = new QuadroFacadeImpl();
-		lista = quadroService.procuraByNomeCategoria("a", (long) 1);
+		lista = quadroService.procuraUltimosQuadros();
 		
 		int tamanho = lista.size();
 		

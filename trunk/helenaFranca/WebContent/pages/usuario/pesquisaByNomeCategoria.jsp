@@ -10,34 +10,65 @@
 	<link  rel="shortcut icon" href="/helenafranca/imagens/rosa.png"/>
 	<title>Helena França - helenafranca.com.br</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
-	
-		
 		
 	<script type="text/javascript" src="/jsf/resources/jquery.maskedinput-1.2.1.js"></script>
 		
-	<!--  SLIDESHOW JQUERY
-	------------------------------------
+		
+	<link rel="StyleSheet" type="text/css" href="/helenafranca/style/paginaPadrao.css" />
 	
-	<script type="text/javascript" src='/helenafranca/script/jquery.js' ></script>
-	<script type="text/javascript" src='/helenafranca/script/cycle.js' ></script>	
-	
-	
-	
-	<link rel="StyleSheet" type="text/css" href="/helenafranca/style/slideshow.css" />	
+	<style type="text/css">
+            .backgroundHigh { position: absolute; }
+        </style>
 	
 	<script type="text/javascript">
-	$('#slides').cycle();
-	</script>
-	
-	------------------------------------
-	-->
-		
-	<link rel="StyleSheet" type="text/css" href="/helenafranca/style/paginaInicial.css" />
-	
+            primeiro=true;
+            
+            
+            function trataSlides()
+            {
+            	Fade2();
+                Fade3();
+            }
+            
+            function loopIt()
+            {           	
+                if(primeiro)
+                {
+
+                    Fade3();                	
+                    Appear1();
+                    
+    
+                    primeiro = false;
+                    segundo = true;
+                }
+                else                   
+                {
+                	if( segundo)
+                	{               	
+                    	Fade1();
+                   		Appear2();
+                   		
+                    	segundo = false;
+                    	terceiro = true;
+                	}else
+                	 {
+                		if(terceiro)
+                		{
+                        	Fade2();
+                       		Appear3();
+                       		
+                        	terceiro = false;
+                        	primeiro = true;
+                		}
+                	 }
+                }
+            }
+        </script>
 	
 	
 </head>
-<body>
+<body onload="trataSlides()">
 	<f:view >
 		<div  id="topo">
 		<div id="botaoToLogin">
@@ -47,14 +78,17 @@
 						styleClass="botoes" />
 				</h:panelGrid>
 			</h:form>
-		</div>		
+		</div>
+		<br>
+		<hr style="color:red;">		
 		</div>
 				 
 		<div  id="testeira">
 			<h:form>				
 				<h:commandLink action="#{quadroMB.toIndex}">							
 					<h:graphicImage value="../../imagens/logo.png" width="350" />  					   		
-				</h:commandLink>	
+				</h:commandLink>
+				<hr style="color:red;">	
 			</h:form>			
 			<h:form>
 			<h:panelGrid id="testeira" border="0"> 			
@@ -72,74 +106,78 @@
 				<a4j:commandLink action="#{quadroMB.escolheProcuraByNomeCategoria}" status="sts" reRender="testeira" styleClass="botoes" style="position:absolute;top:34%; left:90%;">
 					<h:graphicImage value="../../imagens/pesquisar.png" width="80" />
 				</a4j:commandLink>
+				<hr>
 			</h:panelGrid>
 			</h:form>
 		</div>
 		
-		<div  id="menuLateral">
-		
+		<div  id="menuLateral">		
 		
 			<h:form>
-		
+			<br>
 		        <h:panelGrid styleClass="vertical-menu-cell" columnClasses="optionList" columns="1" cellspacing="0" cellpadding="0" width="250" bgcolor="">
 		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Abstratos" submitMode="none" direction="bottom-right" jointPoint="tr">
-		                <rich:menuItem  value="Suboption1-1"/>
-		                <rich:menuItem value="Suboption1-2">
-		                    <f:facet name="icon">
-		                    <h:graphicImage width="10" height="10" value="/imagens/rosa.png" />
-		                    </f:facet>		                
+		                <rich:menuItem>	                   
+			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
+								<f:setPropertyActionListener value="1" target="#{quadroMB.codigoCategoria}" />
+								<h:outputText value="Abstratos" />					   
+							</h:commandLink> 	                
 		                </rich:menuItem>
-		                <rich:menuItem value="Suboption1-3" />
 		            </rich:dropDownMenu>
 		            
-		             <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Animais" submitMode="none" direction="bottom-right" jointPoint="tr">
-		                <rich:menuItem value="Suboption1-1" />
-		                <rich:menuItem value="Suboption1-2">
-		                    <f:facet name="icon">
-		                    <h:graphicImage value="/richfaces/toolBar/images/print.gif" />
-		                    </f:facet>
-		                
+		              <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Animais" submitMode="none" direction="bottom-right" jointPoint="tr">
+		                <rich:menuItem>	                   
+			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
+								<f:setPropertyActionListener value="2" target="#{quadroMB.codigoCategoria}" />
+								<h:outputText value="Animais" />					   
+							</h:commandLink> 	                
 		                </rich:menuItem>
-		                <rich:menuItem value="Suboption1-3" />
 		            </rich:dropDownMenu>
 		            
 		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Florais" 
-		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
-		                <rich:menuItem value="Suboption2-1" />
-		                <rich:menuItem value="Suboption2-2" />
-		                <rich:menuGroup value="Group2" direction="#{bean.groupDirection}">
-		                    <rich:menuItem value="SuboptionG2-2-1" />
-		                    <rich:menuItem value="SuboptionG2-2-2" />
+		                        submitMode="none" direction="bottom-right"  jointPoint="tr">		                
+		                <rich:menuGroup value="Florais">
+		                	<rich:menuItem>	                   
+			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
+								<f:setPropertyActionListener value="3" target="#{quadroMB.codigoCategoria}" />
+								<h:outputText value="Florais" />					   
+							</h:commandLink> 	                
+		                </rich:menuItem>		                    
 		                </rich:menuGroup>
-		                
-		                <rich:menuItem value="Suboption2-3" />
 		            </rich:dropDownMenu>
+		            
 		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Paisagens"
 		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
-		                <rich:menuItem value="Suboption3-1" />
-		                <rich:menuItem value="Suboption3-2" />
-		                <rich:menuItem value="Suboption3-3" />
+		                <rich:menuItem>	                   
+			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
+								<f:setPropertyActionListener value="4" target="#{quadroMB.codigoCategoria}" />
+								<h:outputText value="Paisagens" />					   
+							</h:commandLink> 	                
+		                </rich:menuItem>
 		            </rich:dropDownMenu>
 		            
 		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Pessoas"
 		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
-		                <rich:menuItem value="Suboption3-1" />
-		                <rich:menuItem value="Suboption3-2" />
-		                <rich:menuItem value="Suboption3-3" />
+		                <rich:menuItem>	                   
+			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
+								<f:setPropertyActionListener value="5" target="#{quadroMB.codigoCategoria}" />
+								<h:outputText value="Pessoas" />					   
+							</h:commandLink> 	                
+		                </rich:menuItem>
 		            </rich:dropDownMenu>
 		         
 		         	<rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Natureza Morta"
 		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
-		                <rich:menuItem value="Suboption3-1" />
-		                <rich:menuItem value="Suboption3-2" />
-		                <rich:menuItem value="Suboption3-3" />
+		                <rich:menuItem>	                   
+			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
+								<f:setPropertyActionListener value="6" target="#{quadroMB.codigoCategoria}" />
+								<h:outputText value="Natureza Morta" />					   
+							</h:commandLink> 	                
+		                </rich:menuItem>
 		            </rich:dropDownMenu>
 		            
 		        </h:panelGrid>
 		    </h:form> 
-		
-		
-
 		</div>
 		
 		<div  id="adSense">
@@ -147,18 +185,107 @@
 		</div> 
 		
 		
-		<div  id="slideShow">
-		<!--  
-		<div class="pics" id="slides">
-		    <img src="/helenafranca/imagens/rosa.png" alt="Teste de JQuery"  />
-		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
-		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
-		    <img src="/helenafranca/imagens/rosa.png" alt="Teste de JQuery"  />
-		    <img src="/helenafranca/imagens/teste.JPG" alt="Teste de JQuery" />
-		</div>
-		-->
+		<a4j:region>
+            <h:form>
+                <a4j:poll id="poll1" interval="5000" enabled="true" oncomplete="loopIt();"></a4j:poll>
+            </h:form>
+        </a4j:region>
 		
-		</div> 
+		<div id="Slide_1">
+		
+		<h:form>
+			<rich:dataTable  value="#{quadroMB.slide1}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+				<rich:column style="text-align:left;border:none;" width="60%">			
+					<h:commandLink action="#{quadroMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro_imagem}" height="220" width="600" />
+						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+					</h:commandLink>
+				</rich:column>
+				
+				<rich:column style="border:none;"  width="2%">	
+				</rich:column>
+				
+				<rich:column style="border:none;">								    
+					<br/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<hr/>
+					<p style="color:red;font-size: 20px">
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					</p>
+					<hr>
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+				</rich:column>
+			</rich:dataTable>
+        </h:form>
+        
+		</div>
+		
+		<div id="Slide_2">
+		
+		<h:form>
+			<rich:dataTable  value="#{quadroMB.slide2}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+				<rich:column style="text-align:left;border:none;" width="60%">			
+					<h:commandLink action="#{quadroMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro_imagem}" height="220" width="600" />
+						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+					</h:commandLink>
+				</rich:column>
+				
+				<rich:column style="border:none;"  width="2%">	
+				</rich:column>
+				
+				<rich:column style="border:none;">								    
+					<br/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<hr/>
+					<p style="color:red;font-size: 20px">
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					</p>
+					<hr>
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+				</rich:column>
+			</rich:dataTable>
+        </h:form>
+        
+		</div>
+		
+		<div id="Slide_3">
+		
+		<h:form>
+			<rich:dataTable  value="#{quadroMB.slide3}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+				<rich:column style="text-align:left;border:none;" width="60%">			
+					<h:commandLink action="#{quadroMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro_imagem}" height="220" width="600" />
+						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+					</h:commandLink>
+				</rich:column>
+				
+				<rich:column style="border:none;"  width="2%">	
+				</rich:column>
+				
+				<rich:column style="border:none;">								    
+					<br/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<hr/>
+					<p style="color:red;font-size: 20px">
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					</p>
+					<hr>
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+				</rich:column>
+			</rich:dataTable>
+        </h:form>
+        
+		</div>
+		
+		
+        <rich:effect name="Appear1" for="Slide_1" type="Appear" ></rich:effect> 
+        <rich:effect name="Appear2" for="Slide_2" type="Appear" ></rich:effect>
+        <rich:effect name="Appear3" for="Slide_3" type="Appear" ></rich:effect>                
+        <rich:effect name="Fade1" for="Slide_1" type="Fade" ></rich:effect>
+        <rich:effect name="Fade2" for="Slide_2" type="Fade" ></rich:effect>
+        <rich:effect name="Fade3" for="Slide_3" type="Fade" ></rich:effect>
+        
 		
 		<div  id="quadros">
 		
@@ -201,7 +328,10 @@
 		</div> 
 		
 		<div  id="rodape">
-		rodape
+			<hr style="color:red">
+			<fieldset style="background-color: #EE2C2C; border: 0;">
+				<h:outputText style="text-align:center;">© Helena França - 2013 | helenafranca.com.br </h:outputText>
+			</fieldset>
 		</div> 
 		
 	</f:view>
