@@ -1,0 +1,39 @@
+body {
+        font: 11px arial;
+        color: #333333;
+        /*margin: 0;
+        padding: 0;*/
+        background: url("") top repeat-x ;       
+        /*COR DOS MENUS background-color: #FFB6C1;*/
+        background-color: #FFFFFF;
+}
+
+#menuLogin
+{
+        position: absolute;
+        margin: 0 auto;
+        top: 55%;
+        width:10%;
+        left: 65%;
+} 
+
+#testeira
+{
+	position:absolute;
+	top:8%; 
+ 	width:98%;
+    height:80px;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: left;
+}
+
+
+#rodape
+{
+	position:absolute;
+	top:100%;
+ 	width:98%;
+    height:80px;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: center;
+}

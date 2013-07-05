@@ -334,8 +334,8 @@
 				<h:outputText style="text-align:center;">© Helena França - 2013 | helenafranca.com.br </h:outputText>
 			</fieldset>
 		</div> 
-		
-	</f:view>
+		</f:view>
+	
 	
 </body>	
 </html>
