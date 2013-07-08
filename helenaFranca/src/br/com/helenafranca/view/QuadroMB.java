@@ -46,7 +46,7 @@ public class QuadroMB implements Serializable {
 		QuadroFacade quadroService = new QuadroFacadeImpl();	
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 			
-		this.quadro.setQuadro_imagem(getImagePath());
+		this.quadro.setQuadroImagem(getImagePath());
 		quadroService.salva(this.quadro);		
 		this.quadro = new Quadro();
 		

@@ -197,7 +197,7 @@
 			<rich:dataTable  value="#{quadroMB.slide1}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
 					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.quadro_imagem}" height="220" width="600" />
+						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="600" />
 						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
@@ -226,7 +226,7 @@
 			<rich:dataTable  value="#{quadroMB.slide2}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
 					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.quadro_imagem}" height="220" width="600" />
+						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="600" />
 						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
@@ -255,7 +255,7 @@
 			<rich:dataTable  value="#{quadroMB.slide3}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
 					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.quadro_imagem}" height="220" width="600" />
+						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="600" />
 						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
@@ -297,7 +297,7 @@
 								<h:column>									
 									
 									<h:commandLink action="#{quadroMB.procuraById}">	
-										<h:graphicImage value="#{nomeCategoria.quadro_imagem}" height="150" width="150" />
+										<h:graphicImage value="#{nomeCategoria.quadroImagem}" height="150" width="150" />
 										<f:setPropertyActionListener value="#{nomeCategoria.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
 								    </h:commandLink> 
 								    

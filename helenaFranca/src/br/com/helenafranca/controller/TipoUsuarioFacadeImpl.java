@@ -7,47 +7,47 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 
-import br.com.helenafranca.model.dao.CategoriaDAO;
-import br.com.helenafranca.model.entity.Categoria;
+import br.com.helenafranca.model.dao.TipoUsuarioDAO;
+import br.com.helenafranca.model.entity.TipoUsuario;
 
-public class CategoriaFacadeImpl implements CategoriaFacade {
+public class TipoUsuarioFacadeImpl implements TipoUsuarioFacade {
 	
 	private static final long serialVersionUID = 8474545329502315667L;
 	
-	private CategoriaDAO categoriaDAO;
+	private TipoUsuarioDAO tipoUsuarioDAO;
 	private SessionFactory sf; 
 	private	Session session;
 	private Transaction tx;
 	
-	public void salva(Categoria c) {
+	public void salva(TipoUsuario u) {
 		sf = new AnnotationConfiguration().configure().buildSessionFactory(); 
 		session = sf.openSession();
 		tx = session.beginTransaction();
-		categoriaDAO = new CategoriaDAO(session, Categoria.class);
+		tipoUsuarioDAO = new TipoUsuarioDAO(session, TipoUsuario.class);
 		
-		this.categoriaDAO.save(c);
+		this.tipoUsuarioDAO.save(u);
 		
 		tx.commit();
 		session.close();
 		sf.close();
 	}
 
-	public void remove(Categoria c) {
+	public void remove(TipoUsuario t) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public Categoria procura(Long id) {
+	public TipoUsuario procura(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public void atualiza(Categoria c) {
+	public void atualiza(TipoUsuario t) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public List<Categoria> lista() {
+	public List<TipoUsuario> lista() {
 		// TODO Auto-generated method stub
 		return null;
 	}

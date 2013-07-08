@@ -149,7 +149,7 @@
 									<table>
 										<tr>
 											<td>
-												<h:graphicImage value="#{atual.quadro_imagem}" height="300" width="400" />
+												<h:graphicImage value="#{atual.quadroImagem}" height="300" width="400" />
 											</td>
 											<td width="50"></td>
 											<td width="500" align="left">
