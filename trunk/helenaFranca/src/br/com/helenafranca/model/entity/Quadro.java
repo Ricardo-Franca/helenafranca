@@ -6,6 +6,9 @@ import javax.persistence.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.ForeignKey;
 
+import br.com.helenafranca.model.entity.Status;
+import br.com.helenafranca.model.entity.Artista;
+
 @Entity
 @Table(name = "quadro")
 public class Quadro implements Serializable {
@@ -33,12 +36,20 @@ public class Quadro implements Serializable {
 	private String preco;
 	
 	@Column(name="quadro_imagem")
-	private String quadro_imagem;
+	private String quadroImagem;
 		
 	@OneToOne(cascade=CascadeType.ALL)
    	@JoinColumn(name="cod_categoria")   
    	private Categoria categoria = new Categoria();
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cod_status")
+	private Status status = new Status();
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cod_artista")
+	private Artista artista = new Artista();
+	
 	public Long getCod_quadro() {
 		return cod_quadro;
 	}
@@ -95,12 +106,27 @@ public class Quadro implements Serializable {
 		this.categoria = categoria;
 	}
 
-	public String getQuadro_imagem() {
-		return quadro_imagem;
+	public String getQuadroImagem() {
+		return quadroImagem;
 	}
 
-	public void setQuadro_imagem(String quadro_imagem) {
-		this.quadro_imagem = quadro_imagem;
-	}		
-	
+	public void setQuadroImagem(String quadroImagem) {
+		this.quadroImagem = quadroImagem;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public Artista getArtista() {
+		return artista;
+	}
+
+	public void setArtista(Artista artista) {
+		this.artista = artista;
+	}	
 }

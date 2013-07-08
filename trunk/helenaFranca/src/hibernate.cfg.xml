@@ -18,6 +18,10 @@
   <property name="hibernate.c3p0.min_size">5</property>
   <property name="hibernate.c3p0.timeout">100</property>
   <mapping class="br.com.helenafranca.model.entity.Categoria"/>
+  <mapping class="br.com.helenafranca.model.entity.TipoUsuario"/>
+  <mapping class="br.com.helenafranca.model.entity.Status"/>
+  <mapping class="br.com.helenafranca.model.entity.Usuario"/>
+  <mapping class="br.com.helenafranca.model.entity.Artista"/>
   <mapping class="br.com.helenafranca.model.entity.Quadro"/>  
  </session-factory>
 </hibernate-configuration>
