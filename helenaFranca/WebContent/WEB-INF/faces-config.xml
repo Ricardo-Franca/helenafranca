@@ -15,6 +15,11 @@
 		<managed-bean-class>br.com.helenafranca.view.CategoriaMB</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>usuarioMB</managed-bean-name>
+		<managed-bean-class>br.com.helenafranca.view.UsuarioMB</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<display-name>pages/usuario/paginaInicial</display-name>
 		<from-view-id>/pages/usuario/paginaInicial.jsp</from-view-id>
