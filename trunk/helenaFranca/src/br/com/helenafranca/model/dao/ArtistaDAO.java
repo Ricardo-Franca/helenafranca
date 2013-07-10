@@ -47,8 +47,8 @@ public class ArtistaDAO extends DAO<Artista> {
 
 		Query query = session
 		.createQuery(" select a from Artista a " +
-				" left join fetch u.usuario " +
-				" where u.usuario.cod_usuario = "+codigo+" ");
+				" left join fetch a.usuario " +
+				" where a.usuario.cod_usuario = "+codigo+" ");
 
 		return (Artista) query.uniqueResult();
 	}

@@ -71,8 +71,8 @@ public class UsuarioMB implements Serializable {
                 ArtistaFacade eService = new ArtistaFacadeImpl();                
                 artistaLog=eService.procuraByUsuarioId(usuarioLogado.getCodigo());
                 
-                session.setAttribute("artisgaLogado", artistaLog);
-                rp.sendRedirect(rq.getContextPath() + "/pages/artisga/homeArtista.jsf");
+                session.setAttribute("artistaLogado", artistaLog);
+                rp.sendRedirect(rq.getContextPath() + "/pages/artista/homeArtista.jsf");
                 return "success";
             }else
              {
@@ -94,7 +94,7 @@ public class UsuarioMB implements Serializable {
                 }else
                  {*/
                 	
-                 FacesMessage facesMessage = new FacesMessage("Usu√°rio ou senha incorretos!");
+                 FacesMessage facesMessage = new FacesMessage("Usu·rio ou senha incorretos!");
            			context.addMessage(null, facesMessage);
                 	session.setAttribute("user", null);
                     session.removeAttribute("user");

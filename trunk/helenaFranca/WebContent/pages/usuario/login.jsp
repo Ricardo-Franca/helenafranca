@@ -72,7 +72,7 @@
 					<legend style="color:Green;font-size: medium;font-weight: bold;">Entrar</legend>
 					<h:panelGrid columns="2" border="0">
 						<h:outputText value="Login" styleClass="rotulos" style="FONT-SIZE: small; font-weight:bold;"/>
-						<h:inputText id="email"  styleClass="edit" size="90" style=" width : 150px;" required="true" requiredMessage="Campo Usuário obrigatório!" >	
+						<h:inputText id="login" value="#{usuarioMB.usuario.login}"  styleClass="edit" size="90" style=" width : 150px;" required="true" requiredMessage="Campo Usuário obrigatório!" >	
 						</h:inputText>
 
 						<h:outputLabel for="senha" value="Senha" styleClass="rotulos"  style="FONT-SIZE: small; font-weight:bold;"/>
@@ -80,7 +80,7 @@
 							<f:validateLength minimum="6" />
 						</h:inputSecret>
 
-						<h:commandButton id="botao" value="Entrar"  />
+						<h:commandButton id="botao" value="Entrar"  action="#{usuarioMB.login}"  />
 						<br></br>												
 					</h:panelGrid>
 				</fieldset>				

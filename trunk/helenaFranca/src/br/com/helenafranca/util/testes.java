@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.com.helenafranca.model.entity.Artista;
 import br.com.helenafranca.model.entity.Quadro;
+import br.com.helenafranca.model.entity.Usuario;
 import br.com.helenafranca.view.QuadroMB;
 import br.com.helenafranca.controller.*;
 
@@ -16,17 +18,18 @@ public class testes {
 	
 	public static void main(String[] args) 
 	{
-		List<Quadro> lista = new ArrayList();
-		QuadroFacade quadroService = new QuadroFacadeImpl();
-		lista = quadroService.procuraUltimosQuadros();
+		Artista artista = new Artista();
+		ArtistaFacade artistaService = new ArtistaFacadeImpl();
 		
-		int tamanho = lista.size();
+		artista = artistaService.procuraByUsuarioId(1L);
+		
+		/*int tamanho = lista.size();
 		
 		for(int i=0;i<tamanho;i++)
-		{
-			System.out.println(lista.get(i).getNome());
-			System.out.println("");			
-		}
+		{*/
+			System.out.println(artista.getUsuario().getLogin());
+			System.out.println(artista.getUsuario().getSenha());			
+		//}
 	}
 }
 
