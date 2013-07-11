@@ -18,9 +18,6 @@
 		
 	<link rel="StyleSheet" type="text/css" href="/helenafranca/style/paginaPadrao.css" />
 	
-	<style type="text/css">
-            .backgroundHigh { position: absolute; }
-        </style>
 	
 	<script type="text/javascript">
             primeiro=true;

@@ -20,6 +20,11 @@
 		<managed-bean-class>br.com.helenafranca.view.UsuarioMB</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>artistaMB</managed-bean-name>
+		<managed-bean-class>br.com.helenafranca.view.ArtistaMB</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<display-name>pages/usuario/paginaInicial</display-name>
 		<from-view-id>/pages/usuario/paginaInicial.jsp</from-view-id>
@@ -34,6 +39,38 @@
 		<navigation-case>
 			<from-outcome>toLogin</from-outcome>
 			<to-view-id>/pages/usuario/login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/homeArtista</display-name>
+		<from-view-id>/pages/artista/homeArtista.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toAtualizaCadastroArtista</from-outcome>
+			<to-view-id>/pages/artista/atualizaCadastroArtista.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/homeArtista</display-name>
+		<from-view-id>/pages/artista/homeArtista.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toAlterarSenha</from-outcome>
+			<to-view-id>/pages/artista/alterarSenha.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/homeArtista</display-name>
+		<from-view-id>/pages/artista/homeArtista.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toCadastraQuadro</from-outcome>
+			<to-view-id>/pages/artista/cadastraQuadro.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/homeArtista</display-name>
+		<from-view-id>/pages/artista/homeArtista.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toConsultaQuadros</from-outcome>
+			<to-view-id>/pages/artista/consultaQuadros.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
