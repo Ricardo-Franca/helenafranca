@@ -73,5 +73,18 @@
 			<to-view-id>/pages/artista/consultaQuadros.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/atualizaCadastroArtista</display-name>
+		<from-view-id>/pages/artista/atualizaCadastroArtista.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toHomeArtista</from-outcome>
+			<to-view-id>/pages/artista/homeArtista.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<validator>
+  		<validator-id>alteraEmailArtistaValidator</validator-id>
+  		<validator-class>br.com.helenafranca.validador.AlteraEmailArtistaValidator</validator-class>
+ 	</validator>
 
 </faces-config>
