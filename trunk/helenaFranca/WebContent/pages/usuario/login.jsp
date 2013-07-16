@@ -64,6 +64,12 @@
 		<div style="left: 50%;position: absolute;top: 45%;" id="linha">
 			<hr size="200" width="1" align="left">
 		</div>
+		
+		<div id="erros" style="left: 65%;top:45%;position: absolute;">
+			<h:panelGrid columns="1" border="0" width="230">
+					<h:messages style="color:red;"/>
+				</h:panelGrid>
+		</div>	
 				
 		<div id="menuLogin">
 			<h:form>				

@@ -46,15 +46,6 @@ public class ArtistaMB implements Serializable {
 	private String confirmarSenha;
 	private String senhaAtual;
 
-	public String getSenhaAtual() {
-		return senhaAtual;
-	}
-
-	public void setSenhaAtual(String senhaAtual) {
-		
-		this.senhaAtual = CriptografaSenha.md5(senhaAtual);
-	}
-
 	public ArtistaMB() {
 		System.out
 				.println(" >>>>>>>>>>>>>>>>>>>> Contrutor do Artista_MB <<<<<<<<<<<<<<<<<<");
@@ -158,46 +149,42 @@ public class ArtistaMB implements Serializable {
 		FacesContext context = FacesContext.getCurrentInstance();
 		String senha = this.artista.getUsuario().getSenha();
 
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
-				.getExternalContext().getSession(false);
-		Artista cadastroArtista = (Artista) session
-				.getAttribute("artistaLogado");
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		Artista cadastroArtista = (Artista) session.getAttribute("artistaLogado");
 
 		String senhaCadastrada = cadastroArtista.getUsuario().getSenha();
 
-		if (!senha.equals(this.confirmarSenha)
-				|| (!senhaCadastrada.equals(this.senhaAtual))) {
+		FacesMessage facesMessage = new FacesMessage();
+		
+		if (!senha.equals(this.confirmarSenha) || (!senhaCadastrada.equals(this.senhaAtual))) 
+		{			
 
-			FacesMessage facesMessage = new FacesMessage();
-
-			if (!senha.equals(this.confirmarSenha)) {
-				facesMessage
-						.setSummary("Nova senha nÃ£o corresponde a confirmaÃ§Ã£o.");
-			} else {
-				if (!senhaCadastrada.equals(this.senhaAtual)) {
-					facesMessage
-							.setSummary("Senha atual nÃ£o foi confirmada corretamente.");
+			if (!senha.equals(this.confirmarSenha)) 
+			{
+				facesMessage.setSummary("Nova senha não corresponde a confirmação.");
+			} else 
+			{
+				if (!senhaCadastrada.equals(this.senhaAtual)) 
+				{
+					facesMessage.setSummary("Senha atual não foi confirmada corretamente.");
 				}
 			}
-
+			
 			context.addMessage(null, facesMessage);
 			return null;
 		}
+		
+		
 
-		cadastroArtista.getUsuario().setSenha(CriptografaSenha.md5(
-				this.artista.getUsuario().getSenha()));
+		cadastroArtista.getUsuario().setSenha(CriptografaSenha.md5(this.artista.getUsuario().getSenha()));
 		this.artista = cadastroArtista;
 
 		ArtistaFacade artistaService = new ArtistaFacadeImpl();
 		artistaService.atualiza(this.artista);
 		this.artista = new Artista();
 
-		HttpServletResponse rp = (HttpServletResponse) FacesContext
-				.getCurrentInstance().getExternalContext().getResponse();
-		HttpServletRequest rq = (HttpServletRequest) FacesContext
-				.getCurrentInstance().getExternalContext().getRequest();
-		rp.sendRedirect(rq.getContextPath() + "/pages/artista/alterarSenha.jsf");
-
+		facesMessage.setSummary("Senha alterada com sucesso!");
+		context.addMessage(null, facesMessage);
 		return "atualizaSucesso";
 	}
 
@@ -240,9 +227,9 @@ public class ArtistaMB implements Serializable {
 		}
 		Long tempo=System.currentTimeMillis();
 		OutputStream out = new FileOutputStream(
-				caminhoReal+"/ImagensCadastro/" + "img"
+				caminhoReal+"/imagensCadastro/" + "img"
 						+ tempo + "." + extensao);
-		setImagePath("/ImagensCadastro/" + "img"
+		setImagePath("/imagensCadastro/" + "img"
 				+ tempo + "." + extensao);
 
 		try {
@@ -310,5 +297,14 @@ public class ArtistaMB implements Serializable {
 
 	public String getImagePath() {
 		return imagePath;
+	}
+	
+	public String getSenhaAtual() {
+		return senhaAtual;
+	}
+
+	public void setSenhaAtual(String senhaAtual) {
+		
+		this.senhaAtual = CriptografaSenha.md5(senhaAtual);
 	}
 }

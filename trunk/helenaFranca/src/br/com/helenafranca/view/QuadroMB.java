@@ -18,6 +18,7 @@ import org.richfaces.model.UploadItem;
 
 import br.com.helenafranca.controller.QuadroFacade;
 import br.com.helenafranca.controller.QuadroFacadeImpl;
+import br.com.helenafranca.model.entity.Artista;
 import br.com.helenafranca.model.entity.Quadro;
 
 public class QuadroMB implements Serializable {
@@ -45,14 +46,16 @@ public class QuadroMB implements Serializable {
 		
 		QuadroFacade quadroService = new QuadroFacadeImpl();	
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-			
+		Artista artista = (Artista) session.getAttribute("artistaLogado");
+		
+		this.quadro.getArtista().setCodigo(artista.getCodigo());		
 		this.quadro.setQuadroImagem(getImagePath());
 		quadroService.salva(this.quadro);		
 		this.quadro = new Quadro();
 		
 		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
         HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        //rp.sendRedirect(rq.getContextPath() + "/pages/empresa/consultaPizzas.jsf");
+        rp.sendRedirect(rq.getContextPath() + "/pages/artista/consultaQuadros.jsf");
 		return "cadastraSucesso";
 	}
 	
@@ -245,9 +248,9 @@ public class QuadroMB implements Serializable {
 
 		Long tempo = System.currentTimeMillis();
 		OutputStream out = new FileOutputStream(
-				caminhoReal+"/ImagensQuadros/" + "img"
+				caminhoReal+"/imagensQuadros/" + "img"
 						+ tempo + "." + extensao);
-		setImagePath("/ImagensQuadros/" + "img"
+		setImagePath("/imagensQuadros/" + "img"
 				+ tempo + "." + extensao);
 		
 		try {
