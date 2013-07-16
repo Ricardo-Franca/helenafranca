@@ -3,10 +3,10 @@
   <nodes xsi:type="pageflow:PFPage" name="pages/usuario/paginaInicial" x="122" y="370" id="pf13716650886930" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13716653174901 pf13730536804830" path="/pages/usuario/paginaInicial.jsp"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/usuario/pesquisaQuadro" x="338" y="178" id="pf13716653174902" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13716653174901" path="/pages/usuario/pesquisaQuadro.jsp"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/usuario/login" x="29" y="168" id="pf13730536804841" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13730536804830" path="/pages/usuario/login.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/artista/atualizaCadastroArtista" x="480" y="132" id="pf13735662163380" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf13739167321710" inlinks="pf13735662163381" path="/pages/artista/atualizaCadastroArtista.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/artista/homeArtista" x="480" y="370" id="pf13735662163382" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf13735662163381 pf13735664348583 pf13735673663305 pf13735673663306" inlinks="pf13739167321710" path="/pages/artista/homeArtista.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/artista/alterarSenha" x="696" y="178" id="pf13735664348584" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf13735664348583" path="/pages/artista/alterarSenha.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/artista/cadastraQuadro" x="756" y="252" id="pf13735673663307" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf13735673663305" path="/pages/artista/cadastraQuadro.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/artista/atualizaCadastroArtista" x="480" y="132" id="pf13735662163380" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf13739167321710" inlinks="pf13735662163381" path="/pages/artista/atualizaCadastroArtista.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/artista/homeArtista" x="480" y="370" id="pf13735662163382" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" outlinks="pf13735662163381 pf13735664348583 pf13735673663305 pf13735673663306" inlinks="pf13739167321710 pf13739954418220 pf13740063048621" path="/pages/artista/homeArtista.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/artista/alterarSenha" x="696" y="178" id="pf13735664348584" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf13739954418220" inlinks="pf13735664348583" path="/pages/artista/alterarSenha.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/artista/cadastraQuadro" x="756" y="252" id="pf13735673663307" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" outlinks="pf13740063048621" inlinks="pf13735673663305" path="/pages/artista/cadastraQuadro.jsp"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/artista/consultaQuadros" x="754" y="348" id="pf13735673663308" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf13735673663306" path="/pages/artista/consultaQuadros.jsp"/>
   <links id="pf13716653174901" target="pf13716653174902" source="pf13716650886930" outcome="toPesquisaQuadro"/>
   <links id="pf13730536804830" target="pf13730536804841" source="pf13716650886930" outcome="toLogin"/>
@@ -15,4 +15,6 @@
   <links id="pf13735673663305" target="pf13735673663307" source="pf13735662163382" outcome="toCadastraQuadro"/>
   <links id="pf13735673663306" target="pf13735673663308" source="pf13735662163382" outcome="toConsultaQuadros"/>
   <links id="pf13739167321710" target="pf13735662163382" source="pf13735662163380" outcome="toHomeArtista"/>
+  <links id="pf13739954418220" target="pf13735662163382" source="pf13735664348584" outcome="toHomeArtista"/>
+  <links id="pf13740063048621" target="pf13735662163382" source="pf13735673663307" outcome="toHomeArtista"/>
 </pageflow:Pageflow>
