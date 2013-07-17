@@ -61,10 +61,15 @@ public class QuadroMB implements Serializable {
 	
 	public String deleteQuadros() throws IOException{
 		QuadroFacade quadroService = new QuadroFacadeImpl();
-		this.quadro.setCod_quadro(id);
+		this.quadro.setCod_quadro(codigoQuadro);
+		//this.pizza.setEmpresa(null);
+		quadroService.inativaQuadro(this.quadro.getCod_quadro());
+		//pizzaService.remove(this.pizza);
+		this.quadro = new Quadro();
 		
-		quadroService.remove(this.quadro);
-		this.quadro = new Quadro();	
+		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        rp.sendRedirect(rq.getContextPath() + "/pages/artista/consultaQuadros.jsf");
 		
 		return "removeSucesso";
 	}
@@ -80,16 +85,26 @@ public class QuadroMB implements Serializable {
 		return "atualizaSucesso";
 	}
 	
-	/*public String updateCadastro() throws IOException {
+	public String updateCadastro() throws IOException {
 		QuadroFacade quadroService = new QuadroFacadeImpl();
-		this.getCadastroQuadro().setQuadro_imagem(getImagePath());
+		this.getCadastroQuadro().setQuadroImagem(getImagePath());
 		quadroService.atualiza(this.getCadastroQuadro());
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		session.setAttribute("pizzaAtual", this.getCadastroQuadro());
+		session.setAttribute("quadroAtual", this.getCadastroQuadro());
 		this.quadro = new Quadro();
 
 		return "atualizaSucesso";
-	}*/
+	}
+	
+	public Quadro getCadastroQuadro() {
+
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		Quadro cadastroQuadro = new Quadro();
+		cadastroQuadro = (Quadro) session.getAttribute("quadroAtual");
+
+		return cadastroQuadro;
+	}
+	
 	
 	public String load(){
 		QuadroFacade quadroService = new QuadroFacadeImpl();
@@ -260,6 +275,35 @@ public class QuadroMB implements Serializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public List<Quadro> getSeusQuadros()
+	{
+		QuadroFacade quadroService = new QuadroFacadeImpl();
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		Artista artista = (Artista)session.getAttribute("artistaLogado");
+				
+		List<Quadro> quadros = new ArrayList();
+		
+		quadros = (List)quadroService.procuraQuadrosByCodigoArtista(artista.getCodigo());
+		
+		return quadros;
+		
+	}
+	
+	public void escolheAlterarQuadro() throws IOException
+	{	
+		Quadro quadro = new Quadro();
+		QuadroFacade quadroService = new QuadroFacadeImpl();
+		quadro = quadroService.procuraById(codigoQuadro);
+						
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		
+        session.setAttribute("quadroAtual", quadro);	
+		
+        rp.sendRedirect(rq.getContextPath() + "/pages/artista/atualizaQuadro.jsf");		
 	}
 	
 	public Quadro getQuadro() {

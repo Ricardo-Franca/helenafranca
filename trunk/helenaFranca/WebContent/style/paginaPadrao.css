@@ -148,6 +148,16 @@ body {
     text-align: center;
 }
 
+#rodape3
+{
+	position:absolute;
+	top:115%;
+ 	width:100%;
+    height:80px;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: center;
+}
+
 #homeArtista
 {
 	position:absolute;

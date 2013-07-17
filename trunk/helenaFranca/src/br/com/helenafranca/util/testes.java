@@ -18,18 +18,17 @@ public class testes {
 	
 	public static void main(String[] args) 
 	{
-		Artista artista = new Artista();
-		ArtistaFacade artistaService = new ArtistaFacadeImpl();
+		List<Quadro> quadros = new ArrayList();
+		QuadroFacade quadroService = new QuadroFacadeImpl();
 		
-		artista = artistaService.procuraByUsuarioId(1L);
+		quadros = (List<Quadro>)quadroService.procuraQuadrosByCodigoArtista(2L);
 		
-		/*int tamanho = lista.size();
+		int tamanho = quadros.size();
 		
 		for(int i=0;i<tamanho;i++)
-		{*/
-			System.out.println(artista.getUsuario().getLogin());
-			System.out.println(artista.getUsuario().getSenha());			
-		//}
+		{
+			System.out.println(quadros.get(i).getNome());			
+		}
 	}
 }
 
