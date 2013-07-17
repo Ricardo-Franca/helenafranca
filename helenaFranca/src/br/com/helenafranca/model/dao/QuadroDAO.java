@@ -63,5 +63,26 @@ public class QuadroDAO extends DAO<Quadro> {
 				" order by cod_quadro desc ");
 		return query.list();
 	}
+		
+	public List<Quadro> procuraQuadrosDoArtista(Long codigo) 
+	{
+		
+		Query query = session
+		.createQuery(" select q from Quadro q" +
+				" where cod_artista = "+codigo+" and cod_status = 1" +
+						" order by cod_quadro desc ");
+
+		return query.list();
+	}
+	
+	public void inativaQuadro(Long codigo)
+	{
+		Query query = session
+		.createQuery(" update Quadro q " +
+				" set status = 2 " +
+				" where cod_quadro = "+codigo+"");
+		
+		query.executeUpdate();
+	}	
 	
 }

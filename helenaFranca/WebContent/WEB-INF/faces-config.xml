@@ -97,6 +97,30 @@
 			<to-view-id>/pages/artista/homeArtista.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/consultaQuadros</display-name>
+		<from-view-id>/pages/artista/consultaQuadros.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toCadastraQuadro</from-outcome>
+			<to-view-id>/pages/artista/cadastraQuadro.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/consultaQuadros</display-name>
+		<from-view-id>/pages/artista/consultaQuadros.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toHomeArtista</from-outcome>
+			<to-view-id>/pages/artista/homeArtista.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/atualizaQuadro</display-name>
+		<from-view-id>/pages/artista/atualizaQuadro.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toConsultaQuadros</from-outcome>
+			<to-view-id>/pages/artista/consultaQuadros.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	
 	<validator>
   		<validator-id>alteraEmailArtistaValidator</validator-id>

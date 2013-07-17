@@ -23,4 +23,8 @@ public interface QuadroFacade extends BaseFacade<Quadro>{
 	
 	public Quadro procuraById(Long codigo);
 	
+	public List<Quadro> procuraQuadrosByCodigoArtista(Long codigo);
+	
+	public void inativaQuadro(Long codigo);
+	
 }

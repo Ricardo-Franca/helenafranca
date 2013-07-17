@@ -38,7 +38,7 @@ public class Quadro implements Serializable {
 	@Column(name="quadro_imagem")
 	private String quadroImagem;
 		
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
    	@JoinColumn(name="cod_categoria")   
    	private Categoria categoria = new Categoria();
 
