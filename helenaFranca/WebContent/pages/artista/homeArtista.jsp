@@ -83,7 +83,7 @@
 						</rich:panelMenuGroup>
 												
 						<rich:panelMenuGroup label="Quadros do SlideShow">						
-						<rich:panelMenuItem>
+						<rich:panelMenuItem icon="../../imagens/Quadro.jpg">
 							<h:commandLink value="Consultar" />
 						</rich:panelMenuItem>
 						</rich:panelMenuGroup>

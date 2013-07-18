@@ -58,7 +58,7 @@
 			<h:form>
 				<a4j:keepAlive beanName="quadroMB" />
 				<fieldset><legend>Consulta por Quadros</legend> 
-				<rich:dataTable value="#{quadroMB.seusQuadros}" var="quadroDoArtista" rows="10" id="quadrosDoArtista" width="100%" cellspacing="0" cellpadding="0" border="1" style="text-align:center;">	
+				<rich:dataTable value="#{quadroMB.seusQuadros}" columns="6" var="quadroDoArtista" rows="10" id="quadrosDoArtista" width="100%" cellspacing="0" cellpadding="0" border="1" style="text-align:center;">	
 					<h:column>
 						<f:facet name="header">
 							<h:outputText value="Imagem" />
@@ -68,7 +68,7 @@
 							
 					<h:column>
 						<f:facet name="header">
-									<h:outputText value="NOME" />
+									<h:outputText value="Nome" />
 								</f:facet>
 								<h:outputText value="#{quadroDoArtista.nome}" />
 							</h:column>
@@ -77,7 +77,7 @@
 								<f:facet name="header">
 									<h:outputText value="Preço" />
 								</f:facet>
-								R$<h:outputText value="#{quadroDoArtista.preco}" />
+								R$<h:outputText value=" #{quadroDoArtista.preco}" />
 							</h:column>
 															
 							<h:column>
@@ -89,7 +89,7 @@
 			
 							<h:column >
 								<f:facet name="header">
-									<h:outputText value="ALTERAR"/>
+									<h:outputText value="Alterar"/>
 								</f:facet>
 						
 								<a4j:commandLink  action="#{quadroMB.escolheAlterarQuadro}" status="sts" reRender="quadrosDoArtista">
@@ -125,17 +125,15 @@
 				        <h:commandButton value="Voltar" immediate="true" action="toHomeArtista" styleClass="botoes"/>
 				        <h:commandButton value="Cadastrar Novo Quadro" immediate="true" action="toCadastraQuadro" styleClass="botoes"/>
 					</fieldset>	
-			</h:form>						
-		</div>
-		    
-	
-		    			
-		<div  id="rodape2">
-			<hr style="color:red">
-			<fieldset style="background-color: #EE2C2C; border: 0;">
+			</h:form>
+			<br/>
+			
+			<hr style="color:red">			
+			<fieldset style="background-color: #EE2C2C; border: 0;text-align:center;">
 				<h:outputText style="text-align:center;">© Helena França - 2013 | helenafranca.com.br </h:outputText>
-			</fieldset>
-		</div> 
+			</fieldset>	
+				
+		</div>
 		</f:view>
 	
 	

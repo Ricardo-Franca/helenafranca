@@ -66,7 +66,8 @@ public class CategoriaMB implements Serializable {
 			this.categorias.add(new SelectItem("3","Florais"));
 			this.categorias.add(new SelectItem("4","Paisagens"));			
 			this.categorias.add(new SelectItem("5","Pessoas"));
-			this.categorias.add(new SelectItem("6","Natureza Morta"));	
+			this.categorias.add(new SelectItem("6","Natureza Morta"));
+			this.categorias.add(new SelectItem("7","Releitura"));
 		}
 		return categorias;	
 	}

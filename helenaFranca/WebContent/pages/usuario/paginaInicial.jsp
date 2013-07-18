@@ -69,6 +69,7 @@
 <body onload="trataSlides()">
 	<f:view >
 		<div  id="topo">
+		
 		<div id="botaoToLogin">
 			<h:form style="align:right;">
 				<h:panelGrid columns="1" id="inputs">
@@ -172,6 +173,16 @@
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="6" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Natureza Morta" />					   
+							</h:commandLink> 	                
+		                </rich:menuItem>
+		            </rich:dropDownMenu>
+		            
+		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Releitura"
+		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
+		                <rich:menuItem>	                   
+			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
+								<f:setPropertyActionListener value="7" target="#{quadroMB.codigoCategoria}" />
+								<h:outputText value="Releitura" />					   
 							</h:commandLink> 	                
 		                </rich:menuItem>
 		            </rich:dropDownMenu>
