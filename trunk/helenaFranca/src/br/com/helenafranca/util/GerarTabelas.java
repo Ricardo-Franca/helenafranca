@@ -76,6 +76,11 @@ public class GerarTabelas {
 		categoriaMB.setCategoria(categoria);
 		categoriaMB.save();
 		
+		categoria.setCodigo(7);
+		categoria.setDescricao("Releitura");
+		categoriaMB.setCategoria(categoria);
+		categoriaMB.save();
+		
 		// Cadastrando status *************************************
 		
 		Status status = new Status();

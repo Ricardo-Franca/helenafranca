@@ -169,6 +169,7 @@ public class QuadroFacadeImpl implements QuadroFacade {
 		List<Quadro> lista = this.quadroDAO.procuraQuadrosDoArtista(codigo);
 		tx.commit();
 		session.close();
+		sf.close();
 		
 		return lista;
 	}
@@ -183,5 +184,6 @@ public class QuadroFacadeImpl implements QuadroFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 	}
 }
