@@ -175,6 +175,16 @@
 		                </rich:menuItem>
 		            </rich:dropDownMenu>
 		            
+		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Releitura"
+		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
+		                <rich:menuItem>	                   
+			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
+								<f:setPropertyActionListener value="7" target="#{quadroMB.codigoCategoria}" />
+								<h:outputText value="Releitura" />					   
+							</h:commandLink> 	                
+		                </rich:menuItem>
+		            </rich:dropDownMenu>
+		            
 		        </h:panelGrid>
 		    </h:form> 
 		</div>

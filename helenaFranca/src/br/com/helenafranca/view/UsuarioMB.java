@@ -129,7 +129,7 @@ public class UsuarioMB implements Serializable {
 		this.usuario = new Usuario(); 
 		return "cadastraSucesso";
 	}
-
+/*
 	public String delete(){
 		UsuarioFacade usuarioService = new UsuarioFacadeImpl();
 		this.usuario.setCodigo(id);
@@ -158,6 +158,36 @@ public class UsuarioMB implements Serializable {
 		UsuarioFacade usuarioService = new UsuarioFacadeImpl();		
 		
 		return usuarioService.lista();
+	}
+*/	
+	public String escolheLogin() throws IOException
+	{	
+		
+		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		        
+        rp.sendRedirect(rq.getContextPath() + "/pages/usuario/login.jsf");	
+        return null;
+	}
+	
+	public String escolheBiografia() throws IOException
+	{	
+		
+		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		        
+        rp.sendRedirect(rq.getContextPath() + "/pages/usuario/biografia.jsf");	
+        return null;
+	}
+	
+	public String escolheContato() throws IOException
+	{	
+		
+		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		        
+        rp.sendRedirect(rq.getContextPath() + "/pages/usuario/contato.jsf");	
+        return null;
 	}
 	
 	public Usuario getUsuario() {
