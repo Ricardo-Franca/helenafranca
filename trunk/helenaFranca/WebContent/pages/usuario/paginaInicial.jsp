@@ -70,14 +70,43 @@
 	<f:view >
 		<div  id="topo">
 		
-		<div id="botaoToLogin">
-			<h:form style="align:right;">
-				<h:panelGrid columns="1" id="inputs">
-					<a4j:commandLink value="LOGIN" immediate="true" action="toLogin"
-						styleClass="botoes" />
-				</h:panelGrid>
-			</h:form>
+		<div id="menuTopo">
+			<table border="0" width="100">
+				<tr>	
+					<td>	
+						
+					</td>
+				<tr>
+			</table>
+			
+			<h:form>
+			<h:panelGrid styleClass="horizontal-menu-cell" columnClasses="optionList" columns="1" cellspacing="0" cellpadding="0" width="250" bgcolor="">
+		            <rich:toolBar>
+		                <rich:menuItem>	                   
+			                <h:commandLink action="#{usuarioMB.escolheLogin}" >
+								<f:setPropertyActionListener value="1" target="#{quadroMB.codigoCategoria}" />
+								<h:outputText value="Login" />					   
+							</h:commandLink> 	                
+		                </rich:menuItem>  
+		                |
+		                 <rich:menuItem>	                   
+			                <h:commandLink action="#{usuarioMB.escolheBiografia}" >
+								<f:setPropertyActionListener value="1" target="#{quadroMB.codigoCategoria}" />
+								<h:outputText value="Biografia" />					   
+							</h:commandLink> 	                
+		                </rich:menuItem>   
+		                |
+		                <rich:menuItem>	
+							<h:commandLink action="#{usuarioMB.escolheContato}" >
+								<f:setPropertyActionListener value="1" target="#{quadroMB.codigoCategoria}" />
+								<h:outputText value="Contato" />					   
+							</h:commandLink>
+						</rich:menuItem>            
+		            </rich:toolBar>	            
+		   </h:panelGrid>
+		   </h:form>
 		</div>
+		
 		<br>
 		<hr style="color:#FF0000;">		
 		</div>
@@ -117,8 +146,8 @@
 			<h:form>
 			<br>
 		        <h:panelGrid styleClass="vertical-menu-cell" columnClasses="optionList" columns="1" cellspacing="0" cellpadding="0" width="250" bgcolor="">
-		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Abstratos" submitMode="none" direction="bottom-right" jointPoint="tr">
-		                <rich:menuItem>	                   
+		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Abstratos" submitMode="none" direction="bottom-right" jointPoint="tr">
+		                <rich:menuItem icon="../../imagens/rosa.png" >	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="1" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Abstratos" />					   
@@ -126,8 +155,8 @@
 		                </rich:menuItem>
 		            </rich:dropDownMenu>
 		            
-		              <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Animais" submitMode="none" direction="bottom-right" jointPoint="tr">
-		                <rich:menuItem>	                   
+		              <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Animais" submitMode="none" direction="bottom-right" jointPoint="tr">
+		                <rich:menuItem icon="../../imagens/rosa.png">	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="2" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Animais" />					   
@@ -135,10 +164,10 @@
 		                </rich:menuItem>
 		            </rich:dropDownMenu>
 		            
-		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Florais" 
+		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Florais" 
 		                        submitMode="none" direction="bottom-right"  jointPoint="tr">		                
 		                <rich:menuGroup value="Florais">
-		                	<rich:menuItem>	                   
+		                	<rich:menuItem icon="../../imagens/rosa.png">	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="3" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Florais" />					   
@@ -147,9 +176,9 @@
 		                </rich:menuGroup>
 		            </rich:dropDownMenu>
 		            
-		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Paisagens"
+		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Paisagens"
 		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
-		                <rich:menuItem>	                   
+		                <rich:menuItem icon="../../imagens/rosa.png">	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="4" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Paisagens" />					   
@@ -157,9 +186,9 @@
 		                </rich:menuItem>
 		            </rich:dropDownMenu>
 		            
-		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Pessoas"
+		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Pessoas"
 		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
-		                <rich:menuItem>	                   
+		                <rich:menuItem icon="../../imagens/rosa.png">	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="5" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Pessoas" />					   
@@ -167,9 +196,9 @@
 		                </rich:menuItem>
 		            </rich:dropDownMenu>
 		         
-		         	<rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Natureza Morta"
+		         	<rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Natureza Morta"
 		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
-		                <rich:menuItem>	                   
+		                <rich:menuItem icon="../../imagens/rosa.png">	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="6" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Natureza Morta" />					   
@@ -177,9 +206,9 @@
 		                </rich:menuItem>
 		            </rich:dropDownMenu>
 		            
-		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor}" value="Releitura"
+		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Releitura"
 		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
-		                <rich:menuItem>	                   
+		                <rich:menuItem icon="../../imagens/rosa.png">	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="7" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Releitura" />					   

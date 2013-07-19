@@ -26,22 +26,6 @@
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 	<navigation-rule>
-		<display-name>pages/usuario/paginaInicial</display-name>
-		<from-view-id>/pages/usuario/paginaInicial.jsp</from-view-id>
-		<navigation-case>
-			<from-outcome>toPesquisaQuadro</from-outcome>
-			<to-view-id>/pages/usuario/pesquisaQuadro.jsp</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>pages/usuario/paginaInicial</display-name>
-		<from-view-id>/pages/usuario/paginaInicial.jsp</from-view-id>
-		<navigation-case>
-			<from-outcome>toLogin</from-outcome>
-			<to-view-id>/pages/usuario/login.jsp</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
 		<display-name>pages/artista/homeArtista</display-name>
 		<from-view-id>/pages/artista/homeArtista.jsp</from-view-id>
 		<navigation-case>
