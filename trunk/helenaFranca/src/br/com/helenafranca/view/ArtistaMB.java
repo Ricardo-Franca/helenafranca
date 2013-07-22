@@ -1,5 +1,6 @@
 package br.com.helenafranca.view;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -82,52 +83,29 @@ public class ArtistaMB implements Serializable {
 		return "cadastraSucesso";
 	}
 
-	/*public String delete() throws IOException{
-		ArtistaFacade artistaService = new ArtistaFacadeImpl();
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		this.artista = (Artista)session.getAttribute("artistaLogado");
-		artistaService.inativaArtista(this.artista.getUsuario().getCodigo());
-		this.artista = new Artista();
-		
-		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
-        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-     
-		session.invalidate();
-        rp.sendRedirect(rq.getContextPath() + "/pages/usuario/login.jsf");
-		
-		return "removeSucesso";
-	}*/
-	
-	/*public String deleteArtistas() throws IOException{
-		ArtistaFacade artistaService = new ArtistaFacadeImpl();
-		this.artista.setCodigo(id);
-		artistaService.inativaArtista(this.artista.getUsuario().getCodigo());
-		this.artista = new Artista();		
-		
-		return "removeSucesso";
-	}*/
-
-	public String update() throws IOException {
-		ArtistaFacade artistaService = new ArtistaFacadeImpl();
-		artistaService.atualiza(this.artista);
-		this.artista = new Artista();
-
-		HttpServletResponse rp = (HttpServletResponse) FacesContext
-				.getCurrentInstance().getExternalContext().getResponse();
-		HttpServletRequest rq = (HttpServletRequest) FacesContext
-				.getCurrentInstance().getExternalContext().getRequest();
-		rp.sendRedirect(rq.getContextPath()
-				+ "/pages/artista/atualizaArtista.jsf");
-
-		return "atualizaSucesso";
-	}
-
 	public String updateCadastro() throws IOException {
 		ArtistaFacade artistaService = new ArtistaFacadeImpl();
+						
 		if(getImagePath()!=null)
 		{
+			
+			String nome = this.getCadastroArtista().getFotoArtista(); 
+			
+			if(nome.equals(null))
+			{
+				nome = "http://localhost:8081/imagensHelenaFranca/imgcontroleDeErro.jpg";
+			}
+			
+			nome = nome.substring(21);
+			nome = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps" + nome;
+					
+			File f = new File(nome);  
+			f.delete();			
+			
 			this.getCadastroArtista().setFotoArtista(imagePath);
-		}		
+			this.imagePath = null;
+		}	
+		
 		artistaService.atualiza(this.getCadastroArtista());
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
 				.getExternalContext().getSession(false);
@@ -211,27 +189,25 @@ public class ArtistaMB implements Serializable {
 		return cadastroArtista;
 	}
 
-	public void  uploadImage(UploadEvent evento) throws FileNotFoundException {
-		FacesContext fc= FacesContext.getCurrentInstance();
-		ServletContext sc= (ServletContext)fc.getExternalContext().getContext();
-		String caminhoReal = sc.getRealPath("/");
+	public void  uploadImage(UploadEvent evento) throws FileNotFoundException 
+	{		
+		String caminhoReal = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps/imagensHelenaFranca";
 		String extensao = "";
 		UploadItem item = evento.getUploadItem();
 		String fileName = item.getFileName();
 		String ext[] = fileName.split("\\.");
 		int i = ext.length;
 
+		Long tempo = System.currentTimeMillis();
+		
 		if (i > 1) {
 			extensao = ext[i - 1];
 
 		}
-		Long tempo=System.currentTimeMillis();
-		OutputStream out = new FileOutputStream(
-				caminhoReal+"/imagensCadastro/" + "img"
-						+ tempo + "." + extensao);
-		setImagePath("/imagensCadastro/" + "img"
-				+ tempo + "." + extensao);
-
+				
+		OutputStream out = new FileOutputStream(caminhoReal+"/" + "img"+ tempo + "." + extensao);
+		setImagePath("http://localhost:8081/imagensHelenaFranca/" + "img"	+ tempo + "." + extensao);
+		
 		try {
 			out.write(item.getData());
 			out.close();

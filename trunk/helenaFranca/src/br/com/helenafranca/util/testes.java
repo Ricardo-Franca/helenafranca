@@ -17,7 +17,7 @@ import br.com.helenafranca.controller.*;
 public class testes {
 	
 	public static void main(String[] args) 
-	{
+	{/*
 		List<Quadro> quadros = new ArrayList();
 		QuadroFacade quadroService = new QuadroFacadeImpl();
 		
@@ -28,7 +28,12 @@ public class testes {
 		for(int i=0;i<tamanho;i++)
 		{
 			System.out.println(quadros.get(i).getNome());			
-		}
+		}*/
+		
+		String nome = "http://localhost:8081/imagensQuadro/img1374527965049.jpg";
+		nome = nome.substring(21);
+		nome = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps" + nome;
+		System.out.println(nome);
 	}
 }
 
