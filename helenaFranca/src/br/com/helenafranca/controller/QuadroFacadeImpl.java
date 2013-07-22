@@ -69,6 +69,7 @@ public class QuadroFacadeImpl implements QuadroFacade {
 		
 		this.quadroDAO.delete(q);
 		
+		session.flush();
 		tx.commit();
 		session.close();
 		sf.close();
@@ -172,18 +173,5 @@ public class QuadroFacadeImpl implements QuadroFacade {
 		sf.close();
 		
 		return lista;
-	}
-	
-	public void inativaQuadro(Long codigo) {
-		sf = new AnnotationConfiguration().configure().buildSessionFactory(); 
-		session = sf.openSession();
-		tx = session.beginTransaction();
-		quadroDAO = new QuadroDAO(session, Quadro.class);
-				
-		this.quadroDAO.inativaQuadro(codigo);
-		
-		tx.commit();
-		session.close();
-		sf.close();
 	}
 }

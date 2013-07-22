@@ -140,20 +140,6 @@ public class ArtistaFacadeImpl implements ArtistaFacade {
 		return a;
 	}
 	
-	/*public Artista procuraByCnpj(String cnpj){
-		sf = new AnnotationConfiguration().configure().buildSessionFactory(); 
-		session = sf.openSession();
-		tx = session.beginTransaction();
-		artistaDAO = new ArtistaDAO(session, Artista.class);
-
-		Artista a = this.artistaDAO.pesquisaArtistaByCnpj(cnpj);
-		
-		tx.commit();
-		session.close();
-		
-		return p; 
-	}*/
-	
 	public Artista procuraByEmail(String email){
 		sf = new AnnotationConfiguration().configure().buildSessionFactory(); 
 		session = sf.openSession();
@@ -167,29 +153,4 @@ public class ArtistaFacadeImpl implements ArtistaFacade {
 		
 		return a; 
 	}
-	
-	public void inativaArtista(Long codigo) {
-		sf = new AnnotationConfiguration().configure().buildSessionFactory(); 
-		session = sf.openSession();
-		tx = session.beginTransaction();
-		artistaDAO = new ArtistaDAO(session, Artista.class);
-				
-		this.artistaDAO.inativaArtista(codigo);
-		
-		tx.commit();
-		session.close();
-	}
-	
-	/*public List<Artista> pesquisaArtistasAtivas() {
-		sf = new AnnotationConfiguration().configure().buildSessionFactory(); 
-		session = sf.openSession();
-		tx = session.beginTransaction();
-		artistaDAO = new ArtistaDAO(session, Artista.class);
-		
-		List<Artista> lista = this.artistaDAO.pesquisaArtistasAtivas();
-		tx.commit();
-		session.close();
-		
-		return lista;
-	}*/
 }

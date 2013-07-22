@@ -75,14 +75,4 @@ public class QuadroDAO extends DAO<Quadro> {
 		return query.list();
 	}
 	
-	public void inativaQuadro(Long codigo)
-	{
-		Query query = session
-		.createQuery(" update Quadro q " +
-				" set status = 2 " +
-				" where cod_quadro = "+codigo+"");
-		
-		query.executeUpdate();
-	}	
-	
 }
