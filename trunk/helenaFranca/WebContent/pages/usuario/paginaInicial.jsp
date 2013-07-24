@@ -71,37 +71,33 @@
 		<div  id="topo">
 		
 		<div id="menuTopo">
-			<table border="0" width="100">
-				<tr>	
-					<td>	
-						
-					</td>
-				<tr>
-			</table>
-			
+					
 			<h:form>
 			<h:panelGrid styleClass="horizontal-menu-cell" columnClasses="optionList" columns="1" cellspacing="0" cellpadding="0" width="250" bgcolor="">
 		            <rich:toolBar>
 		                <rich:menuItem>	                   
 			                <h:commandLink action="#{usuarioMB.escolheLogin}" >
-								<f:setPropertyActionListener value="1" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Login" />					   
 							</h:commandLink> 	                
 		                </rich:menuItem>  
 		                |
 		                 <rich:menuItem>	                   
 			                <h:commandLink action="#{usuarioMB.escolheBiografia}" >
-								<f:setPropertyActionListener value="1" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Biografia" />					   
 							</h:commandLink> 	                
 		                </rich:menuItem>   
 		                |
 		                <rich:menuItem>	
+							<h:commandLink action="#{usuarioMB.escolheBlog}" >
+								<h:outputText value="Blog" />					   
+							</h:commandLink>
+						</rich:menuItem>  
+						|
+		                <rich:menuItem>	
 							<h:commandLink action="#{usuarioMB.escolheContato}" >
-								<f:setPropertyActionListener value="1" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Contato" />					   
 							</h:commandLink>
-						</rich:menuItem>            
+						</rich:menuItem>          
 		            </rich:toolBar>	            
 		   </h:panelGrid>
 		   </h:form>

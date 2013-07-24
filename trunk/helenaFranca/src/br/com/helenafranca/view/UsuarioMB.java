@@ -180,6 +180,16 @@ public class UsuarioMB implements Serializable {
         return null;
 	}
 	
+	public String escolheBlog() throws IOException
+	{	
+		
+		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		        
+        rp.sendRedirect(rq.getContextPath() + "/pages/usuario/blog.jsf");	
+        return null;
+	}
+	
 	public String escolheContato() throws IOException
 	{	
 		
