@@ -9,10 +9,26 @@
 <script type="text/javascript" src="/jsf/resources/jquery.maskedinput-1.2.1.js"></script>
 
 <script>
-	window.location.href ='http://localhost:8080/helenafranca/pages/usuario/paginaInicial.jsf';
+	if (navigator.userAgent.indexOf("Chrome") != -1) 
+	{ // Chorme 
+		window.location.href ='http://localhost:8080/helenafranca/pages/usuario/paginaInicial.jsf';
+	}else
+	 {		
+		alert('Atenção: Esse site pode não funcionar perfeitamente com esse navegador. Baixe o Navegador Google Chrome para uma melhor visualização.');
+		window.showModalDialog("http://www.google.com/intl/pt-BR/chrome/");
+		window.location.href ='http://localhost:8080/helenafranca/pages/usuario/paginaInicial.jsf';				 
+	}
+	
+	
+	
 </script>
 
 </head>
 <body>
+
+
+		
+		
+
 </body>
 </html>
