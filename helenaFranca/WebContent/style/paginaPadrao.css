@@ -20,11 +20,11 @@ body {
 #menuTopo {
         position: absolute;     
         bottom: 0;
-        top: -15px;
-        left: 66%;
+        top: -7px;
+        left: 55.4%;
         font-weight: bold;
-    font-family: arial;
-    color: #000000;   
+    	font-family: arial;
+    	color: #000000;   
 }
 
 #botaoToLogout
