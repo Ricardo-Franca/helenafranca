@@ -21,7 +21,7 @@ body {
         position: absolute;     
         bottom: 0;
         top: -7px;
-        left: 55.4%;
+        left: 75%;
         font-weight: bold;
     	font-family: arial;
     	color: #000000;   
@@ -71,10 +71,10 @@ body {
 	position:absolute;
 	/*top:23%;*/
 	top:23%; 
- 	width:25%;
+ 	width:15%;
     height:300px;
     border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
-    text-align: center;
+    text-align: left;
 }
 
 
@@ -82,17 +82,18 @@ body {
 {
 	position:absolute;
 	top:23%;
-	left: 27%; 
- 	width:72%;
+	left: 17%; 
+ 	width:82%;
     height:200px;
+    border: 0px solid;
 }
 
 #Slide_2
 {
 	position:absolute;
 	top:23%;
-	left: 27%; 
- 	width:72%;
+	left: 17%; 
+ 	width:82%;
     height:200px;
     border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
 }
@@ -101,8 +102,28 @@ body {
 {
 	position:absolute;
 	top:23%;
-	left: 27%; 
- 	width:72%;
+	left: 17%; 
+ 	width:82%;
+    height:200px;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+}
+
+#Slide_4
+{
+	position:absolute;
+	top:23%;
+	left: 17%; 
+ 	width:82%;
+    height:200px;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+}
+
+#Slide_5
+{
+	position:absolute;
+	top:23%;
+	left: 17%; 
+ 	width:82%;
     height:200px;
     border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
 }
@@ -111,7 +132,7 @@ body {
 {
 	position:absolute;
 	top:73%; 
- 	width:25%;
+ 	width:15%;
     height:118%;
     border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
     text-align: center;
@@ -121,8 +142,8 @@ body {
 {
 	position:absolute;
 	top:57%;
-	left: 27%; 
- 	width:72%;
+	left: 17%; 
+ 	width:82%;
     height:165%;
     border: 0px solid; /* As 4 bordas sólidas com 25px de espessura*/
     text-align: center;
@@ -131,7 +152,7 @@ body {
 #rodape
 {
 	position:absolute;
-	top:225%;
+	top:245%;
  	width:98%;
     height:80px;
     border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
@@ -153,7 +174,6 @@ body {
 	position:absolute;
 	top:115%;
  	width:100%;
-    height:80px;
     border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
     text-align: center;
 }

@@ -20,13 +20,19 @@
 	
 	
 	<script type="text/javascript">
-            primeiro=true;
+           var primeiro=true;
+           var segundo=false;
+           var terceiro=false;
+           var quarto=false;
+           var quinto=false;
             
             
             function trataSlides()
             {
             	Fade2();
                 Fade3();
+                Fade4();
+                Fade5();
             }
             
             function loopIt()
@@ -34,7 +40,7 @@
                 if(primeiro)
                 {
 
-                    Fade3();                	
+                    Fade5();                	
                     Appear1();
                     
     
@@ -43,7 +49,7 @@
                 }
                 else                   
                 {
-                	if( segundo)
+                	if(segundo)
                 	{               	
                     	Fade1();
                    		Appear2();
@@ -58,9 +64,29 @@
                        		Appear3();
                        		
                         	terceiro = false;
-                        	primeiro = true;
+                        	quarto = true;
+                		}else                   
+                        {
+                        	if(quarto)
+                        	{               	
+                            	Fade3();
+                           		Appear4();
+                           		
+                            	quarto = false;
+                            	quinto = true;
+                        	}else
+                        	 {
+                        		if(quinto)
+                        		{
+                                	Fade4();
+                               		Appear5();
+                               		
+                                	quinto = false;
+                                	primeiro = true;
+                        		}
+                	 		 }
                 		}
-                	 }
+            		}
                 }
             }
         </script>
@@ -73,33 +99,28 @@
 		<div id="menuTopo">
 					
 			<h:form>
-			<h:panelGrid styleClass="horizontal-menu-cell" columnClasses="optionList" columns="1" cellspacing="0" cellpadding="0" width="250" bgcolor="">
-		            <rich:toolBar>
-		                <rich:menuItem>	                   
-			                <h:commandLink action="#{usuarioMB.escolheLogin}" >
+				<rich:toolBar>
+		               	                   
+			                <h:commandLink action="#{usuarioMB.escolheLogin}" style="color:black;text-decoration:none;" >
 								<h:outputText value="Login" />					   
-							</h:commandLink> 	                
-		                </rich:menuItem>  
+							</h:commandLink> 
 		                |
-		                 <rich:menuItem>	                   
-			                <h:commandLink action="#{usuarioMB.escolheBiografia}" >
+		                 	                   
+			                <h:commandLink action="#{usuarioMB.escolheBiografia}" style="color:black;text-decoration:none;" >
 								<h:outputText value="Biografia" />					   
-							</h:commandLink> 	                
-		                </rich:menuItem>   
+							</h:commandLink> 	  
 		                |
-		                <rich:menuItem>	
-							<h:commandLink action="#{usuarioMB.escolheBlog}" >
+		               
+							<h:commandLink action="#{usuarioMB.escolheBlog}" style="color:black;text-decoration:none;" >
 								<h:outputText value="Blog" />					   
 							</h:commandLink>
-						</rich:menuItem>  
 						|
-		                <rich:menuItem>	
-							<h:commandLink action="#{usuarioMB.escolheContato}" >
+		            
+							<h:commandLink action="#{usuarioMB.escolheContato}" style="color:black;text-decoration:none;" >
 								<h:outputText value="Contato" />					   
-							</h:commandLink>
-						</rich:menuItem>          
+							</h:commandLink>        
 		            </rich:toolBar>	            
-		   </h:panelGrid>
+		   
 		   </h:form>
 		</div>
 		
@@ -109,8 +130,8 @@
 				 
 		<div  id="testeira">		
 			<h:form>				
-				<h:commandLink action="#{quadroMB.toIndex}">							
-					<h:graphicImage value="../../imagens/logo.png" width="350" />  					   		
+				<h:commandLink style="color:white;text-decoration:none;border:none;" action="#{quadroMB.toIndex}">							
+					<h:graphicImage style="color:white;text-decoration:none;border:none;" value="../../imagens/logo.png" width="350" />  					   		
 				</h:commandLink>			
 			<hr style="color:red;">	
 			</h:form>			
@@ -141,9 +162,9 @@
 		
 			<h:form>
 			<br>
-		        <h:panelGrid styleClass="vertical-menu-cell" columnClasses="optionList" columns="1" cellspacing="0" cellpadding="0" width="250" bgcolor="">
+		        <h:panelGrid  style="border-color:#87CEEB;" columnClasses="optionList" columns="1" cellspacing="0" cellpadding="0" width="190" border="1">
 		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Abstratos" submitMode="none" direction="bottom-right" jointPoint="tr">
-		                <rich:menuItem icon="../../imagens/rosa.png" >	                   
+		                <rich:menuItem icon="../../imagens/abstrato.png" >	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="1" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Abstratos" />					   
@@ -151,8 +172,8 @@
 		                </rich:menuItem>
 		            </rich:dropDownMenu>
 		            
-		              <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Animais" submitMode="none" direction="bottom-right" jointPoint="tr">
-		                <rich:menuItem icon="../../imagens/rosa.png">	                   
+		              <rich:dropDownMenu  style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Animais" submitMode="none" direction="bottom-right" jointPoint="tr">
+		                <rich:menuItem icon="../../imagens/animais.png">	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="2" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Animais" />					   
@@ -162,19 +183,17 @@
 		            
 		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Florais" 
 		                        submitMode="none" direction="bottom-right"  jointPoint="tr">		                
-		                <rich:menuGroup value="Florais">
-		                	<rich:menuItem icon="../../imagens/rosa.png">	                   
+		                <rich:menuItem icon="../../imagens/floral.png">	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="3" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Florais" />					   
 							</h:commandLink> 	                
-		                </rich:menuItem>		                    
-		                </rich:menuGroup>
+		                </rich:menuItem>	
 		            </rich:dropDownMenu>
 		            
 		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Paisagens"
 		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
-		                <rich:menuItem icon="../../imagens/rosa.png">	                   
+		                <rich:menuItem icon="../../imagens/paisagem.png">	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="4" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Paisagens" />					   
@@ -184,7 +203,7 @@
 		            
 		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Pessoas"
 		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
-		                <rich:menuItem icon="../../imagens/rosa.png">	                   
+		                <rich:menuItem icon="../../imagens/pessoa.png">	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="5" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Pessoas" />					   
@@ -194,7 +213,7 @@
 		         
 		         	<rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Natureza Morta"
 		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
-		                <rich:menuItem icon="../../imagens/rosa.png">	                   
+		                <rich:menuItem icon="../../imagens/naturezaMorta.png">	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="6" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Natureza Morta" />					   
@@ -204,14 +223,13 @@
 		            
 		            <rich:dropDownMenu style="border:1px solid #{a4jSkin.panelBorderColor};background-color:#CAE1FF;" value="Releitura"
 		                        submitMode="none" direction="bottom-right"  jointPoint="tr">
-		                <rich:menuItem icon="../../imagens/rosa.png">	                   
+		                <rich:menuItem icon="../../imagens/releitura.png">	                   
 			                <h:commandLink action="#{quadroMB.escolheProcuraByCategoria}" >
 								<f:setPropertyActionListener value="7" target="#{quadroMB.codigoCategoria}" />
 								<h:outputText value="Releitura" />					   
 							</h:commandLink> 	                
 		                </rich:menuItem>
-		            </rich:dropDownMenu>
-		            
+		            </rich:dropDownMenu>	            
 		        </h:panelGrid>
 		    </h:form> 
 		</div>
@@ -232,7 +250,7 @@
 			<rich:dataTable  value="#{quadroMB.slide1}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
 					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="600" />
+						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="750" />
 						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
@@ -261,7 +279,7 @@
 			<rich:dataTable  value="#{quadroMB.slide2}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
 					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="600" />
+						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="750" />
 						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
@@ -290,7 +308,7 @@
 			<rich:dataTable  value="#{quadroMB.slide3}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
 					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="600" />
+						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="750" />
 						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
@@ -309,17 +327,76 @@
 					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
 				</rich:column>
 			</rich:dataTable>
-        </h:form>
-        
+        </h:form>        
+		</div>
+		
+		<div id="Slide_4">
+		
+		<h:form>
+			<rich:dataTable  value="#{quadroMB.slide4}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+				<rich:column style="text-align:left;border:none;" width="60%">			
+					<h:commandLink action="#{quadroMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="750" />
+						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+					</h:commandLink>
+				</rich:column>
+				
+				<rich:column style="border:none;"  width="2%">	
+				</rich:column>
+				
+				<rich:column style="border:none;">								    
+					<br/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<hr/>
+					<p style="color:red;font-size: 20px">
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					</p>
+					<hr>
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+				</rich:column>
+			</rich:dataTable>
+        </h:form>        
+		</div>
+		
+		<div id="Slide_5">
+		
+		<h:form>
+			<rich:dataTable  value="#{quadroMB.slide5}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+				<rich:column style="text-align:left;border:none;" width="60%">			
+					<h:commandLink action="#{quadroMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="750" />
+						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+					</h:commandLink>
+				</rich:column>
+				
+				<rich:column style="border:none;"  width="2%">	
+				</rich:column>
+				
+				<rich:column style="border:none;">								    
+					<br/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<hr/>
+					<p style="color:red;font-size: 20px">
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					</p>
+					<hr>
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+				</rich:column>
+			</rich:dataTable>
+        </h:form>        
 		</div>
 		
 		
         <rich:effect name="Appear1" for="Slide_1" type="Appear" ></rich:effect> 
         <rich:effect name="Appear2" for="Slide_2" type="Appear" ></rich:effect>
-        <rich:effect name="Appear3" for="Slide_3" type="Appear" ></rich:effect>                
+        <rich:effect name="Appear3" for="Slide_3" type="Appear" ></rich:effect>
+        <rich:effect name="Appear4" for="Slide_4" type="Appear" ></rich:effect>
+        <rich:effect name="Appear5" for="Slide_5" type="Appear" ></rich:effect>                        
         <rich:effect name="Fade1" for="Slide_1" type="Fade" ></rich:effect>
         <rich:effect name="Fade2" for="Slide_2" type="Fade" ></rich:effect>
         <rich:effect name="Fade3" for="Slide_3" type="Fade" ></rich:effect>
+        <rich:effect name="Fade4" for="Slide_4" type="Fade" ></rich:effect>
+        <rich:effect name="Fade5" for="Slide_5" type="Fade" ></rich:effect>
         
 		
 		<div  id="quadros">
@@ -332,7 +409,7 @@
 								<h:column>									
 									
 									<h:commandLink action="#{quadroMB.procuraById}">	
-										<h:graphicImage value="#{ultimo.quadroImagem}" height="150" width="150" />
+										<h:graphicImage value="#{ultimo.quadroImagem}" height="180" width="180" />
 										<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
 								    </h:commandLink> 
 								    
@@ -359,16 +436,13 @@
 				        </a4j:region>
 					</fieldset>
 				</h:form>
-		</div> 
-		
+		</div> 		
 		<div  id="rodape">
 			<hr style="color:red">
 			<fieldset style="background-color: #EE2C2C; border: 0;">
 				<h:outputText style="text-align:center;">© Helena França - 2013 | helenafranca.com.br </h:outputText>
 			</fieldset>
 		</div> 
-		</f:view>
-	
-	
+		</f:view>	
 </body>	
 </html>
