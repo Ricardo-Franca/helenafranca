@@ -174,6 +174,24 @@ public class QuadroMB implements Serializable {
 		return quadro;
 	}
 	
+	public Quadro getSlide4() throws IOException
+	{	
+		Quadro quadro = new Quadro();
+		QuadroFacade quadroService = new QuadroFacadeImpl();
+		quadro = quadroService.procuraById(4L);
+						
+		return quadro;
+	}
+	
+	public Quadro getSlide5() throws IOException
+	{	
+		Quadro quadro = new Quadro();
+		QuadroFacade quadroService = new QuadroFacadeImpl();
+		quadro = quadroService.procuraById(5L);
+						
+		return quadro;
+	}
+	
 	
 	public String toIndex() throws IOException
 	{		

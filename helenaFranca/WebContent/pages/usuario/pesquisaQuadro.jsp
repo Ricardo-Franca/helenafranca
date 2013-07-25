@@ -38,10 +38,10 @@
 				 
 		<div  id="testeira">
 			<h:form>				
-				<h:commandLink action="#{quadroMB.toIndex}">							
-					<h:graphicImage value="../../imagens/logo.png" width="350" />  					   		
-				</h:commandLink>
-				<hr style="color:red;">	
+				<h:commandLink style="color:white;text-decoration:none;border:none;" action="#{quadroMB.toIndex}">							
+					<h:graphicImage style="color:white;text-decoration:none;border:none;" value="../../imagens/logo.png" width="350" />  					   		
+				</h:commandLink>			
+			<hr style="color:red;">	
 			</h:form>			
 			<h:form>
 			<h:panelGrid id="testeira" border="0"> 			
