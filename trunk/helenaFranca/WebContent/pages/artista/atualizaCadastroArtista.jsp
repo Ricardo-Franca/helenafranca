@@ -85,6 +85,12 @@
 							</h:inputText>
 							<h:message for="telefone" errorClass="campoError" style="color:Red;" />
 							
+							<h:outputLabel for="celular" value="Celular" />
+							<h:inputText id="celular" value="#{artistaMB.cadastroArtista.celular}" required="true" requiredMessage="Campo celular obrigatório!" styleClass="edit" size="10" >
+							<rich:jQuery selector="#celular" query="mask('(99) 9999-9999')" timing="onload" />
+							</h:inputText>
+							<h:message for="celular" errorClass="campoError" style="color:Red;" />
+							
 							<h:outputLabel for="email" value="E-mail " />
 							<h:inputText id="email" value="#{artistaMB.cadastroArtista.email}" required="true" requiredMessage="Campo e-mail obrigatório!" styleClass="edit" size="30">
 								<f:validator validatorId="alteraEmailArtistaValidator" />
