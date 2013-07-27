@@ -17,6 +17,16 @@ body {
     text-align: right;    
 }
 
+#menuTopo {
+        position: absolute;     
+        bottom: 0;
+        top: -7px;
+        left: 75%;
+        font-weight: bold;
+    	font-family: arial;
+    	color: #000000;   
+}
+
 #botaoToLogin {
         position: absolute;     
         bottom: 0;
@@ -42,10 +52,10 @@ body {
 	position:absolute;
 	/*top:23%;*/
 	top:23%; 
- 	width:25%;
+ 	width:15%;
     height:300px;
     border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
-    text-align: center;
+    text-align: left;
 }
 
 #adSense
@@ -62,8 +72,8 @@ body {
 {
 	position:absolute;
 	top:23%;
-	left: 27%; 
- 	width:72%;
+	left: 17%; 
+ 	width:82%;
     height:165%;
     border: 0px solid; /* As 4 bordas sólidas com 25px de espessura*/
     text-align: center;
