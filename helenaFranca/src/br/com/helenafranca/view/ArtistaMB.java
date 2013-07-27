@@ -188,6 +188,15 @@ public class ArtistaMB implements Serializable {
 
 		return cadastroArtista;
 	}
+	
+	public Artista getBuscaArtista() {
+		
+		ArtistaFacade artistaService = new ArtistaFacadeImpl();
+		Artista cadastroArtista = new Artista();
+		cadastroArtista = artistaService.procuraByCodigo(1L);
+
+		return cadastroArtista;
+	}
 
 	public void  uploadImage(UploadEvent evento) throws FileNotFoundException 
 	{		

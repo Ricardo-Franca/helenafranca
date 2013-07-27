@@ -43,6 +43,7 @@ public class ArtistaFacadeImpl implements ArtistaFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 	}
 
 	public Artista procura(Long id) {
@@ -55,6 +56,7 @@ public class ArtistaFacadeImpl implements ArtistaFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 		
 		return a;
 	}
@@ -69,6 +71,7 @@ public class ArtistaFacadeImpl implements ArtistaFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 	}
 
 	public List<Artista> lista() {
@@ -81,6 +84,7 @@ public class ArtistaFacadeImpl implements ArtistaFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 		
 		return lista;
 	}
@@ -94,6 +98,7 @@ public class ArtistaFacadeImpl implements ArtistaFacade {
 		List<Artista> lista = this.artistaDAO.pesquisaArtistas(nome);
 		tx.commit();
 		session.close();
+		sf.close();
 		
 		return lista;
 	}
@@ -108,6 +113,7 @@ public class ArtistaFacadeImpl implements ArtistaFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 		
 		return a;
 	}
@@ -122,6 +128,7 @@ public class ArtistaFacadeImpl implements ArtistaFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 		
 		return a;
 	}
@@ -136,6 +143,7 @@ public class ArtistaFacadeImpl implements ArtistaFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 		
 		return a;
 	}
@@ -150,6 +158,7 @@ public class ArtistaFacadeImpl implements ArtistaFacade {
 		
 		tx.commit();
 		session.close();
+		sf.close();
 		
 		return a; 
 	}
