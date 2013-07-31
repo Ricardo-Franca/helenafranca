@@ -63,7 +63,7 @@
 						<f:facet name="header">
 							<h:outputText value="Imagem" />
 						</f:facet>					
-						<h:graphicImage value="#{quadroDoArtista.quadroImagem}" height="100" width="100"/>					
+						<h:graphicImage value="#{quadroDoArtista.foto}" height="100" width="100"/>					
 					</h:column>
 							
 					<h:column>
@@ -94,7 +94,7 @@
 						
 								<a4j:commandLink  action="#{quadroMB.escolheAlterarQuadro}" status="sts" reRender="quadrosDoArtista">
 									<h:outputText value="Alterar"/>
-									<f:setPropertyActionListener value="#{quadroDoArtista.cod_quadro}" target="#{quadroMB.codigoQuadro}" />			
+									<f:setPropertyActionListener value="#{quadroDoArtista.codigo}" target="#{quadroMB.codigoQuadro}" />			
 								</a4j:commandLink>
 							</h:column>		
 											
@@ -104,7 +104,7 @@
 								</f:facet>
 						
 								<a4j:commandLink  value="Excluir" action="#{quadroMB.deleteQuadros}"  status="sts" reRender="prontas">
-									<f:setPropertyActionListener value="#{quadroDoArtista.cod_quadro}" target="#{quadroMB.codigoQuadro}" />				
+									<f:setPropertyActionListener value="#{quadroDoArtista.codigo}" target="#{quadroMB.codigoQuadro}" />				
 								</a4j:commandLink>
 							</h:column>
 				 			

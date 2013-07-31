@@ -26,14 +26,8 @@ import br.com.helenafranca.controller.ClienteFacadeImpl;
 import br.com.helenafranca.controller.ArtistaFacade;
 import br.com.helenafranca.controller.ArtistaFacadeImpl;
 import br.com.helenafranca.model.entity.Categoria;
-/*import br.com.sispo.controller.PedidoDePizzaFacade;
-import br.com.sispo.controller.PedidoDePizzaFacadeImpl;
-import br.com.sispo.controller.PedidoFacade;
-import br.com.sispo.controller.PedidoFacadeImpl;*/
 import br.com.helenafranca.model.entity.Cliente;
 import br.com.helenafranca.model.entity.Artista;
-//import br.com.sispo.model.entity.Pedido;
-//import br.com.sispo.model.entity.PedidoDePizza;
 import br.com.helenafranca.util.CriptografaSenha;
 
 
@@ -59,11 +53,11 @@ public class ArtistaMB implements Serializable {
 	public String save() throws IOException {
 		FacesContext context = FacesContext.getCurrentInstance();
 		String senha = this.artista.getUsuario().getSenha();
-		this.artista.setFotoArtista(imagePath);
+		this.artista.setFoto(imagePath);
 
 		if (!senha.equals(this.confirmarSenha)) {
 			FacesMessage facesMessage = new FacesMessage(
-					"A senha n√£o foi confirmada corretamente");
+					"A senha n„o foi confirmada corretamente");
 			context.addMessage(null, facesMessage);
 			return null;
 		}
@@ -89,7 +83,7 @@ public class ArtistaMB implements Serializable {
 		if(getImagePath()!=null)
 		{
 			
-			String nome = this.getCadastroArtista().getFotoArtista(); 
+			String nome = this.getCadastroArtista().getFoto(); 
 			
 			if(nome.equals(null))
 			{
@@ -102,7 +96,7 @@ public class ArtistaMB implements Serializable {
 			File f = new File(nome);  
 			f.delete();			
 			
-			this.getCadastroArtista().setFotoArtista(imagePath);
+			this.getCadastroArtista().setFoto(imagePath);
 			this.imagePath = null;
 		}	
 		
@@ -173,12 +167,6 @@ public class ArtistaMB implements Serializable {
 		return "pesquisaSucesso";
 	}
 
-	/*public List<Artista> getArtistas() {
-		ArtistaFacade artistaService = new ArtistaFacadeImpl();
-
-		return (List)artistaService.pesquisaArtistasAtivas();
-	}*/
-
 	public Artista getCadastroArtista() {
 
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
@@ -224,21 +212,6 @@ public class ArtistaMB implements Serializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void escolheConsultarPizzaria() throws IOException
-	{		
-		ArtistaFacade artistaService = new ArtistaFacadeImpl();
-		
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
-	    HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-	        
-		Artista artista = (Artista)artistaService.procuraByCodigo(this.id);
-			
-		session.setAttribute("artistaConsultada",artista);
-			
-	    rp.sendRedirect(rq.getContextPath() + "/pages/cliente/pizzaria.jsf");	
 	}
 	
 	public Artista getArtistaConsultada()

@@ -98,7 +98,7 @@
 							<h:message for="email" errorClass="campoError" style="color:Red;" />
 							
 							<h:outputLabel for="fotoArtista" value="Foto atual" />
-							<h:graphicImage value="#{artistaMB.cadastroArtista.fotoArtista}" height="100" width="100" />
+							<h:graphicImage value="#{artistaMB.cadastroArtista.foto}" height="100" width="100" />
 							<h:inputHidden value="" />
 							
 							<h:outputLabel for="Foto" value="Foto" />

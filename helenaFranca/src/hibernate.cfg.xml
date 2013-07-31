@@ -22,6 +22,10 @@
   <mapping class="br.com.helenafranca.model.entity.Status"/>
   <mapping class="br.com.helenafranca.model.entity.Usuario"/>
   <mapping class="br.com.helenafranca.model.entity.Artista"/>
-  <mapping class="br.com.helenafranca.model.entity.Quadro"/>  
+  <mapping class="br.com.helenafranca.model.entity.Quadro"/>
+  <mapping class="br.com.helenafranca.model.entity.Postagem"/>
+  <mapping class="br.com.helenafranca.model.entity.Biografia"/>
+  <mapping class="br.com.helenafranca.model.entity.SlideShow"/>
+  <mapping class="br.com.helenafranca.model.entity.Foto"/>  
  </session-factory>
 </hibernate-configuration>

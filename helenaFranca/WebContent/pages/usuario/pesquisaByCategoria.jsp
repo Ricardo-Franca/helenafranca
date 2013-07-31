@@ -250,8 +250,8 @@
 			<rich:dataTable  value="#{quadroMB.slide1}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
 					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="750" />
-						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+						<h:graphicImage value="#{ultimo.foto}" height="220" width="750" />
+						<f:setPropertyActionListener value="#{ultimo.codigo}" target="#{quadroMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
 				
@@ -279,8 +279,8 @@
 			<rich:dataTable  value="#{quadroMB.slide2}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
 					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="750" />
-						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+						<h:graphicImage value="#{ultimo.foto}" height="220" width="750" />
+						<f:setPropertyActionListener value="#{ultimo.codigo}" target="#{quadroMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
 				
@@ -308,8 +308,8 @@
 			<rich:dataTable  value="#{quadroMB.slide3}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
 					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="750" />
-						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+						<h:graphicImage value="#{ultimo.foto}" height="220" width="750" />
+						<f:setPropertyActionListener value="#{ultimo.codigo}" target="#{quadroMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
 				
@@ -336,8 +336,8 @@
 			<rich:dataTable  value="#{quadroMB.slide4}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
 					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="750" />
-						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+						<h:graphicImage value="#{ultimo.foto}" height="220" width="750" />
+						<f:setPropertyActionListener value="#{ultimo.codigo}" target="#{quadroMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
 				
@@ -364,8 +364,8 @@
 			<rich:dataTable  value="#{quadroMB.slide5}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
 					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.quadroImagem}" height="220" width="750" />
-						<f:setPropertyActionListener value="#{ultimo.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+						<h:graphicImage value="#{ultimo.foto}" height="220" width="750" />
+						<f:setPropertyActionListener value="#{ultimo.codigo}" target="#{quadroMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
 				
@@ -409,8 +409,8 @@
 								<h:column>									
 									
 									<h:commandLink action="#{quadroMB.procuraById}">	
-										<h:graphicImage value="#{categoria.quadroImagem}" height="180" width="180" />
-										<f:setPropertyActionListener value="#{categoria.cod_quadro}" target="#{quadroMB.codigoQuadro}" />								   
+										<h:graphicImage value="#{categoria.foto}" height="180" width="180" />
+										<f:setPropertyActionListener value="#{categoria.codigo}" target="#{quadroMB.codigoQuadro}" />								   
 								    </h:commandLink> 
 								    
 									<br/>

@@ -177,7 +177,7 @@
 									<table>
 										<tr>
 											<td>
-												<h:graphicImage value="#{atual.quadroImagem}" height="450" width="600" />
+												<h:graphicImage value="#{atual.foto}" height="450" width="600" />
 											</td>
 											<td width="50"></td>
 											<td width="500" align="left">

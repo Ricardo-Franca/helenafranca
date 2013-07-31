@@ -13,8 +13,8 @@ public class Cliente implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="cod_cliente")
-	private Long codCliente;
+	@Column(name="codigo")
+	private Long codigo;
 	
 	@Column(name="nome")
 	private String nome; 
@@ -27,21 +27,17 @@ public class Cliente implements Serializable {
 	
 	@Column(name="telefone")
 	private String telefone;	
-	/*	
+
 	@OneToOne(cascade=CascadeType.ALL)
-   	@JoinColumn(name="cod_endereco")   
-   	private Endereco endereco=new Endereco();
-*/
-	@OneToOne(cascade=CascadeType.ALL)
-   	@JoinColumn(name="cod_usuario")
-	private Usuario usuario=new Usuario();	
+   	@JoinColumn(name="codigoUsuario")
+	private Usuario usuario = new Usuario();	
 	
 	public Long getCodigo() {
-		return codCliente;
+		return codigo;
 	}
 
 	public void setCodigo(Long codigo) {
-		this.codCliente = codigo;
+		this.codigo = codigo;
 	}
 
 	public String getNome() {
@@ -75,15 +71,7 @@ public class Cliente implements Serializable {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-/*
-	public Endereco getEndereco() {
-		return endereco;
-	}
 
-	public void setEndereco(Endereco endereco) {
-	this.endereco = endereco;
-	}
-*/
 	public Usuario getUsuario() {
 		return usuario;
 	}

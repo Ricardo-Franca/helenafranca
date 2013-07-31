@@ -65,13 +65,6 @@
 						</h:panelGrid>
 							
 						<h:panelGrid columns="2" id="inputs">
-								
-						<h:selectOneMenu id="status"
-							value="#{quadroMB.quadro.status.codigo}"
-							style="display:none;">
-							<f:selectItem itemValue="1" itemLabel="Empresa" />
-						</h:selectOneMenu>
-						<h:inputHidden value="" /> 
 														
 						<h:outputLabel for="nome" value="Nome" />
 						<h:inputHidden value="" />

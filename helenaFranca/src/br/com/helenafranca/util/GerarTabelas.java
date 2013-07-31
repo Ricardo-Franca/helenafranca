@@ -45,38 +45,38 @@ public class GerarTabelas {
 		
 		
 		Categoria categoria = new Categoria();
-		categoria.setCodigo(1);
+		categoria.setCodigo(1L);
 		categoria.setDescricao("Abstrato");
 		CategoriaMB categoriaMB = new CategoriaMB();
 		categoriaMB.setCategoria(categoria);
 		categoriaMB.save();		
 		
-		categoria.setCodigo(2);
+		categoria.setCodigo(2L);
 		categoria.setDescricao("Animais");
 		categoriaMB.setCategoria(categoria);
 		categoriaMB.save();
 		
-		categoria.setCodigo(3);
+		categoria.setCodigo(3L);
 		categoria.setDescricao("Florais");
 		categoriaMB.setCategoria(categoria);
 		categoriaMB.save();
 		
-		categoria.setCodigo(4);
+		categoria.setCodigo(4L);
 		categoria.setDescricao("Paisagens");
 		categoriaMB.setCategoria(categoria);
 		categoriaMB.save();
 		
-		categoria.setCodigo(5);
+		categoria.setCodigo(5L);
 		categoria.setDescricao("Pessoas");
 		categoriaMB.setCategoria(categoria);
 		categoriaMB.save();
 		
-		categoria.setCodigo(6);
+		categoria.setCodigo(6L);
 		categoria.setDescricao("Natureza Morta");
 		categoriaMB.setCategoria(categoria);
 		categoriaMB.save();
 		
-		categoria.setCodigo(7);
+		categoria.setCodigo(7L);
 		categoria.setDescricao("Releitura");
 		categoriaMB.setCategoria(categoria);
 		categoriaMB.save();
@@ -100,12 +100,12 @@ public class GerarTabelas {
 		TipoUsuario tipoUsuario = new TipoUsuario();
 		TipoUsuarioMB tipoUsuarioMB = new TipoUsuarioMB();
 			
-		tipoUsuario.setCodigo(1);
+		tipoUsuario.setCodigo(1L);
 		tipoUsuario.setDescricao("Artista");
 		tipoUsuarioMB.setTipoUsuario(tipoUsuario);
 		tipoUsuarioMB.save();
 		
-		tipoUsuario.setCodigo(2);
+		tipoUsuario.setCodigo(2L);
 		tipoUsuario.setDescricao("Cliente");
 		tipoUsuarioMB.setTipoUsuario(tipoUsuario);
 		tipoUsuarioMB.save();
@@ -117,9 +117,9 @@ public class GerarTabelas {
 		
 		usuario.setCodigo(1L);		
 		usuario.setLogin("helenaadmin");
-		usuario.setSenha(CriptografaSenha.md5("millenajvitinho"));		
+		usuario.setSenha(CriptografaSenha.md5("helenaadmin"));		
 		usuario.getStatus().setCodigo(1L);
-		usuario.getTipoUsuario().setCodigo(1);
+		usuario.getTipoUsuario().setCodigo(1L);
 		
 		usuarioMB.setUsuario(usuario);
 		usuarioMB.save();

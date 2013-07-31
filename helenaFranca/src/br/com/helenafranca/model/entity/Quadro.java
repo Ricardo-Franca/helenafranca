@@ -17,8 +17,8 @@ public class Quadro implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="cod_quadro")
-	private Long cod_quadro;
+	@Column(name="codigo")
+	private Long codigo;
 	
 	@Column(name="nome")
 	private String nome; 
@@ -35,27 +35,23 @@ public class Quadro implements Serializable {
 	@Column(name="preco")
 	private String preco;
 	
-	@Column(name="quadro_imagem")
-	private String quadroImagem;
+	@Column(name="foto")
+	private String foto;
 		
 	@ManyToOne(fetch = FetchType.EAGER)
-   	@JoinColumn(name="cod_categoria")   
+   	@JoinColumn(name="codigoCategoria")   
    	private Categoria categoria = new Categoria();
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cod_status")
-	private Status status = new Status();
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cod_artista")
+	@JoinColumn(name = "codigoArtista")
 	private Artista artista = new Artista();
 	
-	public Long getCod_quadro() {
-		return cod_quadro;
+	public Long getCodigo() {
+		return codigo;
 	}
 
-	public void setCod_quadro(Long cod_quadro) {
-		this.cod_quadro = cod_quadro;
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getNome() {
@@ -106,20 +102,12 @@ public class Quadro implements Serializable {
 		this.categoria = categoria;
 	}
 
-	public String getQuadroImagem() {
-		return quadroImagem;
+	public String getFoto() {
+		return foto;
 	}
 
-	public void setQuadroImagem(String quadroImagem) {
-		this.quadroImagem = quadroImagem;
-	}
-
-	public Status getStatus() {
-		return status;
-	}
-
-	public void setStatus(Status status) {
-		this.status = status;
+	public void setQuadroImagem(String foto) {
+		this.foto = foto;
 	}
 
 	public Artista getArtista() {

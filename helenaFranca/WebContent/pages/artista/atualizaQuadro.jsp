@@ -113,7 +113,7 @@
 						<h:outputLabel for="Imagem" value="Imagem atual" />
 						<h:inputHidden value=""/>
 						
-						<h:graphicImage value="#{quadroMB.cadastroQuadro.quadroImagem}" height="100" width="100" />
+						<h:graphicImage value="#{quadroMB.cadastroQuadro.foto}" height="100" width="100" />
 						<h:inputHidden value="" />
 					
 						<rich:fileUpload fileUploadListener="#{quadroMB.uploadImage}" listWidth="200" listHeight="50" id="Imagem" maxFilesQuantity="1" acceptedTypes="jpg, gif, png, bmp"/>

@@ -54,6 +54,7 @@ public class QuadroMB implements Serializable {
 		this.quadro.setQuadroImagem(getImagePath());
 		quadroService.salva(this.quadro);		
 		this.quadro = new Quadro();
+		this.imagePath = null;
 		
 		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
         HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
@@ -66,7 +67,7 @@ public class QuadroMB implements Serializable {
 		QuadroFacade quadroService = new QuadroFacadeImpl();		
 		this.quadro = quadroService.procuraById(codigoQuadro);
 		
-		String nome = this.quadro.getQuadroImagem(); 	
+		String nome = this.quadro.getFoto(); 	
 		nome = nome.substring(21);
 		nome = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps" + nome;
 				
@@ -89,7 +90,7 @@ public class QuadroMB implements Serializable {
 		
 		if(getImagePath()!=null)
 		{
-			String nome = this.getCadastroQuadro().getQuadroImagem();
+			String nome = this.getCadastroQuadro().getFoto();
 			
 			if(nome.equals(null))
 			{
@@ -103,10 +104,11 @@ public class QuadroMB implements Serializable {
 			f.delete();
 			
 			this.getCadastroQuadro().setQuadroImagem(getImagePath());
-			this.imagePath = null;
+			
 		}
 		
 		quadroService.atualiza(this.getCadastroQuadro());
+		this.imagePath = null;
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		session.setAttribute("quadroAtual", this.getCadastroQuadro());
 		this.quadro = new Quadro();
