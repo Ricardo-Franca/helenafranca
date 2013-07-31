@@ -15,7 +15,7 @@ public class Artista implements Serializable {
 	@Column(name = "nome")
 	private String nome;
 
-	@Column(name = "nome_Artistico")
+	@Column(name = "nomeArtistico")
 	private String nomeArtistico;
 
 	@Column(name = "telefone")
@@ -28,11 +28,11 @@ public class Artista implements Serializable {
 	private String email;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "cod_usuario")
+	@JoinColumn(name = "codigoUsuario")
 	private Usuario usuario = new Usuario();
 	
-	@Column(name="foto_artista")
-	private String fotoArtista;
+	@Column(name="foto")
+	private String foto;
 
 	public Long getCodigo() {
 		return codigo;
@@ -90,12 +90,12 @@ public class Artista implements Serializable {
 		this.nomeArtistico = nomeArtistico;
 	}
 
-	public String getFotoArtista() {
-		return fotoArtista;
+	public String getFoto() {
+		return foto;
 	}
 
-	public void setFotoArtista(String fotoArtista) {
-		this.fotoArtista = fotoArtista;
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}	
 	
 }

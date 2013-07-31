@@ -48,31 +48,10 @@ public class ArtistaDAO extends DAO<Artista> {
 		Query query = session
 		.createQuery(" select a from Artista a " +
 				" left join fetch a.usuario " +
-				" where a.usuario.cod_usuario = "+codigo+" ");
+				" where a.usuario.codigo = "+codigo+" ");
 
 		return (Artista) query.uniqueResult();
-	}
-	
-	public void inativaArtista(Long codigo)
-	{
-		Query query = session
-		.createQuery(" update Usuario u " +
-				" set status = 2 " +
-				" where cod_usuario = "+codigo+"");
-		
-		query.executeUpdate();
-	}
-	/*
-	public List<Artista> pesquisaArtistasAtivos() 
-	{
-		
-		Query query = session
-		.createQuery(" select e from Empresa e" +
-				" where e.usuario.status = 1 ");
-
-		return query.list();
-	}*/
-	
+	}	
 	
 	public Artista pesquisaArtistaByEmail(String email) {
 		Query query = session

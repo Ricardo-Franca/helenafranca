@@ -172,7 +172,7 @@
 									<table>
 										<tr>
 											<td>
-												<h:graphicImage value="#{artista.fotoArtista}" height="200" width="200" />
+												<h:graphicImage value="#{artista.foto}" height="200" width="200" />
 											</td>
 											<td width="50"></td>
 											<td width="500" align="left">

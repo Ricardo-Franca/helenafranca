@@ -16,8 +16,8 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "cod_usuario")
-	private Long cod_usuario;
+	@Column(name = "codigo")
+	private Long codigo;
 
 	@Column(name = "login")
 	private String login;
@@ -26,19 +26,19 @@ public class Usuario implements Serializable {
 	private String senha;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cod_tipousuario")
+	@JoinColumn(name = "codigoTipoUsuario")
 	private TipoUsuario tipoUsuario = new TipoUsuario();
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cod_status")
+	@JoinColumn(name = "codigoStatus")
 	private Status status = new Status();
 
 	public Long getCodigo() {
-		return cod_usuario;
+		return codigo;
 	}
 
 	public void setCodigo(Long codigo) {
-		this.cod_usuario = codigo;
+		this.codigo = codigo;
 	}
 
 	public String getLogin() {

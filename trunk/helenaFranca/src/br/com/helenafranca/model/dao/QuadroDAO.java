@@ -32,7 +32,7 @@ public class QuadroDAO extends DAO<Quadro> {
 	@SuppressWarnings("unchecked")
 	public Quadro pesquisaQuadros(String nome) {
 		Criteria c = session.createCriteria(Quadro.class);
-		c.add(Restrictions.ilike("nome", "%" + nome + "% and cod_status = 1"));		
+		c.add(Restrictions.ilike("nome", "%" + nome + "%"));		
 
 		return (Quadro) c.uniqueResult();
 	}
@@ -42,7 +42,7 @@ public class QuadroDAO extends DAO<Quadro> {
 		
 		Query query = session
 		.createQuery(" select q from Quadro q" +
-				" where cod_categoria = "+categoria+" and nome like '%"+nome+"%' and cod_status = 1");
+				" where codigoCategoria = "+categoria+" and nome like '%"+nome+"%'");
 		return query.list();
 	}
 	
@@ -51,7 +51,7 @@ public class QuadroDAO extends DAO<Quadro> {
 		
 		Query query = session
 		.createQuery(" select q from Quadro q" +
-				" where cod_categoria = "+categoria+" and cod_status = 1");
+				" where codigoCategoria = "+categoria+"");
 		return query.list();
 	}
 	
@@ -60,7 +60,7 @@ public class QuadroDAO extends DAO<Quadro> {
 		
 		Query query = session
 		.createQuery(" select q from Quadro q" +
-				" where cod_status = 1 order by cod_quadro desc ");
+				" order by codigo desc ");
 		return query.list();
 	}
 		
@@ -69,8 +69,8 @@ public class QuadroDAO extends DAO<Quadro> {
 		
 		Query query = session
 		.createQuery(" select q from Quadro q" +
-				" where cod_artista = "+codigo+" and cod_status = 1" +
-						" order by cod_quadro desc ");
+				" where codigoArtista = "+codigo+"" +
+						" order by codigo desc ");
 
 		return query.list();
 	}

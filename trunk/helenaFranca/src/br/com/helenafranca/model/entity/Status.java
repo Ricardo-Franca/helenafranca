@@ -12,10 +12,10 @@ public class Status implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "cod_status")
+	@Column(name = "codigo")
 	private Long codigo;
 
-	@Column(name = "desc_status")
+	@Column(name = "descricao")
 	private String descricao;
 
 	public Long getCodigo() {

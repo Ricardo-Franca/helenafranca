@@ -10,17 +10,17 @@ public class TipoUsuario implements Serializable {
 
 	private static final long serialVersionUID = 1302821089486522214L;
 	@Id
-	@Column(name = "cod_tipoUsuario")
-	private Integer codigo;
+	@Column(name = "codigo")
+	private Long codigo;
 
-	@Column(name = "desc_usuario")
+	@Column(name = "descricao")
 	private String descricao;
 
-	public Integer getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
