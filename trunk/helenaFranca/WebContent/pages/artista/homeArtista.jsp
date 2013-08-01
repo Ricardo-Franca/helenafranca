@@ -82,18 +82,27 @@
 							</rich:panelMenuItem>
 						</rich:panelMenuGroup>
 												
-						<rich:panelMenuGroup label="Quadros do SlideShow">						
-						<rich:panelMenuItem icon="../../imagens/Quadro.jpg">
-							<h:commandLink value="Consultar" />
+						<rich:panelMenuGroup label="SlideShow">						
+						<rich:panelMenuItem icon="../../imagens/slideshow.png">
+							<h:commandLink value="Manter Imagens" />
 						</rich:panelMenuItem>
 						</rich:panelMenuGroup>
 						
-						<rich:panelMenuGroup label="Relatório">
-							<rich:panelMenuItem icon="../../imagens/relatorio.png">
-								<h:commandLink value="Gerar Relatório"/>
+						<rich:panelMenuGroup label="Biografia">
+							<rich:panelMenuItem icon="../../imagens/fotos.png">
+								<h:commandLink value="Manter fotos" action="toManterFotos"/>
 							</rich:panelMenuItem>
-							<rich:panelMenuItem icon="../../imagens/graficos.png">
-								<h:commandLink value="Gerar Gráficos" />
+							<rich:panelMenuItem icon="../../imagens/biografia.png">
+								<h:commandLink value="Manter biografia"/>
+							</rich:panelMenuItem>
+						</rich:panelMenuGroup>
+						
+						<rich:panelMenuGroup label="Blog">
+							<rich:panelMenuItem icon="../../imagens/adicionar.png">
+								<h:commandLink value="Nova postagem"/>
+							</rich:panelMenuItem>
+							<rich:panelMenuItem icon="../../imagens/consultar.png">
+								<h:commandLink value="Consultar postagens"/>
 							</rich:panelMenuItem>
 						</rich:panelMenuGroup>											
 												

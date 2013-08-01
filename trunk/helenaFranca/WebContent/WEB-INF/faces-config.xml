@@ -115,6 +115,22 @@
 			<to-view-id>/pages/artista/consultaQuadros.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/homeArtista</display-name>
+		<from-view-id>/pages/artista/homeArtista.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toManterFotos</from-outcome>
+			<to-view-id>/pages/artista/manterFotos.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/manterFotos</display-name>
+		<from-view-id>/pages/artista/manterFotos.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toHomeArtista</from-outcome>
+			<to-view-id>/pages/artista/homeArtista.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	
 	<validator>
   		<validator-id>alteraEmailArtistaValidator</validator-id>
