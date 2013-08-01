@@ -181,7 +181,7 @@ body {
 #homeArtista
 {
 	position:absolute;
-	top:23%; 
+	top:24%; 
  	width:98%;
     height:300px;
     border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
@@ -197,4 +197,69 @@ body {
     height:50%;
     border: 0px solid; /* As 4 bordas sólidas com 25px de espessura*/
     text-align: center;
+}
+
+#foto1
+{
+	position:absolute;
+	top:28%; 
+ 	width:10%;
+    height:300px;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: left;
+}
+
+#foto2
+{
+	position:absolute;
+	top:28%; 
+ 	width:10%;
+ 	left: 20%;
+    height:300px;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: left;
+}
+
+#foto3
+{
+	position:absolute;
+	top:28%; 
+ 	width:10%;
+ 	left: 40%;
+    height:300px;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: left;
+}
+
+#foto4
+{
+	position:absolute;
+	top:28%; 
+ 	width:10%;
+ 	left: 60%;
+    height:300px;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: left;
+}
+
+#foto5
+{
+	position:absolute;
+	top:28%; 
+ 	width:10%;
+ 	left: 80%;
+    height:300px;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: left;
+}
+
+
+#botaoVoltar
+{
+	position:absolute;
+	top:75%; 
+ 	width:98%;
+    height:300px;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: left;
 }

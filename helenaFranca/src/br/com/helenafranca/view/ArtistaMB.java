@@ -203,7 +203,7 @@ public class ArtistaMB implements Serializable {
 		}
 				
 		OutputStream out = new FileOutputStream(caminhoReal+"/" + "img"+ tempo + "." + extensao);
-		setImagePath("http://localhost:8081/imagensHelenaFranca/" + "img"	+ tempo + "." + extensao);
+		this.setImagePath("http://localhost:8081/imagensHelenaFranca/" + "img"	+ tempo + "." + extensao);
 		
 		try {
 			out.write(item.getData());
