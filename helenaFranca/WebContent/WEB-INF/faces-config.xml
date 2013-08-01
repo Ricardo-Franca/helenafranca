@@ -25,6 +25,16 @@
 		<managed-bean-class>br.com.helenafranca.view.ArtistaMB</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>biografiaMB</managed-bean-name>
+		<managed-bean-class>br.com.helenafranca.view.BiografiaMB</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>fotoMB</managed-bean-name>
+		<managed-bean-class>br.com.helenafranca.view.FotoMB</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<display-name>pages/artista/homeArtista</display-name>
 		<from-view-id>/pages/artista/homeArtista.jsp</from-view-id>
