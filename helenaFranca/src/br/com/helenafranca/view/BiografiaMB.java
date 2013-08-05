@@ -1,8 +1,17 @@
 package br.com.helenafranca.view;
 
+import java.io.IOException;
 import java.io.Serializable;
+
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import br.com.helenafranca.controller.ArtistaFacade;
+import br.com.helenafranca.controller.ArtistaFacadeImpl;
 import br.com.helenafranca.controller.BiografiaFacade;
 import br.com.helenafranca.controller.BiografiaFacadeImpl;
+import br.com.helenafranca.model.entity.Artista;
 import br.com.helenafranca.model.entity.Biografia;
 
 
@@ -20,53 +29,29 @@ public class BiografiaMB implements Serializable {
 			this.biografia = new Biografia();
 		}
 	}
-/*
+
 	public String updateCadastro() throws IOException {
-		ArtistaFacade artistaService = new ArtistaFacadeImpl();
-						
-		if(getImagePath()!=null)
-		{
-			
-			String nome = this.getCadastroArtista().getFoto(); 
-			
-			if(nome.equals(null))
-			{
-				nome = "http://localhost:8081/imagensHelenaFranca/imgcontroleDeErro.jpg";
-			}
-			
-			nome = nome.substring(21);
-			nome = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps" + nome;
-					
-			File f = new File(nome);  
-			f.delete();			
-			
-			this.getCadastroArtista().setFoto(imagePath);
-			this.imagePath = null;
-		}	
+		BiografiaFacade biografiaService = new BiografiaFacadeImpl();	
 		
-		artistaService.atualiza(this.getCadastroArtista());
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
-				.getExternalContext().getSession(false);
-		session.setAttribute("artistaLogado", this.getCadastroArtista());
-		this.artista = new Artista();
+		biografiaService.atualiza(this.biografia);
+		this.biografia = new Biografia();
 		
 		HttpServletResponse rp = (HttpServletResponse) FacesContext
 		.getCurrentInstance().getExternalContext().getResponse();
 		HttpServletRequest rq = (HttpServletRequest) FacesContext
 		.getCurrentInstance().getExternalContext().getRequest();
-		rp.sendRedirect(rq.getContextPath() + "/pages/artista/atualizaCadastroArtista.jsf");
+		rp.sendRedirect(rq.getContextPath() + "/pages/artista/atualizaCadastroBiografia.jsf");
 
 
 		return "atualizaSucesso";
 	}
-*/
+
 	public Biografia getBiografia() {
 
 		BiografiaFacade biografiaService = new BiografiaFacadeImpl();
-		Biografia cadastroBiografia = new Biografia();
 		
-		cadastroBiografia = biografiaService.procura(1L);		
+		this.biografia = biografiaService.procura(1L);		
 
-		return cadastroBiografia;
+		return this.biografia;
 	}
 }
