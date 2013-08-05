@@ -312,7 +312,7 @@
 									<br/>
 									<hr>
 									<br/>												
-									<h:outputText value="#{biografia.texto}"/>		
+									<h:inputTextarea value="#{biografia.texto}" readonly="true" style="width:100%;" rows="26" />		
 								</h:column>					 	
 							</rich:dataGrid>			    	  
 					</fieldset>

@@ -131,6 +131,22 @@
 			<to-view-id>/pages/artista/homeArtista.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/homeArtista</display-name>
+		<from-view-id>/pages/artista/homeArtista.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toAtualizaCadastroBiografia</from-outcome>
+			<to-view-id>/pages/artista/atualizaCadastroBiografia.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/atualizaCadastroBiografia</display-name>
+		<from-view-id>/pages/artista/atualizaCadastroBiografia.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toHomeArtista</from-outcome>
+			<to-view-id>/pages/artista/homeArtista.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	
 	<validator>
   		<validator-id>alteraEmailArtistaValidator</validator-id>

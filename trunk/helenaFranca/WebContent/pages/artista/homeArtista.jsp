@@ -90,10 +90,10 @@
 						
 						<rich:panelMenuGroup label="Biografia">
 							<rich:panelMenuItem icon="../../imagens/fotos.png">
-								<h:commandLink value="Manter fotos" action="toManterFotos"/>
+								<h:commandLink value="Alterar fotos" action="toManterFotos"/>
 							</rich:panelMenuItem>
 							<rich:panelMenuItem icon="../../imagens/biografia.png">
-								<h:commandLink value="Manter biografia"/>
+								<h:commandLink value="Atualizar biografia" action="toAtualizaCadastroBiografia" />
 							</rich:panelMenuItem>
 						</rich:panelMenuGroup>
 						
