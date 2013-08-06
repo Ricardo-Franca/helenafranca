@@ -8,6 +8,15 @@ body {
         background-color: #FFFFFF;
 }
 
+#topo
+{
+	position: absolute;
+ 	width:98%;
+    height:4%;
+    border: 0px solid; /* As 4 bordas sólidas com 25px de espessura */
+    text-align: right;    
+}
+
 #menuLogin
 {
         position: absolute;
@@ -15,7 +24,17 @@ body {
         top: 55%;
         width:10%;
         left: 65%;
-} 
+}
+
+#menuTopo {
+        position: absolute;     
+        bottom: 0;
+        top: -7px;
+        left: 75%;
+        font-weight: bold;
+    	font-family: arial;
+    	color: #000000;   
+}
 
 #testeira
 {

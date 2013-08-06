@@ -1,40 +1,30 @@
 package br.com.helenafranca.util;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import br.com.helenafranca.model.entity.Artista;
-import br.com.helenafranca.model.entity.Biografia;
-import br.com.helenafranca.model.entity.Foto;
+import br.com.helenafranca.model.entity.Postagem;
 import br.com.helenafranca.model.entity.Quadro;
-import br.com.helenafranca.model.entity.Usuario;
-import br.com.helenafranca.view.QuadroMB;
 import br.com.helenafranca.controller.*;
 
 public class testes {
 	
 	public static void main(String[] args) 
 	{
-		FotoFacade fotoService = new FotoFacadeImpl();
-		List<Foto> lista = new ArrayList();
+		PostagemFacade postagemService = new PostagemFacadeImpl();
+	
+		//postagemService.remove(postagemService.procura(1L));
 		
-		lista = (List<Foto>)fotoService.lista();
+		Postagem postagem = new Postagem();
 		
-		int tamanho = lista.size();
+		postagem = postagemService.procuraById(1L);
 		
-		for(int i=0;i<tamanho;i++)
-		{
-			System.out.println(lista.get(i).getFoto());			
-		}
+		Artista artista = new Artista();
+		artista.setCodigo(2L);
+		ArtistaFacade artistaService = new ArtistaFacadeImpl();
+		artistaService.salva(artista);
 		
-		
-		
-		
+		//postagemService.remove(postagem);
+			
+	
 	}
 }
 

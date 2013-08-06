@@ -26,7 +26,35 @@
 	<f:view >
 		
 		<div  id="topo">
-		<br>
+		
+		<div id="menuTopo">
+					
+			<h:form>
+				<rich:toolBar>
+		               	                   
+			                <h:commandLink action="#{usuarioMB.escolheLogin}" style="color:black;text-decoration:none;" >
+								<h:outputText value="Login" />					   
+							</h:commandLink> 
+		                |
+		                 	                   
+			                <h:commandLink action="#{usuarioMB.escolheBiografia}" style="color:black;text-decoration:none;" >
+								<h:outputText value="Biografia" />					   
+							</h:commandLink> 	  
+		                |
+		               
+							<h:commandLink action="#{usuarioMB.escolheBlog}" style="color:black;text-decoration:none;" >
+								<h:outputText value="Blog" />					   
+							</h:commandLink>
+						|
+		            
+							<h:commandLink action="#{usuarioMB.escolheContato}" style="color:black;text-decoration:none;" >
+								<h:outputText value="Contato" />					   
+							</h:commandLink>        
+		            </rich:toolBar>	            
+		   
+		   </h:form>
+		</div>
+
 		<br>
 		<hr style="color:#FF0000;">		
 		</div>
