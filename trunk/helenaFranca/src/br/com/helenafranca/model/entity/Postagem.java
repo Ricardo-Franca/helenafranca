@@ -29,7 +29,7 @@ public class Postagem {
 	@Column(name="imagem")
 	private String imagem;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY) 
 	@JoinColumn(name = "codigoArtista")
 	private Artista artista = new Artista();
 
