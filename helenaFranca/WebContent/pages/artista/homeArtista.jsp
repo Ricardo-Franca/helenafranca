@@ -99,7 +99,7 @@
 						
 						<rich:panelMenuGroup label="Blog">
 							<rich:panelMenuItem icon="../../imagens/adicionar.png">
-								<h:commandLink value="Nova postagem"/>
+								<h:commandLink value="Nova postagem" action="toCadastraPostagem"/>
 							</rich:panelMenuItem>
 							<rich:panelMenuItem icon="../../imagens/consultar.png">
 								<h:commandLink value="Consultar postagens"/>
