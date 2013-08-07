@@ -6,7 +6,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
@@ -40,26 +44,37 @@ public class PostagemMB implements Serializable {
 			this.postagem = new Postagem(); 			
 		}
 	}	
-	/*
+	
 	public String save() throws IOException
 	{				
 		
-		QuadroFacade quadroService = new QuadroFacadeImpl();	
+		PostagemFacade postagemService = new PostagemFacadeImpl();	
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Artista artista = (Artista) session.getAttribute("artistaLogado");
 		
-		this.quadro.getArtista().setCodigo(artista.getCodigo());		
-		this.quadro.setQuadroImagem(getImagePath());
-		quadroService.salva(this.quadro);		
-		this.quadro = new Quadro();
+		Date date = new Date(); 
+		SimpleDateFormat formataHora = new SimpleDateFormat("HH:mm"); // 12:00:00
+		SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd"); //2014-01-01
+		
+		String hora = formataHora.format(date);
+		String data = formataData.format(date);
+						
+		this.postagem.setHora(hora);
+		this.postagem.setData(data);		
+		
+		this.postagem.getArtista().setCodigo(artista.getCodigo());
+		this.postagem.setImagem(getImagePath());
+			
+		postagemService.salva(this.postagem);		
+		this.postagem = new Postagem();
 		this.imagePath = null;
 		
 		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
         HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        rp.sendRedirect(rq.getContextPath() + "/pages/artista/consultaQuadros.jsf");
+        rp.sendRedirect(rq.getContextPath() + "/pages/artista/consultaPostagens.jsf");
 		return "cadastraSucesso";
 	}
-	*/
+	
 	
 	/*
 	public String deleteQuadros() throws IOException{
