@@ -21,183 +21,165 @@ import javax.servlet.http.HttpSession;
 import org.richfaces.event.UploadEvent;
 import org.richfaces.model.UploadItem;
 
-
 import br.com.helenafranca.controller.ArtistaFacade;
 import br.com.helenafranca.controller.ArtistaFacadeImpl;
 import br.com.helenafranca.controller.PostagemFacade;
 import br.com.helenafranca.controller.PostagemFacadeImpl;
 import br.com.helenafranca.model.entity.Artista;
 import br.com.helenafranca.model.entity.Postagem;
+import br.com.helenafranca.model.entity.Quadro;
 
 public class PostagemMB implements Serializable {
 
 	private static final long serialVersionUID = 2273212693618648253L;
 
 	private Postagem postagem = new Postagem();
-	
+	private Long codigoPostagem;
+
 	private static String imagePath;
 
-	public PostagemMB(){
-		System.out.println(" >>>>>>>>>>>>>>>>>>>> Contrutor de POSTAGEM_MB <<<<<<<<<<<<<<<<<<");
-		
-		if(this.postagem == null){
-			this.postagem = new Postagem(); 			
+	public PostagemMB() {
+		System.out
+				.println(" >>>>>>>>>>>>>>>>>>>> Contrutor de POSTAGEM_MB <<<<<<<<<<<<<<<<<<");
+
+		if (this.postagem == null) {
+			this.postagem = new Postagem();
 		}
-	}	
-	
-	public String save() throws IOException
-	{				
-		
-		PostagemFacade postagemService = new PostagemFacadeImpl();	
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+	}
+
+	public String save() throws IOException {
+
+		PostagemFacade postagemService = new PostagemFacadeImpl();
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
+				.getExternalContext().getSession(false);
 		Artista artista = (Artista) session.getAttribute("artistaLogado");
-		
-		Date date = new Date(); 
+
+		Date date = new Date();
 		SimpleDateFormat formataHora = new SimpleDateFormat("HH:mm"); // 12:00:00
-		SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd"); //2014-01-01
-		
+		SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd"); // 2014-01-01
+
 		String hora = formataHora.format(date);
 		String data = formataData.format(date);
-						
+
 		this.postagem.setHora(hora);
-		this.postagem.setData(data);		
-		
+		this.postagem.setData(data);
+
 		this.postagem.getArtista().setCodigo(artista.getCodigo());
 		this.postagem.setImagem(getImagePath());
-			
-		postagemService.salva(this.postagem);		
+
+		postagemService.salva(this.postagem);
 		this.postagem = new Postagem();
 		this.imagePath = null;
-		
-		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
-        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        rp.sendRedirect(rq.getContextPath() + "/pages/artista/consultaPostagens.jsf");
+
+		HttpServletResponse rp = (HttpServletResponse) FacesContext
+				.getCurrentInstance().getExternalContext().getResponse();
+		HttpServletRequest rq = (HttpServletRequest) FacesContext
+				.getCurrentInstance().getExternalContext().getRequest();
+		rp.sendRedirect(rq.getContextPath()
+				+ "/pages/artista/consultaPostagens.jsf");
 		return "cadastraSucesso";
 	}
+
 	
-	
-	/*
-	public String deleteQuadros() throws IOException{
-		
-		QuadroFacade quadroService = new QuadroFacadeImpl();		
-		this.quadro = quadroService.procuraById(codigoQuadro);
-		
-		String nome = this.quadro.getFoto(); 	
-		nome = nome.substring(21);
-		nome = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps" + nome;
-				
-		File f = new File(nome);  
-		f.delete();
-			
-		quadroService.remove(this.quadro);
-		this.quadro = new Quadro();
-		
-		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
-        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        rp.sendRedirect(rq.getContextPath() + "/pages/artista/consultaQuadros.jsf");
-		
-		return "removeSucesso";
-	}
-	*/
-	/*
+	  public String deletePostagem() throws IOException
+	  {	  
+		  PostagemFacade postagemService = new PostagemFacadeImpl(); 
+		  this.postagem = postagemService.procuraById(codigoPostagem);
+		  
+		  String nome = this.postagem.getImagem();
+		  nome = nome.substring(21); nome = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps" + nome;
+		  
+		  File f = new File(nome); f.delete();
+		  
+		  postagemService.remove(this.postagem);
+		  this.postagem = new Postagem();
+		  
+		  HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+		  HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		  rp.sendRedirect(rq.getContextPath() +"/pages/artista/consultaPostagens.jsf");
+		  
+		  return "removeSucesso"; 
+	  }
+	 
+
 	public String updateCadastro() throws IOException {
-		QuadroFacade quadroService = new QuadroFacadeImpl();
-		
-		
-		if(getImagePath()!=null)
-		{
-			String nome = this.getCadastroQuadro().getFoto();
-			
-			if(nome.equals(null))
-			{
-				nome = "http://localhost:8081/imagensHelenaFranca/imgcontroleDeErro.jpg";
+		PostagemFacade postagemService = new PostagemFacadeImpl();
+
+		if (getImagePath() != null) {
+			if (this.getPostagemAtual().getImagem() != null) {
+				String nome = "";
+				nome += this.getPostagemAtual().getImagem();
+
+				if (nome.equals(null) || nome.equals("")) {
+					nome = "http://localhost:8081/imagensHelenaFranca/imgcontroleDeErro.jpg";
+				}
+
+				nome = nome.substring(21);
+				nome = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps"
+						+ nome;
+
+				File f = new File(nome);
+				f.delete();
 			}
-			
-			nome = nome.substring(21);
-			nome = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps" + nome;
-					
-			File f = new File(nome);  
-			f.delete();
-			
-			this.getCadastroQuadro().setQuadroImagem(getImagePath());
-			
+			this.getPostagemAtual().setImagem(getImagePath());
 		}
-		
-		quadroService.atualiza(this.getCadastroQuadro());
+
+		postagemService.atualiza(this.getPostagemAtual());
 		this.imagePath = null;
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		session.setAttribute("quadroAtual", this.getCadastroQuadro());
-		this.quadro = new Quadro();
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
+				.getExternalContext().getSession(false);
+		session.setAttribute("quadroAtual", this.getPostagemAtual());
+		this.postagem = new Postagem();
 
 		return "atualizaSucesso";
 	}
-	*/
-	/*
-	public Quadro getCadastroQuadro() {
 
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		Quadro cadastroQuadro = new Quadro();
-		cadastroQuadro = (Quadro) session.getAttribute("quadroAtual");
-
-		return cadastroQuadro;
-	}
-	
-	
-	public String load(){
-		QuadroFacade quadroService = new QuadroFacadeImpl();
-		this.quadro = quadroService.procura(this.id);
-		
-		return "pesquisaSucesso";
-	}
-	
-	public String procuraById() throws IOException
-	{	
-		Quadro quadro = new Quadro();
-		QuadroFacade quadroService = new QuadroFacadeImpl();
-		quadro = quadroService.procuraById(codigoQuadro);
-						
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
-        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		
-        session.setAttribute("quadroAtual", quadro);	
-		
-        rp.sendRedirect(rq.getContextPath() + "/pages/usuario/pesquisaQuadro.jsf");	
-        return "setado";
-	}
-	*/
-		
-	public List<Postagem> getUltimasPostagens() throws IOException
-	{					
+	public List<Postagem> getUltimasPostagens() throws IOException {
 		List<Postagem> lista = new ArrayList();
 		PostagemFacade postagemService = new PostagemFacadeImpl();
-		lista = postagemService.procuraUltimasPostagens();		
-		
+		lista = postagemService.procuraUltimasPostagens();
+
 		int tamanho = lista.size();
-		
+
 		ArtistaFacade artistaService = new ArtistaFacadeImpl();
 		Artista artista = artistaService.procuraByCodigo(1L);
 		
-		for(int i=0;i<tamanho;i++)
-		{
+		String auxiliar = "";
+		
+		for (int i = 0; i < tamanho; i++) {
 			lista.get(i).setArtista(artista);
-		}		
 			
-        return lista;
-	}
-	/*
-	public Quadro getQuadroAtual() {
+			// Formata Data para apresentação			
+			auxiliar = lista.get(i).getData().substring(8,10);
+			auxiliar +="/";
+			auxiliar += lista.get(i).getData().substring(5,7);
+			auxiliar +="/";
+			auxiliar += lista.get(i).getData().substring(0,4);			
+			lista.get(i).setData(auxiliar);	
+			
+		}
 
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		Quadro cadastroQuadro = new Quadro();
-		cadastroQuadro = (Quadro) session.getAttribute("quadroAtual");
-
-		return cadastroQuadro;
+		return lista;
 	}
-	*/
 	
-	public void  uploadImage(UploadEvent evento) throws FileNotFoundException 
-	{		
+	public List<Postagem> getPostagensDaArtista() throws IOException {
+		List<Postagem> lista = new ArrayList();
+		PostagemFacade postagemService = new PostagemFacadeImpl();
+		lista = postagemService.procuraUltimasPostagens();
+
+		int tamanho = lista.size();
+
+		ArtistaFacade artistaService = new ArtistaFacadeImpl();
+		Artista artista = artistaService.procuraByCodigo(1L);
+
+		for (int i = 0; i < tamanho; i++) {
+			lista.get(i).setArtista(artista);
+		}
+
+		return lista;
+	}
+
+	public void uploadImage(UploadEvent evento) throws FileNotFoundException {
 		String caminhoReal = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps/imagensHelenaFranca";
 		String extensao = "";
 		UploadItem item = evento.getUploadItem();
@@ -206,15 +188,17 @@ public class PostagemMB implements Serializable {
 		int i = ext.length;
 
 		Long tempo = System.currentTimeMillis();
-		
+
 		if (i > 1) {
 			extensao = ext[i - 1];
 
 		}
-				
-		OutputStream out = new FileOutputStream(caminhoReal+"/" + "img"+ tempo + "." + extensao);
-		setImagePath("http://localhost:8081/imagensHelenaFranca/" + "img"	+ tempo + "." + extensao);
-		
+
+		OutputStream out = new FileOutputStream(caminhoReal + "/" + "img"
+				+ tempo + "." + extensao);
+		setImagePath("http://localhost:8081/imagensHelenaFranca/" + "img"
+				+ tempo + "." + extensao);
+
 		try {
 			out.write(item.getData());
 			out.close();
@@ -223,22 +207,35 @@ public class PostagemMB implements Serializable {
 			e.printStackTrace();
 		}
 	}
-	/*
-	public void escolheAlterarQuadro() throws IOException
-	{	
-		Quadro quadro = new Quadro();
-		QuadroFacade quadroService = new QuadroFacadeImpl();
-		quadro = quadroService.procuraById(codigoQuadro);
-						
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
-        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		
-        session.setAttribute("quadroAtual", quadro);	
-		
-        rp.sendRedirect(rq.getContextPath() + "/pages/artista/atualizaQuadro.jsf");		
+
+	public void escolheAlterarPostagem() throws IOException {
+		Postagem postagem = new Postagem();
+		PostagemFacade postagemService = new PostagemFacadeImpl();
+		postagem = postagemService.procuraById(codigoPostagem);
+
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
+				.getExternalContext().getSession(false);
+		HttpServletResponse rp = (HttpServletResponse) FacesContext
+				.getCurrentInstance().getExternalContext().getResponse();
+		HttpServletRequest rq = (HttpServletRequest) FacesContext
+				.getCurrentInstance().getExternalContext().getRequest();
+
+		session.setAttribute("postagemAtual", postagem);
+
+		rp.sendRedirect(rq.getContextPath()
+				+ "/pages/artista/atualizaPostagem.jsf");
 	}
-	*/
+
+	public Postagem getPostagemAtual() {
+
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
+				.getExternalContext().getSession(false);
+		Postagem cadastroPostagem = new Postagem();
+		cadastroPostagem = (Postagem) session.getAttribute("postagemAtual");
+
+		return cadastroPostagem;
+	}
+
 	public Postagem getPostagem() {
 		return postagem;
 	}
@@ -253,5 +250,13 @@ public class PostagemMB implements Serializable {
 
 	public static void setImagePath(String imagePath) {
 		PostagemMB.imagePath = imagePath;
-	}	
+	}
+
+	public Long getCodigoPostagem() {
+		return codigoPostagem;
+	}
+
+	public void setCodigoPostagem(Long codigoPostagem) {
+		this.codigoPostagem = codigoPostagem;
+	}
 }

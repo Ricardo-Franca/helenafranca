@@ -102,7 +102,7 @@
 								<h:commandLink value="Nova postagem" action="toCadastraPostagem"/>
 							</rich:panelMenuItem>
 							<rich:panelMenuItem icon="../../imagens/consultar.png">
-								<h:commandLink value="Consultar postagens"/>
+								<h:commandLink value="Consultar postagens" action="toConsultaPostagens"/>
 							</rich:panelMenuItem>
 						</rich:panelMenuGroup>											
 												
