@@ -34,6 +34,7 @@ public class testes {
 						
 		//System.out.println(data);
 		
+		/*
 		Date date = new Date(); 
 		SimpleDateFormat formataHora = new SimpleDateFormat("HH:mm"); // 12:00:00
 		SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd"); //2014-01-01
@@ -43,7 +44,16 @@ public class testes {
 		
 		System.out.println(data);
 		System.out.println(hora);
+		*/
 		
+		String data = "yyyy-MM-dd";
+		String auxiliar = data.substring(8,10);
+		auxiliar +="/";
+		auxiliar += data.substring(5,7);
+		auxiliar +="/";
+		auxiliar += data.substring(0,4);		
+		
+		System.out.println(auxiliar);
 	
 	}
 }

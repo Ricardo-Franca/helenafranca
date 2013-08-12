@@ -168,6 +168,38 @@
 			<to-view-id>/pages/artista/homeArtista.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/homeArtista</display-name>
+		<from-view-id>/pages/artista/homeArtista.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toConsultaPostagens</from-outcome>
+			<to-view-id>/pages/artista/consultaPostagens.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/consultaPostagens</display-name>
+		<from-view-id>/pages/artista/consultaPostagens.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toHomeArtista</from-outcome>
+			<to-view-id>/pages/artista/homeArtista.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/consultaPostagens</display-name>
+		<from-view-id>/pages/artista/consultaPostagens.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toCadastraPostagem</from-outcome>
+			<to-view-id>/pages/artista/cadastraPostagem.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/atualizaPostagem</display-name>
+		<from-view-id>/pages/artista/atualizaPostagem.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toConsultaPostagens</from-outcome>
+			<to-view-id>/pages/artista/consultaPostagens.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	
 	<validator>
   		<validator-id>alteraEmailArtistaValidator</validator-id>
