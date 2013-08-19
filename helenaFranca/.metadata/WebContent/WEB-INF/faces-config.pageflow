@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13706367808960" configfile="/helenafranca/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="pages/artista/atualizaCadastroArtista" x="60" y="24" id="pf13735662163380" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf13739167321710" inlinks="pf13735662163381" path="/pages/artista/atualizaCadastroArtista.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/artista/homeArtista" x="48" y="276" id="pf13735662163382" referenceLink="//@navigationRule.17/@navigationCase.0/@toViewId|" outlinks="pf13735662163381 pf13735664348583 pf13735673663305 pf13735673663306 pf13753901557180 pf13757258071280 pf13759077966060 pf13763352228560" inlinks="pf13739167321710 pf13739954418220 pf13740063048621 pf13740885712051 pf13753901557181 pf13757258071281 pf13759077966061 pf13763352228561" path="/pages/artista/homeArtista.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/artista/homeArtista" x="48" y="276" id="pf13735662163382" referenceLink="//@navigationRule.17/@navigationCase.0/@toViewId|" outlinks="pf13735662163381 pf13735664348583 pf13735673663305 pf13735673663306 pf13753901557180 pf13757258071280 pf13759077966060 pf13763352228560 pf13769453515003" inlinks="pf13739167321710 pf13739954418220 pf13740063048621 pf13740885712051 pf13753901557181 pf13757258071281 pf13759077966061 pf13763352228561 pf13769453515004" path="/pages/artista/homeArtista.jsp"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/artista/alterarSenha" x="312" y="24" id="pf13735664348584" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf13739954418220" inlinks="pf13735664348583" path="/pages/artista/alterarSenha.jsp"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/artista/cadastraQuadro" x="555" y="24" id="pf13735673663307" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" outlinks="pf13740063048621" inlinks="pf13735673663305 pf13740883458940" path="/pages/artista/cadastraQuadro.jsp"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/artista/consultaQuadros" x="552" y="240" id="pf13735673663308" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" outlinks="pf13740883458940 pf13740885712051" inlinks="pf13735673663306 pf13740923825322" path="/pages/artista/consultaQuadros.jsp"/>
@@ -11,6 +11,7 @@
   <nodes xsi:type="pageflow:PFPage" name="pages/artista/cadastraPostagem" x="592" y="492" id="pf13759077966062" referenceLink="//@navigationRule.18/@navigationCase.0/@toViewId|" outlinks="pf13759077966061" inlinks="pf13759077966060 pf13763372958413" path="/pages/artista/cadastraPostagem.jsp"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/artista/consultaPostagens" x="592" y="648" id="pf13763352228572" referenceLink="//@navigationRule.19/@navigationCase.0/@toViewId|" outlinks="pf13763352228561 pf13763372958413" inlinks="pf13763352228560 pf13763372958414" path="/pages/artista/consultaPostagens.jsp"/>
   <nodes xsi:type="pageflow:PFPage" name="pages/artista/atualizaPostagem" x="792" y="557" id="pf13763372958415" referenceLink="//@navigationRule.19/@fromViewId|" outlinks="pf13763372958414" path="/pages/artista/atualizaPostagem.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/artista/manterSlideShow" x="319" y="616" id="pf13769453515015" outlinks="pf13769453515004" inlinks="pf13769453515003" path="/pages/artista/manterSlideShow.jsp"/>
   <links id="pf13735662163381" target="pf13735662163380" source="pf13735662163382" outcome="toAtualizaCadastroArtista"/>
   <links id="pf13735664348583" target="pf13735664348584" source="pf13735662163382" outcome="toAlterarSenha"/>
   <links id="pf13735673663305" target="pf13735673663307" source="pf13735662163382" outcome="toCadastraQuadro"/>
@@ -31,4 +32,6 @@
   <links id="pf13763352228561" target="pf13735662163382" source="pf13763352228572" outcome="toHomeArtista"/>
   <links id="pf13763372958413" target="pf13759077966062" source="pf13763352228572" outcome="toCadastraPostagem"/>
   <links id="pf13763372958414" target="pf13763352228572" source="pf13763372958415" outcome="toConsultaPostagens"/>
+  <links id="pf13769453515003" target="pf13769453515015" source="pf13735662163382" outcome="toManterSlideShow"/>
+  <links id="pf13769453515004" target="pf13735662163382" source="pf13769453515015" outcome="toHomeArtista"/>
 </pageflow:Pageflow>
