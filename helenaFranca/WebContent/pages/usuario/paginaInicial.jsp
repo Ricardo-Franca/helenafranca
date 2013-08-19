@@ -247,11 +247,11 @@
 		<div id="Slide_1">
 		
 		<h:form>
-			<rich:dataTable  value="#{quadroMB.slide1}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+			<rich:dataTable  value="#{slideShowMB.slide1}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
-					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.foto}" height="220" width="750" />
-						<f:setPropertyActionListener value="#{ultimo.codigo}" target="#{quadroMB.codigoQuadro}" />								   
+					<h:commandLink action="#{slideShowMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro.foto}" height="220" width="750" />
+						<f:setPropertyActionListener value="#{ultimo.quadro.codigo}" target="#{slideShowMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
 				
@@ -260,13 +260,13 @@
 				
 				<rich:column style="border:none;">								    
 					<br/>
-					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.quadro.nome}"/>
 					<hr/>
 					<p style="color:red;font-size: 20px">
-					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.quadro.preco}"/>
 					</p>
 					<hr>
-					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.quadro.categoria.descricao}"/>								   					
 				</rich:column>
 			</rich:dataTable>
         </h:form>
@@ -276,11 +276,11 @@
 		<div id="Slide_2">
 		
 		<h:form>
-			<rich:dataTable  value="#{quadroMB.slide2}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+			<rich:dataTable  value="#{slideShowMB.slide2}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
-					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.foto}" height="220" width="750" />
-						<f:setPropertyActionListener value="#{ultimo.codigo}" target="#{quadroMB.codigoQuadro}" />								   
+					<h:commandLink action="#{slideShowMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro.foto}" height="220" width="750" />
+						<f:setPropertyActionListener value="#{ultimo.quadro.codigo}" target="#{slideShowMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
 				
@@ -289,13 +289,13 @@
 				
 				<rich:column style="border:none;">								    
 					<br/>
-					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.quadro.nome}"/>
 					<hr/>
 					<p style="color:red;font-size: 20px">
-					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.quadro.preco}"/>
 					</p>
 					<hr>
-					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.quadro.categoria.descricao}"/>								   					
 				</rich:column>
 			</rich:dataTable>
         </h:form>
@@ -305,11 +305,11 @@
 		<div id="Slide_3">
 		
 		<h:form>
-			<rich:dataTable  value="#{quadroMB.slide3}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+			<rich:dataTable  value="#{slideShowMB.slide3}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
-					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.foto}" height="220" width="750" />
-						<f:setPropertyActionListener value="#{ultimo.codigo}" target="#{quadroMB.codigoQuadro}" />								   
+					<h:commandLink action="#{slideShowMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro.foto}" height="220" width="750" />
+						<f:setPropertyActionListener value="#{ultimo.quadro.codigo}" target="#{slideShowMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
 				
@@ -318,26 +318,27 @@
 				
 				<rich:column style="border:none;">								    
 					<br/>
-					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.quadro.nome}"/>
 					<hr/>
 					<p style="color:red;font-size: 20px">
-					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.quadro.preco}"/>
 					</p>
 					<hr>
-					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.quadro.categoria.descricao}"/>								   					
 				</rich:column>
 			</rich:dataTable>
-        </h:form>        
+        </h:form>
+        
 		</div>
 		
 		<div id="Slide_4">
 		
 		<h:form>
-			<rich:dataTable  value="#{quadroMB.slide4}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+			<rich:dataTable  value="#{slideShowMB.slide4}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
-					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.foto}" height="220" width="750" />
-						<f:setPropertyActionListener value="#{ultimo.codigo}" target="#{quadroMB.codigoQuadro}" />								   
+					<h:commandLink action="#{slideShowMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro.foto}" height="220" width="750" />
+						<f:setPropertyActionListener value="#{ultimo.quadro.codigo}" target="#{slideShowMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
 				
@@ -346,26 +347,27 @@
 				
 				<rich:column style="border:none;">								    
 					<br/>
-					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.quadro.nome}"/>
 					<hr/>
 					<p style="color:red;font-size: 20px">
-					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.quadro.preco}"/>
 					</p>
 					<hr>
-					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.quadro.categoria.descricao}"/>								   					
 				</rich:column>
 			</rich:dataTable>
-        </h:form>        
+        </h:form>
+        
 		</div>
 		
 		<div id="Slide_5">
 		
 		<h:form>
-			<rich:dataTable  value="#{quadroMB.slide5}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
+			<rich:dataTable  value="#{slideShowMB.slide5}" columns="2" var="ultimo" id="ultimos" width="100%" style="border:none;">
 				<rich:column style="text-align:left;border:none;" width="60%">			
-					<h:commandLink action="#{quadroMB.procuraById}">	
-						<h:graphicImage value="#{ultimo.foto}" height="220" width="750" />
-						<f:setPropertyActionListener value="#{ultimo.codigo}" target="#{quadroMB.codigoQuadro}" />								   
+					<h:commandLink action="#{slideShowMB.procuraById}">	
+						<h:graphicImage value="#{ultimo.quadro.foto}" height="220" width="750" />
+						<f:setPropertyActionListener value="#{ultimo.quadro.codigo}" target="#{slideShowMB.codigoQuadro}" />								   
 					</h:commandLink>
 				</rich:column>
 				
@@ -374,18 +376,18 @@
 				
 				<rich:column style="border:none;">								    
 					<br/>
-					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.nome}"/>
+					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.quadro.nome}"/>
 					<hr/>
 					<p style="color:red;font-size: 20px">
-					<h:outputText value="R$ "/><h:outputText value="#{ultimo.preco}"/>
+					<h:outputText value="R$ "/><h:outputText value="#{ultimo.quadro.preco}"/>
 					</p>
 					<hr>
-					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.categoria.descricao}"/>								   					
+					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.quadro.categoria.descricao}"/>								   					
 				</rich:column>
 			</rich:dataTable>
-        </h:form>        
-		</div>
-		
+        </h:form>
+        
+		</div>		
 		
         <rich:effect name="Appear1" for="Slide_1" type="Appear" ></rich:effect> 
         <rich:effect name="Appear2" for="Slide_2" type="Appear" ></rich:effect>

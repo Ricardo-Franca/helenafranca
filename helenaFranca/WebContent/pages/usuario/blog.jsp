@@ -169,7 +169,7 @@
 						<fieldset><legend>Blog</legend>
 							<rich:dataGrid  value="#{postagemMB.ultimasPostagens}" columns="1" elements="10" var="postagem" width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align:center;">
 								<h:column>	
-									<table>
+									<table style="width:100%;">
 										<tr>
 											<td>
 												<h:outputText style="font-weight:bold;font-size:20px;" value="#{postagem.titulo}"/>
