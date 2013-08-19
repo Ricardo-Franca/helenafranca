@@ -16,11 +16,11 @@ public class SlideShow {
 	@Column(name="codigo")
 	private Long codigo;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codigoQuadro")
 	private Quadro quadro = new Quadro();
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codigoArtista")
 	private Artista artista = new Artista();
 

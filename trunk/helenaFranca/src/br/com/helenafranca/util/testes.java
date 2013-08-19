@@ -1,13 +1,17 @@
 package br.com.helenafranca.util;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import br.com.helenafranca.model.entity.Artista;
 import br.com.helenafranca.model.entity.Postagem;
 import br.com.helenafranca.model.entity.Quadro;
+import br.com.helenafranca.model.entity.SlideShow;
 import br.com.helenafranca.controller.*;
 
 public class testes {
@@ -46,14 +50,13 @@ public class testes {
 		System.out.println(hora);
 		*/
 		
-		String data = "yyyy-MM-dd";
-		String auxiliar = data.substring(8,10);
-		auxiliar +="/";
-		auxiliar += data.substring(5,7);
-		auxiliar +="/";
-		auxiliar += data.substring(0,4);		
+		SlideShow slideShow = new SlideShow();
+		SlideShowFacade slideShowService = new SlideShowFacadeImpl();	
+		slideShow = slideShowService.procuraById(1L);
+				
+		System.out.println("Codigo"+slideShow.getArtista().getNome());
 		
-		System.out.println(auxiliar);
+		
 	
 	}
 }
