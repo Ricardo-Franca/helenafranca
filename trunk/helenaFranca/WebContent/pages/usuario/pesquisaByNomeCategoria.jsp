@@ -104,7 +104,7 @@
 				<rich:toolBar>
 		               	                   
 			                <h:commandLink action="#{usuarioMB.escolheLogin}" style="color:black;text-decoration:none;" >
-								<h:outputText value="Login" />					   
+								<h:outputText value="Meu Cadastro" />					   
 							</h:commandLink> 
 		                |
 		                 	                   

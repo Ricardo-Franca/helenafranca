@@ -15,6 +15,7 @@ import br.com.helenafranca.controller.ArtistaFacadeImpl;
 import br.com.helenafranca.controller.UsuarioFacade;
 import br.com.helenafranca.controller.UsuarioFacadeImpl;
 import br.com.helenafranca.model.entity.Artista;
+import br.com.helenafranca.model.entity.Quadro;
 
 import br.com.helenafranca.model.entity.Usuario;
 import javax.faces.application.FacesMessage;
@@ -161,12 +162,19 @@ public class UsuarioMB implements Serializable {
 	}
 */	
 	public String escolheLogin() throws IOException
-	{	
+	{			
+		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();		
+        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();        
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		
-		HttpServletResponse rp = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
-        HttpServletRequest rq = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		        
-        rp.sendRedirect(rq.getContextPath() + "/pages/usuario/login.jsf");	
+        if(session.getAttribute("artistaLogado")!=null)
+        {
+        	rp.sendRedirect(rq.getContextPath() + "/pages/artista/homeArtista.jsf");	
+        }else
+         {
+        	rp.sendRedirect(rq.getContextPath() + "/pages/usuario/login.jsf");
+         }       
+        
         return null;
 	}
 	
