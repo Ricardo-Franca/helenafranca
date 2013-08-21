@@ -221,6 +221,22 @@
 			<to-view-id>/pages/artista/homeArtista.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/consultaQuadrosSlideShow</display-name>
+		<from-view-id>/pages/artista/consultaQuadrosSlideShow.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toManterSlideShow</from-outcome>
+			<to-view-id>/pages/artista/manterSlideShow.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pages/artista/cadastraQuadrosSlideShow</display-name>
+		<from-view-id>/pages/artista/cadastraQuadrosSlideShow.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>toManterSlideShow</from-outcome>
+			<to-view-id>/pages/artista/manterSlideShow.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	
 	<validator>
   		<validator-id>alteraEmailArtistaValidator</validator-id>
