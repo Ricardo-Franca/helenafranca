@@ -54,12 +54,15 @@
 		</div>	
 		
 		<div  id="homeArtista">	
-			<h:outputLabel value="Fotos da Biografia"/>			
+			<h:outputLabel value="Quadros do SlideShow"/>	
+			<h:panelGrid id="erros">
+				<h:messages globalOnly="true" style="color:Red;"/>
+			</h:panelGrid>	
 		</div>
 		
 		<div id="foto1">
 			<h:form>
-			 <fieldset>
+			 <fieldset>			 
 			 <legend>Primeiro quadro</legend>									
 				<h:panelGrid id="erros">
 					<h:messages globalOnly="true" style="color:Red;"/>
@@ -68,134 +71,146 @@
 					<h:panelGrid columns="3" id="quadro1">						
 						
 							<h:outputLabel for="fotoQuadro" value="Quadro atual"/>
-							<h:graphicImage value="#{quadroMB.foto1.foto}" height="100" width="100" />
+							<h:graphicImage value="#{slideShowMB.slide1.quadro.foto}" height="100" width="100" />
 							<h:inputHidden value="" />
-							
-							<h:outputLabel for="Foto" value="Foto" />
-							<rich:fileUpload fileUploadListener="#{fotoMB.uploadImage}" listWidth="150" listHeight="50" id="Logo" maxFilesQuantity="1" acceptedTypes="jpg, gif, png, bmp"/>
-							<h:inputHidden value="" />                            
+														                       
 					</h:panelGrid>	
 				</fieldset>																					
 							
 				<fieldset>
-							<a4j:commandButton value="Atualizar" action="#{fotoMB.updateFoto(1)}" status="sts" reRender="foto1,erros" />								
+					 <a4j:commandButton value="Cadastrar quadro" action="#{slideShowMB.escolheCadastrarQuadro(1)}" status="sts" reRender="foto1,erros" />								
 					 <a4j:jsFunction name="submit" />
 				</fieldset>	
+				
+				<fieldset>
+					 <a4j:commandButton value="Alterar quadro" action="#{slideShowMB.escolheAlterarQuadro(1)}" status="sts" reRender="foto1,erros" />								
+					 <a4j:jsFunction name="submit" />
+				</fieldset>
 			</fieldset>		
 			</h:form>
 		</div>
 		
 		<div id="foto2">
 			<h:form>
-			 <fieldset>
-			 <legend>Segunda foto</legend>									
+			 <fieldset>			 
+			 <legend>Segundo quadro</legend>									
 				<h:panelGrid id="erros">
 					<h:messages globalOnly="true" style="color:Red;"/>
 				</h:panelGrid>
 				<fieldset>
-					<h:panelGrid columns="3" id="foto2">						
+					<h:panelGrid columns="3" id="quadro1">						
 						
-							<h:outputLabel for="fotoArtista" value="Foto atual"/>
-							<h:graphicImage value="#{fotoMB.foto2.foto}" height="100" width="100" />
+							<h:outputLabel for="fotoQuadro" value="Quadro atual"/>
+							<h:graphicImage value="#{slideShowMB.slide2.quadro.foto}" height="100" width="100" />
 							<h:inputHidden value="" />
-							
-							<h:outputLabel for="Foto" value="Foto" />
-							<rich:fileUpload fileUploadListener="#{fotoMB.uploadImage}" listWidth="150" listHeight="50" id="Logo" maxFilesQuantity="1" acceptedTypes="jpg, gif, png, bmp"/>
-							<h:inputHidden value="" />                            
+														                       
 					</h:panelGrid>	
 				</fieldset>																					
 							
 				<fieldset>
-							<a4j:commandButton value="Atualizar" action="#{fotoMB.updateFoto(2)}" status="sts" reRender="foto2,erros" />								
+					 <a4j:commandButton value="Cadastrar quadro" action="#{slideShowMB.escolheCadastrarQuadro(2)}" status="sts" reRender="foto1,erros" />								
 					 <a4j:jsFunction name="submit" />
 				</fieldset>	
+				
+				<fieldset>
+					 <a4j:commandButton value="Alterar quadro" action="#{slideShowMB.escolheAlterarQuadro(2)}" status="sts" reRender="foto1,erros" />								
+					 <a4j:jsFunction name="submit" />
+				</fieldset>
 			</fieldset>		
 			</h:form>
 		</div>
 		
 		<div id="foto3">
 			<h:form>
-			 <fieldset>
-			 <legend>Terceira foto</legend>									
+			 <fieldset>			 
+			 <legend>Terceiro quadro</legend>									
 				<h:panelGrid id="erros">
 					<h:messages globalOnly="true" style="color:Red;"/>
 				</h:panelGrid>
 				<fieldset>
-					<h:panelGrid columns="3" id="foto3">						
+					<h:panelGrid columns="3" id="quadro1">						
 						
-							<h:outputLabel for="fotoArtista" value="Foto atual"/>
-							<h:graphicImage value="#{fotoMB.foto3.foto}" height="100" width="100" />
+							<h:outputLabel for="fotoQuadro" value="Quadro atual"/>
+							<h:graphicImage value="#{slideShowMB.slide3.quadro.foto}" height="100" width="100" />
 							<h:inputHidden value="" />
-							
-							<h:outputLabel for="Foto" value="Foto" />
-							<rich:fileUpload fileUploadListener="#{fotoMB.uploadImage}" listWidth="150" listHeight="50" id="Logo" maxFilesQuantity="1" acceptedTypes="jpg, gif, png, bmp"/>
-							<h:inputHidden value="" />                            
+														                       
 					</h:panelGrid>	
 				</fieldset>																					
 							
 				<fieldset>
-							<a4j:commandButton value="Atualizar" action="#{fotoMB.updateFoto(3)}" status="sts" reRender="foto3,erros" />								
+					 <a4j:commandButton value="Cadastrar quadro" action="#{slideShowMB.escolheCadastrarQuadro(3)}" status="sts" reRender="foto1,erros" />								
 					 <a4j:jsFunction name="submit" />
 				</fieldset>	
+				
+				<fieldset>
+					 <a4j:commandButton value="Alterar quadro" action="#{slideShowMB.escolheAlterarQuadro(3)}" status="sts" reRender="foto1,erros" />								
+					 <a4j:jsFunction name="submit" />
+				</fieldset>
 			</fieldset>		
 			</h:form>
 		</div>
 		
 		<div id="foto4">
 			<h:form>
-			 <fieldset>
-			 <legend>Quarta foto</legend>									
+			 <fieldset>			 
+			 <legend>Quarto quadro</legend>									
 				<h:panelGrid id="erros">
 					<h:messages globalOnly="true" style="color:Red;"/>
 				</h:panelGrid>
 				<fieldset>
-					<h:panelGrid columns="3" id="foto4">						
+					<h:panelGrid columns="3" id="quadro1">						
 						
-							<h:outputLabel for="fotoArtista" value="Foto atual"/>
-							<h:graphicImage value="#{fotoMB.foto4.foto}" height="100" width="100" />
+							<h:outputLabel for="fotoQuadro" value="Quadro atual"/>
+							<h:graphicImage value="#{slideShowMB.slide4.quadro.foto}" height="100" width="100" />
 							<h:inputHidden value="" />
-							
-							<h:outputLabel for="Foto" value="Foto" />
-							<rich:fileUpload fileUploadListener="#{fotoMB.uploadImage}" listWidth="150" listHeight="50" id="Logo" maxFilesQuantity="1" acceptedTypes="jpg, gif, png, bmp"/>
-							<h:inputHidden value="" />                            
+														                       
 					</h:panelGrid>	
 				</fieldset>																					
 							
 				<fieldset>
-							<a4j:commandButton value="Atualizar" action="#{fotoMB.updateFoto(4)}" status="sts" reRender="foto4,erros" />								
+					 <a4j:commandButton value="Cadastrar quadro" action="#{slideShowMB.escolheCadastrarQuadro(4)}" status="sts" reRender="foto1,erros" />								
 					 <a4j:jsFunction name="submit" />
 				</fieldset>	
+				
+				<fieldset>
+					 <a4j:commandButton value="Alterar quadro" action="#{slideShowMB.escolheAlterarQuadro(4)}" status="sts" reRender="foto1,erros" />								
+					 <a4j:jsFunction name="submit" />
+				</fieldset>
 			</fieldset>		
 			</h:form>
 		</div>
 		
 		<div id="foto5">
 			<h:form>
-			 <fieldset>
-			 <legend>Quinta foto</legend>									
+			 <fieldset>			 
+			 <legend>Quinto quadro</legend>									
 				<h:panelGrid id="erros">
 					<h:messages globalOnly="true" style="color:Red;"/>
 				</h:panelGrid>
 				<fieldset>
-					<h:panelGrid columns="3" id="foto5">						
+					<h:panelGrid columns="3" id="quadro1">						
 						
-							<h:outputLabel for="fotoArtista" value="Foto atual"/>
-							<h:graphicImage value="#{fotoMB.foto5.foto}" height="100" width="100" />
+							<h:outputLabel for="fotoQuadro" value="Quadro atual"/>
+							<h:graphicImage value="#{slideShowMB.slide5.quadro.foto}" height="100" width="100" />
 							<h:inputHidden value="" />
-							
-							<h:outputLabel for="Foto" value="Foto" />
-							<rich:fileUpload fileUploadListener="#{fotoMB.uploadImage}" listWidth="150" listHeight="50" id="Logo" maxFilesQuantity="1" acceptedTypes="jpg, gif, png, bmp"/>
-							<h:inputHidden value="" />                            
+														                       
 					</h:panelGrid>	
 				</fieldset>																					
 							
 				<fieldset>
-							<a4j:commandButton value="Atualizar" action="#{fotoMB.updateFoto(5)}" status="sts" reRender="foto5,erros" />								
+					 <a4j:commandButton value="Cadastrar quadro" action="#{slideShowMB.escolheCadastrarQuadro(5)}" status="sts" reRender="foto1,erros" />								
 					 <a4j:jsFunction name="submit" />
 				</fieldset>	
+				
+				<fieldset>
+					 <a4j:commandButton value="Alterar quadro" action="#{slideShowMB.escolheAlterarQuadro(5)}" status="sts" reRender="foto1,erros" />								
+					 <a4j:jsFunction name="submit" />
+				</fieldset>
 			</fieldset>		
 			</h:form>
 		</div>
+		
+		
 		
 		<div id="botaoVoltar">
 		<fieldset>

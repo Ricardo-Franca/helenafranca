@@ -84,7 +84,7 @@
 												
 						<rich:panelMenuGroup label="SlideShow">						
 						<rich:panelMenuItem icon="../../imagens/slideshow.png">
-							<h:commandLink value="Manter Imagens" />
+							<h:commandLink value="Manter Imagens" action="toManterSlideShow" />
 						</rich:panelMenuItem>
 						</rich:panelMenuGroup>
 						
