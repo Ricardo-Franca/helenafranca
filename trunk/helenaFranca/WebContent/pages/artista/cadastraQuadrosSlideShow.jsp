@@ -77,7 +77,9 @@
 								<f:facet name="header">
 									<h:outputText value="Preço" />
 								</f:facet>
-								R$<h:outputText value=" #{quadroDoArtista.preco}" />
+								<h:outputText value=" #{quadroDoArtista.preco}" >
+									<f:convertNumber currencySymbol="R$" groupingUsed="true" maxFractionDigits="2" type="currency"/>
+								</h:outputText>
 							</h:column>
 															
 							<h:column>

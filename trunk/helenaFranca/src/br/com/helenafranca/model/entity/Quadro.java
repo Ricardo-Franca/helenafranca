@@ -33,7 +33,7 @@ public class Quadro implements Serializable {
 	private String peso;
 	
 	@Column(name="preco")
-	private String preco;
+	private Double preco;
 	
 	@Column(name="foto")
 	private String foto;
@@ -86,11 +86,11 @@ public class Quadro implements Serializable {
 		this.peso = peso;
 	}
 
-	public String getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(String preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
 
