@@ -263,7 +263,9 @@
 					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.quadro.nome}"/>
 					<hr/>
 					<p style="color:red;font-size: 20px">
-					<h:outputText value="R$ "/><h:outputText value="#{ultimo.quadro.preco}"/>
+					<h:outputText value="#{ultimo.quadro.preco}">
+						<f:convertNumber currencySymbol="R$" groupingUsed="true" maxFractionDigits="2" type="currency"/>
+					</h:outputText>
 					</p>
 					<hr>
 					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.quadro.categoria.descricao}"/>								   					
@@ -292,7 +294,9 @@
 					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.quadro.nome}"/>
 					<hr/>
 					<p style="color:red;font-size: 20px">
-					<h:outputText value="R$ "/><h:outputText value="#{ultimo.quadro.preco}"/>
+					<h:outputText value="#{ultimo.quadro.preco}">
+						<f:convertNumber currencySymbol="R$" groupingUsed="true" maxFractionDigits="2" type="currency"/>
+					</h:outputText>
 					</p>
 					<hr>
 					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.quadro.categoria.descricao}"/>								   					
@@ -321,7 +325,9 @@
 					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.quadro.nome}"/>
 					<hr/>
 					<p style="color:red;font-size: 20px">
-					<h:outputText value="R$ "/><h:outputText value="#{ultimo.quadro.preco}"/>
+					<h:outputText value="#{ultimo.quadro.preco}">
+						<f:convertNumber currencySymbol="R$" groupingUsed="true" maxFractionDigits="2" type="currency"/>
+					</h:outputText>
 					</p>
 					<hr>
 					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.quadro.categoria.descricao}"/>								   					
@@ -350,7 +356,9 @@
 					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.quadro.nome}"/>
 					<hr/>
 					<p style="color:red;font-size: 20px">
-					<h:outputText value="R$ "/><h:outputText value="#{ultimo.quadro.preco}"/>
+					<h:outputText value="#{ultimo.quadro.preco}">
+						<f:convertNumber currencySymbol="R$" groupingUsed="true" maxFractionDigits="2" type="currency"/>
+					</h:outputText>
 					</p>
 					<hr>
 					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.quadro.categoria.descricao}"/>								   					
@@ -379,7 +387,9 @@
 					<h:outputText style="font-weight:bold;font-size:20px;" value="#{ultimo.quadro.nome}"/>
 					<hr/>
 					<p style="color:red;font-size: 20px">
-					<h:outputText value="R$ "/><h:outputText value="#{ultimo.quadro.preco}"/>
+					<h:outputText value="#{ultimo.quadro.preco}">
+						<f:convertNumber currencySymbol="R$" groupingUsed="true" maxFractionDigits="2" type="currency"/>
+					</h:outputText>
 					</p>
 					<hr>
 					<h:outputText value="Categoria: "/><h:outputText value="#{ultimo.quadro.categoria.descricao}"/>								   					
@@ -420,7 +430,9 @@
 									<h:outputText style="font-weight: bold;" value="#{categoria.nome}"/>
 									<br/>
 									<p style="color:red">
-									<h:outputText value="R$ "/><h:outputText value="#{categoria.preco}"/>
+									<h:outputText value="#{categoria.preco}">
+										<f:convertNumber currencySymbol="R$" groupingUsed="true" maxFractionDigits="2" type="currency"/>
+									</h:outputText>
 								    </p>
 								    
 								</h:column>

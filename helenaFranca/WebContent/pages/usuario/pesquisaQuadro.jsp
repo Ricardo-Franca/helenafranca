@@ -184,7 +184,9 @@
 												<h:outputText style="font-weight:bold;font-size:20px;" value="#{atual.nome}"/>
 											    <hr>
 												<p style="color:red;font-size: 20px">
-													<h:outputText value="R$ "/><h:outputText value="#{atual.preco}"/>
+												<h:outputText value="#{atual.preco}">
+													<f:convertNumber currencySymbol="R$" groupingUsed="true" maxFractionDigits="2" type="currency"/>
+												</h:outputText>
 								   				</p>
 								   				<hr>
 								   					<h:outputText value="Altura: "/><h:outputText value="#{atual.altura}"/>
