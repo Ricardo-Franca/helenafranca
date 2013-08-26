@@ -8,8 +8,9 @@ import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -90,21 +91,24 @@ public class QuadroMB implements Serializable {
 		
 		if(getImagePath()!=null)
 		{
-			String nome = this.getCadastroQuadro().getFoto();
+			if (this.getCadastroQuadro().getFoto() != null) 
+			{					
+				String nome = ""; 
+				nome += this.getCadastroQuadro().getFoto();
 			
-			if(nome.equals(null))
-			{
-				nome = "http://localhost:8081/imagensHelenaFranca/imgcontroleDeErro.jpg";
-			}
+				if(nome.equals(null) || nome.equals(""))
+				{
+					nome = "http://localhost:8081/imagensHelenaFranca/imgcontroleDeErro.jpg";
+				}
 			
-			nome = nome.substring(21);
-			nome = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps" + nome;
+				nome = nome.substring(21);
+				nome = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps" + nome;
 					
-			File f = new File(nome);  
-			f.delete();
-			
+				File f = new File(nome);  
+				f.delete();
+			}			
 			this.getCadastroQuadro().setQuadroImagem(getImagePath());
-			
+			this.imagePath = null;			
 		}
 		
 		quadroService.atualiza(this.getCadastroQuadro());
@@ -179,10 +183,22 @@ public class QuadroMB implements Serializable {
 		this.nome = (String) session.getAttribute("nome");
 		this.codigoCategoria = (Long) session.getAttribute("codigoCategoria");
 		
-		List<Quadro> lista = new ArrayList();
+		List<Quadro> lista = new ArrayList<Quadro>();
 		QuadroFacade quadroService = new QuadroFacadeImpl();
 		lista = quadroService.procuraByNomeCategoria(this.nome, this.codigoCategoria);
 			
+		FacesContext context = FacesContext.getCurrentInstance();
+		FacesMessage facesMessage = new FacesMessage();		
+		
+		if(lista.size()==0)
+		{ 
+			if(facesMessage.getSummary()==null)
+			{			
+				facesMessage.setSummary("Nenhum cadastro encontrado!");
+				context.addMessage(null, facesMessage);
+			}
+		}
+		
         return lista;
 	}
 	
@@ -202,22 +218,46 @@ public class QuadroMB implements Serializable {
 	public List<Quadro> getProcuraByCategoria() throws IOException
 	{	
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		FacesContext context = FacesContext.getCurrentInstance();
+		FacesMessage facesMessage = new FacesMessage();
+		
 		this.nome = (String) session.getAttribute("nome");
 		this.codigoCategoria = (Long) session.getAttribute("codigoCategoria");
 		
-		List<Quadro> lista = new ArrayList();
+		List<Quadro> lista = new ArrayList<Quadro>();
 		QuadroFacade quadroService = new QuadroFacadeImpl();
 		lista = quadroService.procuraByCategoria(this.codigoCategoria);
-			
+						
+		if(lista.size()==0)
+		{ 
+			if(facesMessage.getSummary()==null)
+			{			
+				facesMessage.setSummary("Nenhum cadastro encontrado!");
+				context.addMessage(null, facesMessage);
+			}
+		}		
+		
         return lista;
 	}
 	
 	public List<Quadro> getUltimosQuadros() throws IOException
 	{					
-		List<Quadro> lista = new ArrayList();
+		List<Quadro> lista = new ArrayList<Quadro>();
 		QuadroFacade quadroService = new QuadroFacadeImpl();
 		lista = quadroService.procuraUltimosQuadros();
-			
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		FacesMessage facesMessage = new FacesMessage();		
+		
+		if(lista.size()==0)
+		{ 
+			if(facesMessage.getSummary()==null)
+			{			
+				facesMessage.setSummary("Nenhum cadastro encontrado!");
+				context.addMessage(null, facesMessage);
+			}
+		}
+		
         return lista;
 	}
 	
@@ -270,9 +310,9 @@ public class QuadroMB implements Serializable {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		Artista artista = (Artista)session.getAttribute("artistaLogado");
 				
-		List<Quadro> quadros = new ArrayList();
+		List<Quadro> quadros = new ArrayList<Quadro>();
 		
-		quadros = (List)quadroService.procuraQuadrosByCodigoArtista(artista.getCodigo());
+		quadros = (List<Quadro>)quadroService.procuraQuadrosByCodigoArtista(artista.getCodigo());
 		
 		return quadros;
 		

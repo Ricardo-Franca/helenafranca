@@ -41,15 +41,22 @@ public class FotoMB implements Serializable {
 		this.foto = fotoService.procura(codigo);
 						
 		if(getImagePath()!=null)
-		{						
-			String nome = this.foto.getFoto(); 						
-			
-			nome = nome.substring(21);
-			nome = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps" + nome;
-					
-			File f = new File(nome);  
-			f.delete();			
-			
+		{
+			if (this.foto.getFoto() != null) 
+			{
+				String nome = "";
+				nome += this.foto.getFoto(); 	
+				
+				if (nome.equals(null) || nome.equals("")) 
+				{
+					nome = "http://localhost:8081/imagensHelenaFranca/imgcontroleDeErro.jpg";
+				}
+				nome = nome.substring(21);
+				nome = "C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps" + nome;
+										
+				File f = new File(nome);  
+				f.delete();			
+			}
 			this.foto.setFoto(imagePath);
 			this.imagePath = null;
 			
