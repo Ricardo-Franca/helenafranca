@@ -9,7 +9,7 @@
 <script type="text/javascript" src="/jsf/resources/jquery.maskedinput-1.2.1.js"></script>
 
 <script>
-		window.location.href ='http://localhost:8080/helenafranca/pages/usuario/paginaInicial.jsf';
+		window.location.href ='http://localhost:8180/helenafranca/pages/usuario/paginaInicial.jsf';
 </script>
 
 </head>

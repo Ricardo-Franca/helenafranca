@@ -442,7 +442,7 @@
 									<rich:datascroller />
 								</f:facet>
 							</rich:dataGrid>
-						<rich:messages/>
+						<h:messages globalOnly="true" id="mensagemDeErro" style="color:red;font-weight: bold;font:20px;" />
 
 			    	    <a4j:region id="regiaoAjax">
 					 	<a4j:status id="sts">
