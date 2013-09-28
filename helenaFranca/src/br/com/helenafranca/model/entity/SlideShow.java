@@ -8,7 +8,7 @@ import javax.persistence.*;
 import org.hibernate.annotations.Type;
 
 @Entity
-@Table(name = "slideShow")
+@Table(name = "slideshow")
 public class SlideShow {
 	
 	@Id

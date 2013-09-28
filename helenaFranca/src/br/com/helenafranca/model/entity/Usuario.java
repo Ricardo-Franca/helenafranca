@@ -9,7 +9,7 @@ import org.hibernate.annotations.CascadeType;
 import br.com.helenafranca.util.CriptografaSenha;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "usuario")
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = -4257017967929318546L;
